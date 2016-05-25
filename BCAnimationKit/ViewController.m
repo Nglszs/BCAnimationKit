@@ -28,7 +28,9 @@
 #import "GravityViewController.h"
 #import "CalayerViewController.h"
 #import "CollectionViewController.h"
-
+#import "ShimmerViewController.h"
+#import "ScaleViewController.h"
+#import "TableScaleViewController.h"
 @interface ViewController ()
 {
 
@@ -62,7 +64,7 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开"];
     
     currentIndex = testTableView.bounds.size.height/44 - 2;
    }
@@ -247,6 +249,25 @@ static NSString *cellid = @"celll";
             break;
             
         }
+        case 21:{//辉光动画
+            
+            [self.navigationController pushViewController:[ShimmerViewController new] animated:NO];
+            break;
+            
+        }
+        case 22:{//放大动画
+            
+            [self.navigationController pushViewController:[ScaleViewController new] animated:NO];
+            break;
+            
+        }
+        case 23:{//tableview动画
+            
+            [self.navigationController pushViewController:[TableScaleViewController new] animated:NO];
+            break;
+            
+        }
+
         default:
             break;
     }

@@ -11,8 +11,13 @@
 @implementation BCCell
 
 - (void)awakeFromNib {
-    self.testImage.layer.borderColor = [UIColor redColor].CGColor;
-    self.testImage.layer.borderWidth = 1;
+    
+    [super awakeFromNib];
+    self.testImage.layer.borderWidth = 3;
+    self.testImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.testImage.layer.shouldRasterize = YES;
+    
+    
 }
 
 @end

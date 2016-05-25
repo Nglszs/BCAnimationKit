@@ -21,6 +21,8 @@
 
 
 #define DefaultColor [UIColor colorWithRed:174/255.0 green:143/255.0 blue:101/255.0 alpha:1]
+
+#define GreenColor [UIColor colorWithRed:100/255.0 green:200/255.0 blue:100/255.0 alpha:1]
 #define BCImageOriginHight 200
 
 #define ChineseFont @"Heiti SC"

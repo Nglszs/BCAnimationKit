@@ -27,9 +27,9 @@
    
 //输入格式化的难点在于当删除时怎么能保证输入依然正确，格式化其实很简单，只是插入空格而已
     
-    textFiled = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+    textFiled = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, 200, 50)];
     textFiled.backgroundColor = [UIColor cyanColor];
-    textFiled.center = self.view.center;
+  
     textFiled.keyboardType = UIKeyboardTypeNumberPad;
     textFiled.borderStyle = UITextBorderStyleRoundedRect;
     textFiled.enablesReturnKeyAutomatically = YES;

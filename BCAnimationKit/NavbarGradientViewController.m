@@ -124,7 +124,7 @@
     }
     
     
-    UIColor  *color = [UIColor colorWithRed:100/255.0 green:200/255.0 blue:100/255.0 alpha:alphaValue];
+    UIColor  *color = [UIColor colorWithRed:100/255.0 green:200/255.0 blue:100/255.0 alpha:1];
     
     if (scrollView.contentOffset.y > 164) {//设置触发条件
         

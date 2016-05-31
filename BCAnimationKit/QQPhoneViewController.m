@@ -64,13 +64,13 @@
 - (void)startCustomAnimation {
    
     isScale = NO;
-    __weak typeof(self) weakSelf = self;
+    
     
     
    
         [self startAboveAnimation];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf startBelowAnimation];
+        [self startBelowAnimation];
 
 });
         
@@ -81,16 +81,17 @@
     
 }
 
+
 //点击头像时的返回动画
 - (void)startOtherAnimation {
 
     headImage.userInteractionEnabled = NO;
     isScale = YES;
-    __weak typeof(self) weakSelf = self;
+    
 
     [self startBelowAnimation];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf backAboveAnimation];
+        [self backAboveAnimation];
         
     });
 
@@ -162,6 +163,7 @@
     // ---------------后半部分动画--------------------
     //抛物线动画
     _moveAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, headImage.layer.position.x, headImage.layer.position.y);//起始点
     
@@ -178,11 +180,12 @@
     
     _moveAnimation.path = path;
     CGPathRelease(path);
-    _moveAnimation.duration = 1;
+    _moveAnimation.duration = 1.0f;
     [_moveAnimation setValue:[NSValue valueWithCGPoint:endPoint] forKey:@"move"];
     
     //缩放动画
     _scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+   
     NSNumber *startValue;
     NSNumber *endValue;
     if (isScale) {
@@ -198,14 +201,16 @@
     
     _scaleAnimation.fromValue = startValue;
     _scaleAnimation.toValue = endValue;
-    _scaleAnimation.duration = 1;
+    _scaleAnimation.duration = 1.0f;
     [_scaleAnimation setValue:endValue forKey:@"scale"];
     
     
     //组动画
     CAAnimationGroup *groupAnnimation = [CAAnimationGroup animation];
-    groupAnnimation.duration = 1;
+    groupAnnimation.duration = 1.0f;
     groupAnnimation.delegate = self;
+    groupAnnimation.removedOnCompletion = NO;
+    groupAnnimation.fillMode = kCAFillModeForwards;
     groupAnnimation.animations = @[_moveAnimation, _scaleAnimation];
     [headImage.layer addAnimation:groupAnnimation forKey:@"group"];
 
@@ -248,6 +253,23 @@
  
     }
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (![self.navigationController.viewControllers containsObject:self]) {
+        
+        [showView.layer removeAllAnimations];
+        [headImage.layer removeAllAnimations];
+        
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        
+       
+        
+    }
+
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

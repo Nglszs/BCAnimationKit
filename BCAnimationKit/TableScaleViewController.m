@@ -107,7 +107,7 @@ static NSString *cellid = @"cell";
         
     } else {
     
-    [frameArr replaceObjectAtIndex:indexPath.row withObject:@"44"];
+        [frameArr replaceObjectAtIndex:indexPath.row withObject:@"44"];
         
     }
     

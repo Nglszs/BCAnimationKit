@@ -17,7 +17,7 @@
     
     AppDelegate *newAppDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    if (newAppDelegate.isNightModel) {
+    if (newAppDelegate.isNightModel) {//这里也可以通过获取偏好存储
        
         [self openNightModel];
         

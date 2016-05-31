@@ -31,7 +31,7 @@
     
    
     BCFlowLayout *layout = [[BCFlowLayout alloc] init];
-    layout.animationType = UICollectionViewAnimation2;
+    layout.animationType = UICollectionViewAnimation1;
    
     
     UICollectionView *testCollectView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, BCWidth, 200) collectionViewLayout:layout];

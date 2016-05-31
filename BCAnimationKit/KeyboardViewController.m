@@ -86,7 +86,7 @@
 
         //这里使用contentinset或者调整scrollview的frame也行，下面50代表textField的高度，19为键盘缓冲高度，可以自己设置
             
-        [scroll setContentOffset:CGPointMake(0,keyboardHeight - tempHeight + 50 + 19 ) animated:YES];
+        [mainScroll setContentOffset:CGPointMake(0,keyboardHeight - tempHeight + 50 + 19 ) animated:YES];
         
             
 
@@ -103,7 +103,7 @@
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         
-        [scroll setContentOffset:CGPointZero animated:YES];
+        [mainScroll setContentOffset:CGPointZero animated:YES];
         
         
     } completion:^(BOOL finished) {

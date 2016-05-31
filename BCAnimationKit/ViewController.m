@@ -31,6 +31,11 @@
 #import "ShimmerViewController.h"
 #import "ScaleViewController.h"
 #import "TableScaleViewController.h"
+#import "MessageViewController.h"
+#import "SpeechViewController.h"
+#import "ValueChangeViewController.h"
+#import "ShowPageViewController.h"
+#import "LoadImageViewController.h"
 @interface ViewController ()
 {
 
@@ -64,7 +69,7 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音识别",@"数值改变动画",@"引导页",@"图片加载动画"];
     
     currentIndex = testTableView.bounds.size.height/44 - 2;
    }
@@ -86,7 +91,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-static NSString *cellid = @"celll";
+    static NSString *cellid = @"celll";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     
@@ -115,7 +120,8 @@ static NSString *cellid = @"celll";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     switch (indexPath.row) {
         case 0:
@@ -267,8 +273,38 @@ static NSString *cellid = @"celll";
             break;
             
         }
-
-        default:
+        case 24:{//聊天界面
+            
+            [self.navigationController pushViewController:[MessageViewController new] animated:NO];
+            break;
+            
+        }
+        case 25:{//语音识别
+            
+            [self.navigationController pushViewController:[SpeechViewController new] animated:NO];
+            break;
+            
+        }
+            
+        case 26:{//数值动画
+            
+            [self.navigationController pushViewController:[ValueChangeViewController new] animated:NO];
+            break;
+            
+        }
+        case 27:{//引导页
+            
+            [self.navigationController pushViewController:[ShowPageViewController new] animated:NO];
+            break;
+            
+        }
+        case 28:{//图片加载动画
+            
+            [self.navigationController pushViewController:[LoadImageViewController new] animated:NO];
+            break;
+            
+        }
+            default:
             break;
     }
 

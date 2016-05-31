@@ -15,7 +15,7 @@
 
     [super viewDidLoad];
     
-   //可以将当前的模式保存起来，方便重启应用时使用
+  
     
     UISwitch *muteSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     muteSwitch.center = self.view.center;
@@ -37,9 +37,10 @@
     
     
 }
-
+ //可以将当前的模式保存起来，方便重启应用时使用
 - (void)changeModel:(UISwitch *)modelSwitch {
 
+    //这里可以直接用偏好保存起来，然后在基类里判断即可
     AppDelegate *newAppDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     if (modelSwitch.on) {

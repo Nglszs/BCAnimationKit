@@ -36,6 +36,10 @@
 #import "ValueChangeViewController.h"
 #import "ShowPageViewController.h"
 #import "LoadImageViewController.h"
+#import "TransformViewController.h"
+#import "PuchaseCarViewController.h"
+#import "SectionViewController.h"
+#import "SpeechToTextViewController.h"
 @interface ViewController ()
 {
 
@@ -69,10 +73,31 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音识别",@"数值改变动画",@"引导页",@"图片加载动画"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音"];
     
     currentIndex = testTableView.bounds.size.height/44 - 2;
+    
+    
+    
+    //跳转到上次缓存的界面
+    NSString *skipVC = [[NSUserDefaults standardUserDefaults] objectForKey:@"MAIN"];
+    if (skipVC != nil) {
+        
+        UIViewController *newVC = [NSClassFromString(skipVC) new];
+        [self.navigationController pushViewController:newVC animated:NO];
+        
+        //每跳转一次 清空一次
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"MAIN"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        
+    }
+ 
+    
+   
    }
+
+
 
 #pragma mark  UITableView delegate
 
@@ -279,7 +304,7 @@
             break;
             
         }
-        case 25:{//语音识别
+        case 25:{//语音转文字
             
             [self.navigationController pushViewController:[SpeechViewController new] animated:NO];
             break;
@@ -301,6 +326,54 @@
         case 28:{//图片加载动画
             
             [self.navigationController pushViewController:[LoadImageViewController new] animated:NO];
+            break;
+            
+        }
+        case 29:{//转场动画
+            
+            CATransition *testAnimation = [CATransition animation];
+            testAnimation.duration = .5;
+            
+            //这些开放的api均支持方向设置
+            //testAnimation.type = kCATransitionPush;//新视图退出旧视图,可以用来实现类似于presentate的效果
+            // testAnimation.type = kCATransitionFade;//淡入
+            testAnimation.type = kCATransitionMoveIn;//新视图移动到旧视图
+            //testAnimation.type = kCATransitionReveal;//移开旧视图推出新视图，最好配合左边和右边，这个和第一个有些类似，但实现思路不一样
+            
+            //下面是私有API
+            //testAnimation.type = @"cube";//3D，支持方向
+            //testAnimation.type = @"oglFlip";//翻转效果，类似于硬币，支持方向
+            // testAnimation.type = @"suckEffect";//收缩到一个地方，不支持方向
+            //testAnimation.type = @"rippleEffect";//水波动画，但不适合跳转控制器，适合普通页面，不支持方向
+            //  testAnimation.type = @"pageCurl";//书本的翻页效果。支持方向
+            // testAnimation.type = @"pageUnCurl";//也是翻页，支持方向
+            //testAnimation.type = @"cameralIrisHollowOpen";//摄像头打开效果，不支持方向
+            // testAnimation.type = @"cameraIrisHollowClose";//摄像头关闭效果，不支持方向
+            
+            
+            
+            testAnimation.subtype = kCATransitionFromRight;//动画开始位置
+            testAnimation.removedOnCompletion = YES;
+            [self.navigationController.view.layer addAnimation:testAnimation forKey:nil];
+            [self.navigationController pushViewController:[TransformViewController new] animated:NO];
+            break;
+            
+        }
+        case 30:{//购物车动画
+            
+            [self.navigationController pushViewController:[PuchaseCarViewController new] animated:NO];
+            break;
+            
+        }
+        case 31:{//分段视图
+            
+            [self.navigationController pushViewController:[SectionViewController new] animated:NO];
+            break;
+            
+        }
+        case 32:{//文字转语音
+            
+            [self.navigationController pushViewController:[SpeechToTextViewController new] animated:NO];
             break;
             
         }

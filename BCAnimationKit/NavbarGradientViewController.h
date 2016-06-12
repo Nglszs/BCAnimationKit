@@ -18,5 +18,5 @@
     这个属性让导航栏突变还是渐变，yes为渐变，no为突变
  */
 @property (nonatomic, assign) BOOL isGradient;
-
+    
 @end

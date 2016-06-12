@@ -72,7 +72,7 @@
     CGFloat keyboardHeight = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     
     
-    __block UIScrollView *scroll = mainScroll;
+   
     
     if (tempHeight - keyboardHeight < 0) {//被键盘挡住的需要调整高度，其余不需要调整
         
@@ -99,7 +99,7 @@
 
 - (void)keyboardWillHidden:(NSNotification *)noti {
 
-    __block UIScrollView *scroll = mainScroll;
+    //__block UIScrollView *scroll = mainScroll;
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         

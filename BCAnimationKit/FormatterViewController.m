@@ -38,7 +38,7 @@
    
     [self.view addSubview:textFiled];
 
-
+    
     
 }
 
@@ -50,7 +50,7 @@
                        toPosition:textFiled.selectedTextRange.start];
     
     NSLog(@"--%ld",targetCursorPosition);
-    if (string.length <= 0) {
+    if (string.length <= 0) {//删除时
         
         if (targetCursorPosition == 4 || targetCursorPosition == 9) {
             targetCursorPosition--;

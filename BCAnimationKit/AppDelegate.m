@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-
+#import "RealReachability.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
+    
+    //监听网络状态
+    [GLobalRealReachability  startNotifier];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -28,6 +32,7 @@
     [self.window makeKeyAndVisible];
     
     
+       
     
         return YES;
 }

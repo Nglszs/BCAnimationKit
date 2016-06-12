@@ -69,8 +69,8 @@
             fontLabel.alpha = 0;
             fontLabel.transform = CGAffineTransformMakeScale(3, 3);
             
-//            _imageView.alpha = 0;
-//            _imageView.transform = CGAffineTransformMakeScale(2, 2);
+
+            
         } completion:^(BOOL finished) {
             
         }];
@@ -78,8 +78,19 @@
     
     
     
+  
     
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        //这是uiview的转场动画和前面的有所不同，他还有UIView transitionFromView可以使用，注意动画里的枚举，下面是一个淡入的动画，可以常用uiview的转场动画
+        [UIView transitionWithView:_imageView duration:2 options:UIViewAnimationOptionTransitionFlipFromLeft  animations:^{
+            
+            _imageView.image = [UIImage imageNamed:@"bc1.jpg"];
+        } completion:^(BOOL finished) {
+            
+        }];
+
+});
     
     
 

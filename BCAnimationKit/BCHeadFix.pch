@@ -19,10 +19,10 @@
 #define BCScreen  [UIScreen mainScreen].bounds
 
 #define RealValue(value) (value * BCWidth/375)
-
+#define WS(weakSelf)  __weak __typeof(self)weakSelf = self;
 
 #define DefaultColor [UIColor colorWithRed:174/255.0 green:143/255.0 blue:101/255.0 alpha:1]
-
+#define RandomColor  [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
 #define GreenColor [UIColor colorWithRed:100/255.0 green:200/255.0 blue:100/255.0 alpha:1]
 #define BCImageOriginHight 200
 
@@ -39,6 +39,27 @@
 #define kContentBottom 15 //文本内容与按钮下边缘间隔
 #define kContentRight 15 //文本内容与按钮右边缘间隔
 
+#define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 
+
+//替换nslog
+/**
+ *  工程全局环境控制
+ *
+ *  0:开发环境  1:发布环境
+ */
+#define MY_Test 0
+
+#if (MY_Test == 0)
+
+#define NSLog(...) NSLog(__VA_ARGS__);
+
+#endif
+
+#if (MY_Test == 1)
+
+#define NSLog(...)
+
+#endif
 
 #endif /* BCHeadFix_pch */

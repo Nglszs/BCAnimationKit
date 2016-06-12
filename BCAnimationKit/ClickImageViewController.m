@@ -131,7 +131,7 @@
                 
                 
                 
-                backgroundView.alpha = 1;
+            backgroundView.alpha = 1;
                 
                 
             } completion:^(BOOL finished) {

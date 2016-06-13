@@ -61,6 +61,11 @@
 		0492CC831CFFFC6D0027066B /* TransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC821CFFFC6D0027066B /* TransformViewController.m */; };
 		0492CC861D0002B10027066B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC851D0002B10027066B /* SecondViewController.m */; };
 		0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC931D002C830027066B /* PuchaseCarViewController.m */; };
+		0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */; };
+		0495CAAC1D0E83C900D598DE /* btn_addPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */; };
+		0495CAAD1D0E83C900D598DE /* btn_addPic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1D0E83C900D598DE /* btn_addPic@3x.png */; };
+		0495CAB01D0E959F00D598DE /* icon_photo_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAE1D0E959F00D598DE /* icon_photo_delete@2x.png */; };
+		0495CAB11D0E959F00D598DE /* icon_photo_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAF1D0E959F00D598DE /* icon_photo_delete@3x.png */; };
 		04A2EC171CF5493200DF79B7 /* whiteDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC151CF5493200DF79B7 /* whiteDown.png */; };
 		04A2EC181CF5493200DF79B7 /* whiteTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC161CF5493200DF79B7 /* whiteTop.png */; };
 		04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2EC1B1CF567EE00DF79B7 /* MessageViewController.m */; };
@@ -234,6 +239,12 @@
 		0492CC851D0002B10027066B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0492CC921D002C830027066B /* PuchaseCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuchaseCarViewController.h; sourceTree = "<group>"; };
 		0492CC931D002C830027066B /* PuchaseCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuchaseCarViewController.m; sourceTree = "<group>"; };
+		0495CAA71D0E833D00D598DE /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoViewController.h; sourceTree = "<group>"; };
+		0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
+		0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_addPic@2x.png"; sourceTree = "<group>"; };
+		0495CAAB1D0E83C900D598DE /* btn_addPic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_addPic@3x.png"; sourceTree = "<group>"; };
+		0495CAAE1D0E959F00D598DE /* icon_photo_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_photo_delete@2x.png"; sourceTree = "<group>"; };
+		0495CAAF1D0E959F00D598DE /* icon_photo_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_photo_delete@3x.png"; sourceTree = "<group>"; };
 		04A2EC151CF5493200DF79B7 /* whiteDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteDown.png; sourceTree = "<group>"; };
 		04A2EC161CF5493200DF79B7 /* whiteTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteTop.png; sourceTree = "<group>"; };
 		04A2EC1A1CF567EE00DF79B7 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -514,6 +525,8 @@
 		043BF9521CD8676100372213 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0495CAAE1D0E959F00D598DE /* icon_photo_delete@2x.png */,
+				0495CAAF1D0E959F00D598DE /* icon_photo_delete@3x.png */,
 				04A4D67C1CFD2F9500A5BD35 /* 1.mp4 */,
 				04A2EC3B1CF5A10B00DF79B7 /* icon_photo@2x.png */,
 				04A2EC3C1CF5A10B00DF79B7 /* icon_photo@3x.png */,
@@ -526,6 +539,8 @@
 				04A2EC1D1CF56A0200DF79B7 /* chat_bg_default.jpg */,
 				04A2EC151CF5493200DF79B7 /* whiteDown.png */,
 				04A2EC161CF5493200DF79B7 /* whiteTop.png */,
+				0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */,
+				0495CAAB1D0E83C900D598DE /* btn_addPic@3x.png */,
 				04AB05BF1CF2E21100C96F07 /* DazRing.png */,
 				04AB05C11CF2E22500C96F07 /* DazStarOutline.png */,
 				04A2EC311CF59AA000DF79B7 /* icon_keyboard.png */,
@@ -587,6 +602,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				0495CAA61D0E832200D598DE /* 添加图片 */,
 				041328061D05498B0042CFE8 /* 分段视图 */,
 				04D2A3191CDC619100376284 /* 图片点击放大旋转 */,
 				0492CC911D002C6A0027066B /* 购物车动画 */,
@@ -661,6 +677,15 @@
 				0492CC931D002C830027066B /* PuchaseCarViewController.m */,
 			);
 			name = "购物车动画";
+			sourceTree = "<group>";
+		};
+		0495CAA61D0E832200D598DE /* 添加图片 */ = {
+			isa = PBXGroup;
+			children = (
+				0495CAA71D0E833D00D598DE /* AddPhotoViewController.h */,
+				0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */,
+			);
+			name = "添加图片";
 			sourceTree = "<group>";
 		};
 		04A2EC191CF567CD00DF79B7 /* 聊天界面 */ = {
@@ -1019,7 +1044,10 @@
 				04A2EC3A1CF5A0F300DF79B7 /* icon_camera@3x.png in Resources */,
 				04A2EC181CF5493200DF79B7 /* whiteTop.png in Resources */,
 				04F4F0771CD9EC3800F46C7E /* bc1.jpg in Resources */,
+				0495CAB11D0E959F00D598DE /* icon_photo_delete@3x.png in Resources */,
+				0495CAB01D0E959F00D598DE /* icon_photo_delete@2x.png in Resources */,
 				04D878941CDAE02F0015916C /* grade_star_path@3x.png in Resources */,
+				0495CAAC1D0E83C900D598DE /* btn_addPic@2x.png in Resources */,
 				04A2EC361CF59F2400DF79B7 /* icon_menu_more.png in Resources */,
 				04D878931CDAE02F0015916C /* grade_star_path@2x.png in Resources */,
 				04A2EC3D1CF5A10B00DF79B7 /* icon_photo@2x.png in Resources */,
@@ -1027,6 +1055,7 @@
 				04A2EC3E1CF5A10B00DF79B7 /* icon_photo@3x.png in Resources */,
 				04A2EC1E1CF56A0200DF79B7 /* chat_bg_default.jpg in Resources */,
 				04A2EC171CF5493200DF79B7 /* whiteDown.png in Resources */,
+				0495CAAD1D0E83C900D598DE /* btn_addPic@3x.png in Resources */,
 				04A2EC341CF59AA000DF79B7 /* icon_keyboard@3x.png in Resources */,
 				04F4F05F1CD9BBCA00F46C7E /* icon_arrow_right_d@2x.png in Resources */,
 				04AB05C01CF2E21100C96F07 /* DazRing.png in Resources */,
@@ -1070,6 +1099,7 @@
 				041328301D056F270042CFE8 /* FSMStateUtil.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
 				048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */,
+				0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */,
 				0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */,
 				04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */,
 				0492CC791CFFCE2A0027066B /* UIViewController+Test.m in Sources */,

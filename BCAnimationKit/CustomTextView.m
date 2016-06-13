@@ -74,7 +74,7 @@
         pboard.string = self.text;
         
         
-        NSLog(@"%@",[self textString]);
+        //NSLog(@"%@",[self textString]);
     }
 
 
@@ -82,51 +82,51 @@
 
 
 
--(NSString *)textString
-
-{
-    
-    NSAttributedString * att = self.attributedText;
-    
-    
-    
-    NSMutableAttributedString * resutlAtt = [[NSMutableAttributedString alloc]initWithAttributedString:att];
-    
-    
-    __weak typeof(self) weakSelf = self;
-   
-    //枚举出所有的附件字符串
- 
-    [att enumerateAttributesInRange:NSMakeRange(0, att.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
-     
-        //key-NSAttachment
-   
-        //NSTextAttachment value类型
-     
-        NSTextAttachment * textAtt = attrs[@"NSAttachment"];//从字典中取得那一个图片
-      
-        if (textAtt)
-            
-        {
-           
-           // UIImage * image = textAtt.image;
-          
-            NSString *text = [weakSelf stringFromImage];
-           
-            [resutlAtt replaceCharactersInRange:range withString:text];
-            
-        }
-       
-    }];
-   
-    return resutlAtt.string;
-    
-}
--(NSString *)stringFromImage
-{
-       
-    return @"head.jpg";
-}
+//-(NSString *)textString
+//
+//{
+//    
+//    NSAttributedString * att = self.attributedText;
+//    
+//    
+//    
+//    NSMutableAttributedString * resutlAtt = [[NSMutableAttributedString alloc]initWithAttributedString:att];
+//    
+//    
+//    __weak typeof(self) weakSelf = self;
+//   
+//    //枚举出所有的附件字符串
+// 
+//    [att enumerateAttributesInRange:NSMakeRange(0, att.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+//     
+//        //key-NSAttachment
+//   
+//        //NSTextAttachment value类型
+//     
+//        NSTextAttachment * textAtt = attrs[@"NSAttachment"];//从字典中取得那一个图片
+//      
+//        if (textAtt)
+//            
+//        {
+//           
+//           // UIImage * image = textAtt.image;
+//          
+//            NSString *text = [weakSelf stringFromImage];
+//           
+//            [resutlAtt replaceCharactersInRange:range withString:text];
+//            
+//        }
+//       
+//    }];
+//   
+//    return resutlAtt.string;
+//    
+//}
+//-(NSString *)stringFromImage
+//{
+//       
+//    return @"head.jpg";
+//}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

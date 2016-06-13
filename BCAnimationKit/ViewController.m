@@ -40,6 +40,9 @@
 #import "PuchaseCarViewController.h"
 #import "SectionViewController.h"
 #import "SpeechToTextViewController.h"
+#import "AddPhotoViewController.h"
+
+
 @interface ViewController ()
 {
 
@@ -73,7 +76,9 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片"];
+    
+    
     
     currentIndex = testTableView.bounds.size.height/44 - 2;
     
@@ -377,6 +382,13 @@
             break;
             
         }
+        case 33:{//添加图片
+            
+            [self.navigationController pushViewController:[AddPhotoViewController new] animated:NO];
+            break;
+            
+        }
+
             default:
             break;
     }

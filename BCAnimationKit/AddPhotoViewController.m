@@ -16,6 +16,7 @@
 {
 
     NSInteger photoCount;
+    NSMutableArray *imageArray;//用来上传图片，里面保存的是路径
 
 }
 @property (nonatomic, strong) UIButton *addPhotoBtn;
@@ -29,6 +30,8 @@
     [super viewDidLoad];
    
     self.title = @"添加图片";
+    
+    imageArray = [[NSMutableArray alloc] init];
     
     photoCount = 0;
     //一个页面之放四张图片，所以需要计算下位置,每张图片之间的间隔为10，宽度只够存放四张图片
@@ -135,16 +138,19 @@
 }
    
     
-    //如果这里想要拿到选择的照片则现将照片存入沙河中 ，再取出来，上传服务器或者其他都可以
+    //这里是用数组将图片途径都保存起来，然后方便后面的删除，以及上传服务器
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSData *imageData = UIImageJPEGRepresentation(newImage, 0.5);
        // NSString *str = [self getCurrentTimeString];
-        NSString *imageName = [NSString stringWithFormat:@"jack%ld.png", photoCount];
+        
         NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];//二级文件夹
+        NSString *str = [self getCurrentTimeString];
+        NSString *imageName = [NSString stringWithFormat:@"%@.png", str];
         NSString *imagePath = [subPath stringByAppendingPathComponent:imageName];
         [imageData writeToFile:imagePath atomically:NO];
+        [imageArray addObject:imagePath];//将图片路径保存起来
         
         NSLog(@"保存图片中");
     });
@@ -183,21 +189,12 @@
 - (void)deletePhotoAction:(UIButton *)button {
 
     NSInteger index = button.tag - 500;
+    NSLog(@"%ld",index);
 
-    //删除沙盒里对应的图片
-    NSString *imageName = [NSString stringWithFormat:@"jack%ld.png", index];
-    NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];
-    NSString *imagePath = [subPath stringByAppendingPathComponent:imageName];
-    BOOL isDelete = [BCClearCache clearCacheWithFilePath:imagePath];
-    if (isDelete) {
-        
-        NSLog(@"删除成功");
-        
-    } else {
     
-        NSLog(@"未删除");
-    }
-
+    
+    //移除数组里相应的图片，也就是说，如果我选择了4张图片删除一张，其实在沙盒中还是4张，但是数组里就只剩三张了，再将这三张上传服务器即可，这就是数组存的目的
+    [imageArray removeObjectAtIndex:(index - 1)];
 
     //移除相应显示的imageview和button
     
@@ -255,7 +252,7 @@
     }
 }
 
-//这里本来是用来当保存图片名称的，后来需要删除图片，所以这个场景下不在需要，或许以后在其他地方可以用到
+
 - (NSString*)getCurrentTimeString
 {
     NSDateFormatter *dateformat = [[NSDateFormatter  alloc] init];

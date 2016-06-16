@@ -72,7 +72,7 @@
         
         currentIndex = indexPath.row;
     }
-    cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1];
+    cell.contentView.backgroundColor = RandomColor;
     
     cell.textLabel.text = @"导航栏渐变";
     

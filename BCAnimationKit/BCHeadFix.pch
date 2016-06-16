@@ -17,6 +17,7 @@
 #define BCWidth   [UIScreen mainScreen].bounds.size.width
 #define BCHeight  [UIScreen mainScreen].bounds.size.height
 #define BCScreen  [UIScreen mainScreen].bounds
+#define RealValue(value) (value * BCWidth/375)
 
 #define RealValue(value) (value * BCWidth/375)
 #define WS(weakSelf)  __weak __typeof(self)weakSelf = self;
@@ -25,7 +26,7 @@
 #define RandomColor  [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
 #define GreenColor [UIColor colorWithRed:100/255.0 green:200/255.0 blue:100/255.0 alpha:1]
 #define line228Color [UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1]
-
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
 #define BCImageOriginHight 200
 

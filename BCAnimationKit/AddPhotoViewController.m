@@ -9,12 +9,13 @@
 #import "AddPhotoViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "BCClearCache.h"
-
+#import "BCPhotoViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 #define photoWidth (BCWidth - 50)/4
 @interface AddPhotoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 {
-
+    BOOL isFristGet;
     NSInteger photoCount;
     NSMutableArray *imageArray;//用来上传图片，里面保存的是路径
 
@@ -22,6 +23,11 @@
 @property (nonatomic, strong) UIButton *addPhotoBtn;
 @property (nonatomic, strong) UIView *photoBackView;
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
+
+
+@property (nonatomic, strong) ALAssetsLibrary *assetslibrary;
+@property (nonatomic, strong) NSMutableArray *albumArrayM;//相册数量
+@property (nonatomic, strong) NSMutableArray *photosArrayM;//图片数量
 @end
 
 @implementation AddPhotoViewController
@@ -29,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    isFristGet = YES;
     self.title = @"添加图片";
     
     imageArray = [[NSMutableArray alloc] init];
@@ -51,13 +58,26 @@
     [_photoBackView addSubview:_addPhotoBtn];
 
 
+    
+   [[NSNotificationCenter defaultCenter] addObserverForName:@"IMG" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+       
+       NSArray *imageArr = (NSArray *)note.object;
+       
+       
+       for (int i = 0; i < imageArr.count; i ++) {
+           
+           [self showChosePhoto:[imageArr objectAtIndex:i]];
+       }
 
+   }];
+    
+    
+    
 }
-
 
 - (void)addPhotoAction {
 
-    UIAlertController *sheetController = [UIAlertController alertControllerWithTitle:@"UIImagePickerController" message:@"使用UIImagePickerController" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *sheetController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [self presentViewController:sheetController animated:YES completion:nil];
 
     UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -86,41 +106,87 @@
 
     
     
-    if (!_imagePicker) {
+    
+    if (type == 0) {//从相册中读取
+    
         
-        _imagePicker = [[UIImagePickerController alloc] init];
-         _imagePicker.delegate = self;
+        __weak typeof(self) weakSelf = self;
         
-    }
-    if (type == 0) {
+        NSOperationQueue *queue = [NSOperationQueue mainQueue];
         
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        NSBlockOperation *enumP = [NSBlockOperation blockOperationWithBlock:^{
+            
+            [self.assetslibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                
+                if ([[group valueForProperty:@"ALAssetsGroupPropertyType"] intValue] == ALAssetsGroupSavedPhotos) {
+                    
+                    //[weakSelf.albumArrayM addObject:group];
+                    
+                    
+//                   [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+                    
+                  
+                        NSLog(@"888");
+                        
+                        [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                            
+                            if (result) {
+                                [weakSelf.photosArrayM addObject:result];
+                            }
+                            
+                            
+                            
+                        }];
+
+                    
+                    
+                    
+                }
+                
+                
+            } failureBlock:^(NSError *error) {
+                
+                
+                NSLog(@"获取相册失败");
+            }];
+            
+        }];
         
+        
+        NSBlockOperation *reloadOp = [NSBlockOperation blockOperationWithBlock:^{
+            
+            BCPhotoViewController *photoVC = [[BCPhotoViewController alloc] init];
+            photoVC.assetArray = [[weakSelf.photosArrayM reverseObjectEnumerator] allObjects];
+
+            [self.navigationController pushViewController:photoVC animated:YES];
+            
+        }];
+        
+        [reloadOp addDependency:enumP];
+        [queue addOperation:enumP];
+        [queue addOperation:reloadOp];
+
         
     } else {
     
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
+     [self presentViewController:self.imagePicker animated:YES completion:nil];
     
     }
     
-    photoCount ++;
+    
    
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 
+    
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
     UIImage *newImage;
-    
-    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
-        
-      newImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
-    } else {//拍照
     
     
         NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
@@ -129,21 +195,26 @@
     
            newImage =  [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    
-    }
 
-        
-       
+    
 
 }
    
+    [self showChosePhoto:newImage];
     
+    
+}
+
+
+- (void)showChosePhoto:(UIImage *)newImage {
+
+    photoCount ++;
     //这里是用数组将图片途径都保存起来，然后方便后面的删除，以及上传服务器
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSData *imageData = UIImageJPEGRepresentation(newImage, 0.5);
-       // NSString *str = [self getCurrentTimeString];
+        // NSString *str = [self getCurrentTimeString];
         
         NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];//二级文件夹
         NSString *str = [self getCurrentTimeString];
@@ -154,10 +225,10 @@
         
         NSLog(@"保存图片中");
     });
-   
-
     
-   
+    
+    
+    
     if (photoCount%4 == 0 && photoCount != 0) {//改变背景的frame
         
         _photoBackView.frame = CGRectMake(0, 300, BCWidth, (10 + photoWidth) * (photoCount/4 + 1));
@@ -172,7 +243,7 @@
     [_photoBackView addSubview:showImage];
     
     _addPhotoBtn.frame = CGRectMake(10 + photoCount%4 * (photoWidth + 10), (10 + photoWidth) * (photoCount/4), photoWidth, photoWidth);
-
+    
     
     //删除按钮
     UIButton *deleteImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -180,20 +251,18 @@
     deleteImageBtn.frame = CGRectMake(CGRectGetMaxX(showImage.frame) - 12,CGRectGetMinY(showImage.frame) - 5, 20, 20);
     [deleteImageBtn setImage:[UIImage imageNamed:@"icon_photo_delete"] forState:UIControlStateNormal];
     [deleteImageBtn addTarget:self action:@selector(deletePhotoAction:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [_photoBackView addSubview:deleteImageBtn];
-    
-    
-}
 
+}
 - (void)deletePhotoAction:(UIButton *)button {
 
     NSInteger index = button.tag - 500;
-    NSLog(@"%ld",index);
+   
 
     
     
-    //移除数组里相应的图片，也就是说，如果我选择了4张图片删除一张，其实在沙盒中还是4张，但是数组里就只剩三张了，再将这三张上传服务器即可，这就是数组存的目的
+    //移除数组里相应的图片，也就是说，如果我选择了4张图片删除一张，其实在沙盒中还是4张，但是数组里就只剩三张了，再将这三张上传服务器即可，这就是数组存的目的,上传服务器直接数组里的地址就好了
     [imageArray removeObjectAtIndex:(index - 1)];
 
     //移除相应显示的imageview和button
@@ -242,7 +311,7 @@
         BOOL isDelete = [BCClearCache clearCacheWithFilePath:subPath];
         if (isDelete) {
             
-            NSLog(@"删除所有图片");
+            NSLog(@"删除所有图片成功");
             
         } else {
             
@@ -252,7 +321,43 @@
     }
 }
 
+#pragma mark  懒加载初始化
+- (ALAssetsLibrary *)assetslibrary {
+    if (!_assetslibrary) {
+        _assetslibrary = [[ALAssetsLibrary alloc] init];
+    }
+    
+    return _assetslibrary;
+}
+- (NSMutableArray *)albumArrayM {
+    if (!_albumArrayM) {
+        _albumArrayM = [NSMutableArray array];
+    }
+    
+    return _albumArrayM;
+}
 
+
+- (NSMutableArray *)photosArrayM {
+    if (!_photosArrayM) {
+        _photosArrayM = [NSMutableArray array];
+    }
+    
+    return _photosArrayM;
+}
+
+
+- (UIImagePickerController *)imagePicker {
+
+    if (!_imagePicker) {
+        
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        
+    }
+    return _imagePicker;
+
+}
 - (NSString*)getCurrentTimeString
 {
     NSDateFormatter *dateformat = [[NSDateFormatter  alloc] init];

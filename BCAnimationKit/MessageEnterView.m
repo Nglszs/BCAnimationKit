@@ -62,19 +62,19 @@
 
     //按住说话按钮
     
-    clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    clickBtn.frame = _enterView.frame;
-    clickBtn.tag = 10011;
-    clickBtn.backgroundColor = [UIColor clearColor];
-    clickBtn.layer.cornerRadius = 5.0;
-    clickBtn.layer.masksToBounds = YES;
-    clickBtn.layer.borderWidth = 1;
-    clickBtn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    [clickBtn setTitle:@"按住 说话" forState:UIControlStateNormal];
-    [clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    clickBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    clickBtn.hidden = YES;
-    [self addSubview:clickBtn];
+    _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _clickBtn.frame = _enterView.frame;
+    _clickBtn.tag = 10011;
+    _clickBtn.backgroundColor = [UIColor clearColor];
+    _clickBtn.layer.cornerRadius = 5.0;
+    _clickBtn.layer.masksToBounds = YES;
+    _clickBtn.layer.borderWidth = 1;
+    _clickBtn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    [_clickBtn setTitle:@"按住 说话" forState:UIControlStateNormal];
+    [_clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _clickBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    _clickBtn.hidden = YES;
+    [self addSubview:_clickBtn];
 
 
     
@@ -127,11 +127,11 @@
         case 10010://左边按钮
         {
             if (button.selected) {
-                clickBtn.hidden = NO;
+                _clickBtn.hidden = NO;
                 _enterView.hidden = YES;
             } else {
             
-                clickBtn.hidden = YES;
+                _clickBtn.hidden = YES;
                 _enterView.hidden = NO;
                 [_enterView becomeFirstResponder];
             }
@@ -139,18 +139,6 @@
         }
             break;
            
-            
-        case 10011:
-        {
-        
-            if ([self.delegate respondsToSelector:@selector(voiceButton)]) {
-                
-                [self.delegate voiceButton];
-            }
-
-            
-        }
-            break;
             
             
         case 10012://右边按钮

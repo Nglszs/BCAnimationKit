@@ -84,21 +84,21 @@
     
     
     
-    //跳转到上次缓存的界面
-    NSString *skipVC = [[NSUserDefaults standardUserDefaults] objectForKey:@"MAIN"];
-    if (skipVC != nil) {
-        
-        UIViewController *newVC = [NSClassFromString(skipVC) new];
-        [self.navigationController pushViewController:newVC animated:NO];
-        
-        //每跳转一次 清空一次
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"MAIN"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-        
-    }
- 
-    
+//    //跳转到上次缓存的界面
+//    NSString *skipVC = [[NSUserDefaults standardUserDefaults] objectForKey:@"MAIN"];
+//    if (skipVC != nil) {
+//        
+//        UIViewController *newVC = [NSClassFromString(skipVC) new];
+//        [self.navigationController pushViewController:newVC animated:NO];
+//        
+//        //每跳转一次 清空一次
+//        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"MAIN"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//
+//        
+//    }
+// 
+//    
    
    }
 
@@ -128,10 +128,17 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
         UIImageView *rightImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 14/2, 12)];
-        rightImage.image = [UIImage imageNamed:@"icon_arrow_right_d"];
+        
+        //这里对图片进行渲染成其他颜色
+        UIImage *image = [[UIImage imageNamed:@"icon_arrow_right_d"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        //UIImageRenderingModeAlwaysTemplate的意思始终根据Tint Color绘制图片，忽略图片的颜色信息
+        
+        
+        [rightImage setImage:image];
+        [rightImage setTintColor:RandomColor];
+        
         cell.accessoryView = rightImage;
         cell.textLabel.textColor = DefaultColor;
-        
     }
     
     if (indexPath.row > currentIndex) {//限制动画范围，只让当前屏幕显示的cell有动画
@@ -388,7 +395,7 @@
             break;
             
         }
-
+       
             default:
             break;
     }
@@ -597,7 +604,22 @@
         }
             break;
 
+        case 10://放大
+        {
+            cell.transform = CGAffineTransformMakeScale(0, 0);
+            [UIView animateWithDuration:1 delay:0.05 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
+                
+                cell.transform = CGAffineTransformMakeScale(1, 1);
+                
+            } completion:^(BOOL finished) {
+                
+                
+            }];
             
+            
+        }
+            break;
+
         default:
             break;
     }

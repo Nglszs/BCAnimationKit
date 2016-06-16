@@ -10,11 +10,11 @@
 
 @protocol MessageEnterViewDelegate <NSObject>
 
-@required
+@optional
 
 - (void)adjustViewFrame:(CGFloat)frame;
 
-- (void)voiceButton;
+
 
 @end
 
@@ -23,10 +23,10 @@
 
     UIButton *leftBtn;
     UIButton *rightBtn;
-    UIButton *clickBtn;  //按住说话
+    
   
 }
-
+@property (nonatomic, strong) UIButton *clickBtn;  //按住说话
 @property (nonatomic, strong) UITextView *enterView;
 @property (nonatomic, strong) UIView *moreView;
 @property (nonatomic, strong) UIButton *cameraBtn;

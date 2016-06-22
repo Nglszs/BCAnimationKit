@@ -14,6 +14,7 @@
     UILabel *testLabel;
     UILabel *fontLabel;
     UIImageView *_imageView;
+     UIImageView *_imageView1;
 }
 @end
 
@@ -48,10 +49,14 @@
     fontLabel.alpha = 0;
 
 
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((BCWidth - 100)/2, 400, 100, 100)];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 400, 100, 100)];
     _imageView.image = [UIImage imageNamed:@"bc.jpg"];//默认图片
     [self.view addSubview:_imageView];
     
+    
+    _imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(220, 400, 100, 100)];
+    _imageView1.image = [UIImage imageNamed:@"bc1.jpg"];//默认图片
+    [self.view addSubview:_imageView1];
     
         //动画
     
@@ -82,7 +87,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        //这是uiview的转场动画和前面的有所不同，他还有UIView transitionFromView可以使用，注意动画里的枚举，下面是一个淡入的动画，可以常用uiview的转场动画
+        //这是uiview的转场动画和前面的有所不同，他还有UIView transitionFromView可以使用，注意动画里的枚举，下面是一个翻转的动画，可以常用uiview的转场动画
         [UIView transitionWithView:_imageView duration:2 options:UIViewAnimationOptionTransitionFlipFromLeft  animations:^{
             
             _imageView.image = [UIImage imageNamed:@"bc1.jpg"];
@@ -90,6 +95,16 @@
             
         }];
 
+        
+        
+        [UIView transitionWithView:_imageView1 duration:2 options:UIViewAnimationOptionTransitionCrossDissolve  animations:^{
+            
+            _imageView1.image = [UIImage imageNamed:@"head.jpg"];
+        } completion:^(BOOL finished) {
+            
+        }];
+
+        
 });
     
     

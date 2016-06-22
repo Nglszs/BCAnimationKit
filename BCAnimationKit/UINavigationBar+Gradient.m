@@ -35,9 +35,11 @@ static void *maskKey = &maskKey;
 
     if (!self.maskView) {
         
-        //这两句让导航栏透明，这样就可以看见maskview的颜色了
+        //下面这两句让导航栏透明，这样就可以看见maskview的颜色了
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         [self setShadowImage:[UIImage new]];
+        
+        
         
         self.maskView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, [UIScreen mainScreen].bounds.size.width, CGRectGetHeight(self.bounds) + 20)];
         

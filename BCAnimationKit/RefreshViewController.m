@@ -10,11 +10,12 @@
 
 @interface RefreshViewController ()
 {
-
+    CALayer *layer;
     UITableView  *testTableView;
     NSMutableArray *dataArray;
     UIActivityIndicatorView *refreshView;
 }
+@property (nonatomic, strong) CAReplicatorLayer *replicatorLayer;
 @end
 
 @implementation RefreshViewController
@@ -34,12 +35,8 @@
     [self.view addSubview:testTableView];
     
     //指示器
-    refreshView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((BCWidth - 30)/2, 0, 30, 30)];
-    refreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    refreshView.hidden = YES;
-    [self.view addSubview:refreshView];
-   
-
+    
+    [self loadAnimations];
 
     dataArray = [NSMutableArray arrayWithObjects:@"",@"",@"", nil];
     
@@ -47,7 +44,61 @@
     
 }
 
+- (void)loadAnimations {
 
+    layer = [CALayer layer];
+    layer.frame = CGRectMake((BCWidth - 40)/2, 20, 10, 10);
+    layer.cornerRadius = 5;
+    layer.backgroundColor = [UIColor greenColor].CGColor;
+    layer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
+
+  
+    
+    _replicatorLayer = [CAReplicatorLayer layer];
+    _replicatorLayer.bounds = self.view.bounds;
+    _replicatorLayer.position = self.view.center;
+    _replicatorLayer.instanceCount = 3;
+    _replicatorLayer.instanceDelay = 1.0/6;//这里必须是精度为0.1
+    [_replicatorLayer addSublayer:layer];
+    [self.view.layer addSublayer:_replicatorLayer];
+    
+    
+    
+    
+    
+    
+    
+    self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(20, 0, 0);
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    animation.duration = 1;
+    animation.repeatCount = MAXFLOAT;
+    animation.fromValue = @(1);
+    animation.toValue = @(0.01);
+    [layer addAnimation:animation forKey:nil];
+    
+    [self pauseLayer];
+    
+}
+
+-(void)pauseLayer {
+    
+    CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    layer.speed = 0.0;
+    layer.timeOffset = pausedTime;
+    _replicatorLayer.hidden = YES;
+}
+
+-(void)resumeLayer {
+    
+     CFTimeInterval pausedTime = [layer timeOffset];
+     layer.speed = 1.0;
+     layer.timeOffset = 0.0;
+     layer.beginTime = 0.0;
+     CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+     layer.beginTime = timeSincePause;
+    _replicatorLayer.hidden = NO;
+    
+ }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -79,57 +130,57 @@
     return cell;
 }
 
-#pragma mark  下拉刷新
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+#pragma mark  下拉刷新和上拉刷新
 
+
+//如果需要两种刷新同时存在，则都放入下面的条件，否则分开放
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {//这个方法如果一开始cell没有满屏，他每次下拉的y值都是为0
+    
+   
     if (scrollView.contentOffset.y <= -60) {
        
         
-        
-        refreshView.hidden = NO;
-        [refreshView startAnimating];
+        NSLog(@"下拉刷新");
+       
         testTableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0);
+        
+        [self resumeLayer];
         
         //具体的数据自己处理，这里简单演示
         [self addDataToArray];
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    
-            refreshView.hidden = YES;
-            [refreshView stopAnimating];
-            testTableView.contentInset = UIEdgeInsetsZero;
+            
+            [self pauseLayer];
+            
+            [UIView animateWithDuration:1 animations:^{
+                
+                testTableView.contentInset = UIEdgeInsetsZero;
+                [testTableView reloadData];
+
+            }];
+            
            
-           
-            [testTableView reloadData];
             
             });
         
+    }  else if (scrollView.contentOffset.y + CGRectGetHeight(scrollView.frame) > scrollView.contentSize.height + 60) {
+                    NSLog(@"上拉刷新");
+            
+                    //动画效果等同上拉刷新，这里不再写，简单的刷新数据
+            
+                    [self addDataToArray];
+                    [testTableView reloadData];
+                    
+                    
     }
-
 
 
 }
 
 
-#pragma mark 上拉刷新
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 
 
-    if (scrollView.contentOffset.y + CGRectGetHeight(testTableView.frame) > scrollView.contentSize.height + 60) {
-        NSLog(@"下拉刷新");
-        
-        //动画效果等同上拉刷新，这里不再写，简单的刷新数据
-        
-        [self addDataToArray];
-        [testTableView reloadData];
-        
-        
-    }
-
-
-
-}
 
 
 - (void)addDataToArray {

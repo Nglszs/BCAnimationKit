@@ -66,9 +66,15 @@
     
     //3.设置转场后的新视图添加转场动画
     _imageView.image = [self getImage:isNext];
+
     [_imageView.layer addAnimation:transition forKey:@"KCTransitionAnimation"];
     
-//    [UIView transitionWithView:<#(nonnull UIView *)#> duration:<#(NSTimeInterval)#> options:<#(UIViewAnimationOptions)#> animations:<#^(void)animations#> completion:<#^(BOOL finished)completion#>]
+//    [UIView transitionWithView:_imageView duration:1 options:UIViewAnimationOption animations:^{
+//        
+//        
+//    } completion:^(BOOL finished) {
+//        
+//    }];
 }
 
 -(UIImage *)getImage:(BOOL)isNext{

@@ -16,6 +16,22 @@
     CGFloat tempPoint;
     
     UIView *testView;//过渡用的view
+    
+    
+    CAShapeLayer *waveLayer;//波纹layer
+    CGFloat waveAmplitude;  // 波纹振幅
+    CGFloat waveCycle;      // 波纹周期
+    CGFloat waveSpeed;      // 波纹速度
+
+    CGFloat waveX;//波浪x位移
+
+    CGFloat waveY;//waveY起始点
+    NSTimer *waveTimer;
+
+
+
+
+
 }
 @property (nonatomic, strong) CAShapeLayer *testShapeLayer;
 @end
@@ -42,8 +58,57 @@
     //声明过渡用的view
     testView = [[UIView alloc] init];
     [self.view addSubview:testView];
+    
+    [self loadWave];
+    
+    
 }
 
+- (void)loadWave {
+    waveLayer = [CAShapeLayer layer];
+    waveLayer.fillColor = GreenColor.CGColor;
+    [self.view.layer addSublayer:waveLayer];
+    
+    
+    waveCycle = 1.5 * M_PI/BCWidth;
+    waveSpeed = 0.5/M_PI;
+    waveX = 0;
+    waveY = 400;
+    waveAmplitude = 10;
+    
+    
+    
+    waveTimer = [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(loadWaveAnimations) userInfo:nil repeats:YES];
+    
+
+}
+
+- (void)loadWaveAnimations {
+
+    waveX += waveSpeed;
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGFloat y = waveY;
+    CGPathMoveToPoint(path, nil, 0,y);
+    for (CGFloat x = 0.0f; x <=  BCWidth ; x++) {
+        // 正弦波浪公式.也可以用余弦
+        y = waveAmplitude * sin(waveCycle * x + waveX) + waveY;
+        CGPathAddLineToPoint(path, nil, x, y);
+    }
+    
+    CGPathAddLineToPoint(path, nil, BCWidth, BCHeight);
+    CGPathAddLineToPoint(path, nil, 0, BCHeight);
+    
+    
+    
+    CGPathCloseSubpath(path);
+    
+    waveLayer.path = path;
+    
+    CGPathRelease(path);
+
+
+
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -52,6 +117,12 @@
         //释放定时器
         [displayLink invalidate];
         displayLink = nil;
+        
+        [waveTimer invalidate];
+        waveTimer = nil;
+        
+        
+        [self.view.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
     }
 
 

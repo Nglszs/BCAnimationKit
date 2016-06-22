@@ -22,7 +22,7 @@
             <constraints>
                 <constraint firstItem="Ns9-9z-dY5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="G6d-me-IFM"/>
                 <constraint firstItem="Ns9-9z-dY5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="UoK-i2-Tbk"/>
-                <constraint firstAttribute="bottom" secondItem="Ns9-9z-dY5" secondAttribute="bottom" id="w7A-oR-wlb"/>
+                <constraint firstAttribute="bottom" secondItem="Ns9-9z-dY5" secondAttribute="bottom" constant="1" id="w7A-oR-wlb"/>
                 <constraint firstAttribute="trailing" secondItem="Ns9-9z-dY5" secondAttribute="trailing" constant="1" id="wVk-qc-hJF"/>
             </constraints>
             <connections>

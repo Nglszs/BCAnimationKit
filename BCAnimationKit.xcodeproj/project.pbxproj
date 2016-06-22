@@ -148,6 +148,8 @@
 		04F4F0731CD9E83200F46C7E /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4F0721CD9E83200F46C7E /* CarouselViewController.m */; };
 		04F4F0751CD9E92200F46C7E /* bc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F4F0741CD9E92200F46C7E /* bc.jpg */; };
 		04F4F0771CD9EC3800F46C7E /* bc1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F4F0761CD9EC3800F46C7E /* bc1.jpg */; };
+		04FCD9701D18DB5D00547D3F /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FCD96F1D18DB5D00547D3F /* CustomViewController.m */; };
+		04FCD9731D18DC1F00547D3F /* CustomBrowseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FCD9721D18DC1F00547D3F /* CustomBrowseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +388,10 @@
 		04F4F0721CD9E83200F46C7E /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
 		04F4F0741CD9E92200F46C7E /* bc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bc.jpg; sourceTree = "<group>"; };
 		04F4F0761CD9EC3800F46C7E /* bc1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bc1.jpg; sourceTree = "<group>"; };
+		04FCD96E1D18DB5D00547D3F /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		04FCD96F1D18DB5D00547D3F /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
+		04FCD9711D18DC1F00547D3F /* CustomBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBrowseView.h; sourceTree = "<group>"; };
+		04FCD9721D18DC1F00547D3F /* CustomBrowseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBrowseView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +661,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04FCD96D1D18DAE700547D3F /* 自定义图片浏览 */,
 				0495CAA61D0E832200D598DE /* 添加图片 */,
 				041328061D05498B0042CFE8 /* 分段视图 */,
 				04D2A3191CDC619100376284 /* 图片点击放大旋转 */,
@@ -1009,6 +1016,17 @@
 			name = "无限轮播";
 			sourceTree = "<group>";
 		};
+		04FCD96D1D18DAE700547D3F /* 自定义图片浏览 */ = {
+			isa = PBXGroup;
+			children = (
+				04FCD96E1D18DB5D00547D3F /* CustomViewController.h */,
+				04FCD96F1D18DB5D00547D3F /* CustomViewController.m */,
+				04FCD9711D18DC1F00547D3F /* CustomBrowseView.h */,
+				04FCD9721D18DC1F00547D3F /* CustomBrowseView.m */,
+			);
+			name = "自定义图片浏览";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1198,6 +1216,7 @@
 				04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */,
 				04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */,
 				0471D2511CF52FD000A0C8CB /* TableScaleViewController.m in Sources */,
+				04FCD9731D18DC1F00547D3F /* CustomBrowseView.m in Sources */,
 				04A2EC211CF56ACB00DF79B7 /* MessageCell.m in Sources */,
 				0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */,
 				041328321D056F270042CFE8 /* ReachStateLoading.m in Sources */,
@@ -1261,6 +1280,7 @@
 				048FDB731CD991AA00F10826 /* NavbarGradientViewController.m in Sources */,
 				04D2A31C1CDC61BA00376284 /* ClickImageViewController.m in Sources */,
 				04A2EC241CF56DF200DF79B7 /* MessageModel.m in Sources */,
+				04FCD9701D18DB5D00547D3F /* CustomViewController.m in Sources */,
 				04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */,
 				04F4F0661CD9C5F600F46C7E /* SuspendViewController.m in Sources */,
 				043BF9541CD8676100372213 /* main.m in Sources */,

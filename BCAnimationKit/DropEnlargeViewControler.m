@@ -148,7 +148,10 @@
         
     }
     
-    return [UIImage imageWithCGImage:renderImage];
+    UIImage *newImage = [UIImage imageWithCGImage:renderImage];
+    CGImageRelease(renderImage);
+    
+    return newImage;
 }
 
 

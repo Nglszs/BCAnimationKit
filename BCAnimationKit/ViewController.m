@@ -5,7 +5,7 @@
 //  Created by Jack on 16/5/3.
 //  Copyright © 2016年 毕研超. All rights reserved.
 //
-
+#import <CoreMotion/CoreMotion.h>
 #import "ViewController.h"
 #import "DropEnlargeViewControler.h"
 #import "NavbarGradientViewController.h"
@@ -43,6 +43,8 @@
 #import "AddPhotoViewController.h"
 #import "CustomViewController.h"
 #import "ClickAttentionViewController.h"
+#import "CRMotionViewController.h"
+
 
 @interface ViewController ()
 {
@@ -54,8 +56,13 @@
     NSUInteger currentIndex;
     NSUInteger testType;//动画类型
     
-    
+    CGFloat motionOffset;
+    BOOL isFinish;//动画是否执行完成
    }
+
+
+@property (strong,nonatomic) CMMotionManager *motionManager;//重力滚动相关
+@property (nonatomic, assign) NSInteger maximumOffset;//最大偏移
 @end
 
 @implementation ViewController
@@ -78,7 +85,7 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片"];
     
     
     
@@ -104,7 +111,111 @@
    
    }
 
+#pragma mark 重力滚动相关
+- (void)initMotion {
 
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = .1;//加速仪更新频率，以秒为单位
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    
+    
+    
+    
+   [self startAccelerometer];
+}
+
+
+-(void)startAccelerometer
+{
+    
+    
+    
+    
+     if (![_motionManager isGyroActive] && [_motionManager isGyroAvailable]) {
+    [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        
+       // double gravityX = motion.gravity.x;
+        double gravityY = motion.gravity.y;
+        //double gravityZ = motion.gravity.z;
+        
+        
+       
+        
+        double motionDataY = atan2(gravityY,1.0)/M_PI * 360.0;//绕y方向旋转的角度
+        //double xTheta = atan2(gravityX,1.0)/M_PI * 360.0;//绕x方向旋转的角度
+        
+        
+        
+       
+        
+        motionOffset = _maximumOffset/ 60 * motionDataY;
+        
+       
+        
+        if (motionDataY > -30) {
+            
+            motionOffset = 64;
+            
+        } else if (motionDataY <= -60) {
+        
+            motionOffset = -_maximumOffset;
+        
+        }
+        
+        
+       [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
+        
+           [testTableView setContentOffset:CGPointMake(0, -motionOffset) animated:NO];
+           
+           
+       } completion:nil];
+        
+        
+    }];
+
+     }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    _maximumOffset = testTableView.contentSize.height - testTableView.frame.size.height;
+    
+    
+    //这个是用重力来控制列表的滑动，这里已经不用，还有些瑕疵
+   // [self initMotion];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:animated];
+    //停止加速仪更新
+    [self.motionManager stopAccelerometerUpdates];
+
+
+}
+
+
+
+-(void)receiveNotification:(NSNotification *)notification
+{
+    if ([notification.name
+         isEqualToString:UIApplicationDidEnterBackgroundNotification])
+    {
+        [self.motionManager stopAccelerometerUpdates];
+        
+    }else{
+        
+        [self startAccelerometer];
+        
+    }}
 
 #pragma mark  UITableView delegate
 
@@ -145,6 +256,7 @@
     
     if (indexPath.row > currentIndex) {//限制动画范围，只让当前屏幕显示的cell有动画
          isFristLoad = NO;
+      
     }
     
        
@@ -409,7 +521,12 @@
             break;
             
         }
-
+        case 36:{//滚动图片
+            
+            [self.navigationController pushViewController:[CRMotionViewController new] animated:NO];
+            break;
+            
+        }
             default:
             break;
     }
@@ -423,7 +540,9 @@
     
     if (isFristLoad) {//动画只加载一次
        
-        [self tableviewAnimation:tableView andCell:cell row:indexPath animationType:testType];
+        [self tableviewAnimation:tableView andCell:cell row:indexPath animationType:testType finish:^(BOOL finish) {
+            
+        }];
         
     }
     
@@ -433,7 +552,7 @@
 }
 #pragma mark 动画类型
 
-- (void)tableviewAnimation:(UITableView *)tableView andCell:(UITableViewCell *)cell row:(NSIndexPath *)indexPath animationType:(NSUInteger)type {
+- (void)tableviewAnimation:(UITableView *)tableView andCell:(UITableViewCell *)cell row:(NSIndexPath *)indexPath animationType:(NSUInteger)type finish:(void (^)(BOOL finish))block{
     CGFloat tableWidth = tableView.bounds.size.width;
     CGFloat tableHeight = tableView.bounds.size.height;
     switch (type) {
@@ -638,9 +757,18 @@
             break;
     }
     
-    
+    if (indexPath.row >= currentIndex) {
+        block(YES);
+    }
 
 
+}
+
+
+- (void)dealloc {
+
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

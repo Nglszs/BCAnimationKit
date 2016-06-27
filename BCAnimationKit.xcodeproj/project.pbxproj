@@ -142,6 +142,8 @@
 		04E1A27E1CE2F7650055DDFB /* SpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1A27D1CE2F7650055DDFB /* SpringViewController.m */; };
 		04E1A2821CE326280055DDFB /* QQPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1A2811CE326280055DDFB /* QQPhoneViewController.m */; };
 		04E72CD31CE411CD003FF8CD /* TurnOffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E72CD21CE411CD003FF8CD /* TurnOffViewController.m */; };
+		04E78BD01D21271B007FC9B3 /* CRMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E78BCF1D21271B007FC9B3 /* CRMotionViewController.m */; };
+		04E78BD21D21283D007FC9B3 /* 首页图.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E78BD11D21283D007FC9B3 /* 首页图.png */; };
 		04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E87B1A1CF427E800076BE4 /* ShimmerViewController.m */; };
 		04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E87B1E1CF450D900076BE4 /* ScaleViewController.m */; };
 		04EC9C8C1CD99C3F0012BA8E /* UINavigationBar+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9C8B1CD99C3F0012BA8E /* UINavigationBar+Gradient.m */; };
@@ -380,6 +382,9 @@
 		04E1A2811CE326280055DDFB /* QQPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPhoneViewController.m; sourceTree = "<group>"; };
 		04E72CD11CE411CD003FF8CD /* TurnOffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnOffViewController.h; sourceTree = "<group>"; };
 		04E72CD21CE411CD003FF8CD /* TurnOffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnOffViewController.m; sourceTree = "<group>"; };
+		04E78BCE1D21271B007FC9B3 /* CRMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMotionViewController.h; sourceTree = "<group>"; };
+		04E78BCF1D21271B007FC9B3 /* CRMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMotionViewController.m; sourceTree = "<group>"; };
+		04E78BD11D21283D007FC9B3 /* 首页图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页图.png"; sourceTree = "<group>"; };
 		04E87B191CF427E800076BE4 /* ShimmerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShimmerViewController.h; sourceTree = "<group>"; };
 		04E87B1A1CF427E800076BE4 /* ShimmerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShimmerViewController.m; sourceTree = "<group>"; };
 		04E87B1D1CF450D900076BE4 /* ScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleViewController.h; sourceTree = "<group>"; };
@@ -592,6 +597,7 @@
 		043BF9521CD8676100372213 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04E78BD11D21283D007FC9B3 /* 首页图.png */,
 				049A1C8B1D20B3CE0074948D /* icon_applied@2x.png */,
 				049A1C8C1D20B3CE0074948D /* icon_applied@3x.png */,
 				049A1C8D1D20B3CE0074948D /* icon_apply@2x.png */,
@@ -676,6 +682,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04E78BCD1D2126FE007FC9B3 /* 滚动的图片 */,
 				049A1C931D20B3DF0074948D /* 点赞动画 */,
 				04FCD96D1D18DAE700547D3F /* 自定义图片浏览 */,
 				0495CAA61D0E832200D598DE /* 添加图片 */,
@@ -974,6 +981,15 @@
 			name = "关机动画";
 			sourceTree = "<group>";
 		};
+		04E78BCD1D2126FE007FC9B3 /* 滚动的图片 */ = {
+			isa = PBXGroup;
+			children = (
+				04E78BCE1D21271B007FC9B3 /* CRMotionViewController.h */,
+				04E78BCF1D21271B007FC9B3 /* CRMotionViewController.m */,
+			);
+			name = "滚动的图片";
+			sourceTree = "<group>";
+		};
 		04E87B181CF427CA00076BE4 /* 辉光动画 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1179,7 @@
 				04983FB81D0FD001006538AE /* icon_soundvoule_3@2x.png in Resources */,
 				04D878921CDAE02F0015916C /* grade_star_fill@3x.png in Resources */,
 				048BA6DC1CF3E55A00185CAD /* BCCell.xib in Resources */,
+				04E78BD21D21283D007FC9B3 /* 首页图.png in Resources */,
 				04A2EC281CF5716A00DF79B7 /* chatto_bg_normal.png in Resources */,
 				04D2B9651D12A48C00C23EAE /* check_button_normal.png in Resources */,
 				04983FC01D0FD00E006538AE /* icon_soundvoule_5@2x.png in Resources */,
@@ -1244,6 +1261,7 @@
 				0405DC1C1CFC1A5C003F2741 /* ISRDataHelper.m in Sources */,
 				04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */,
 				04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */,
+				04E78BD01D21271B007FC9B3 /* CRMotionViewController.m in Sources */,
 				0471D2511CF52FD000A0C8CB /* TableScaleViewController.m in Sources */,
 				04FCD9731D18DC1F00547D3F /* CustomBrowseView.m in Sources */,
 				04A2EC211CF56ACB00DF79B7 /* MessageCell.m in Sources */,

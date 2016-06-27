@@ -44,6 +44,19 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+
+    
+    [super viewWillDisappear:animated];
+
+    if (![self.navigationController.viewControllers containsObject:self]) {
+        
+        [layer removeAllAnimations];
+        [layer removeFromSuperlayer];
+        [_replicatorLayer removeFromSuperlayer];
+    }
+
+}
 - (void)loadAnimations {
 
     layer = [CALayer layer];
@@ -80,7 +93,7 @@
     
 }
 
--(void)pauseLayer {
+-(void)pauseLayer {//暂停动画
     
     CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
     layer.speed = 0.0;
@@ -88,7 +101,7 @@
     _replicatorLayer.hidden = YES;
 }
 
--(void)resumeLayer {
+-(void)resumeLayer {//开始动画
     
      CFTimeInterval pausedTime = [layer timeOffset];
      layer.speed = 1.0;
@@ -133,7 +146,7 @@
 #pragma mark  下拉刷新和上拉刷新
 
 
-//如果需要两种刷新同时存在，则都放入下面的条件，否则分开放
+//如果需要两种刷新同时存在，则都放入下面的条件，否则分开放，也就是说scrollview的代理方法只能存在一个，否则有一个不能识别
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {//这个方法如果一开始cell没有满屏，他每次下拉的y值都是为0
     
    

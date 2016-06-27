@@ -127,9 +127,21 @@
 
 #pragma mark 模糊处理
 
+
+//此方法较慢
 - (UIImage *)creatBlur:(UIImage *)oldImage {
     
-    
+    /**
+     CIGaussianBlur 高斯模糊
+     CIBoxBlur 均值模糊  iOS9以后
+     CIDiscBlur 环形卷积模糊 9以后
+     CIMedianFilter 中指模糊 9 不能设置radius
+     CIMotionBlur 运动模糊 9
+     */
+     
+     
+     
+   
     
     
     CIContext *context = [CIContext contextWithOptions:nil];

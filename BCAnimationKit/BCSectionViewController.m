@@ -114,9 +114,12 @@
             UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
             titleButton.frame = CGRectMake(i * BCWidth/self.titlesArray.count, 0, BCWidth/self.titlesArray.count, 44);
             [titleButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-            [titleButton setTitleColor:GreenColor forState:UIControlStateSelected];
+            [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
             [titleButton setTitle:_titlesArray[i] forState:UIControlStateNormal];
             titleButton.tag = i + 10086;
+            if (i == 0) {
+                titleButton.selected = YES;
+            }
             [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
             [backView addSubview:titleButton];
 

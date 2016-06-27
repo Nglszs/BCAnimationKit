@@ -88,6 +88,11 @@
 		04983FCD1D0FD02A006538AE /* icon_warring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04983FCB1D0FD02A006538AE /* icon_warring@3x.png */; };
 		04983FD01D0FD034006538AE /* icon_cancelsend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04983FCE1D0FD034006538AE /* icon_cancelsend@2x.png */; };
 		04983FD11D0FD034006538AE /* icon_cancelsend@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04983FCF1D0FD034006538AE /* icon_cancelsend@3x.png */; };
+		049A1C8F1D20B3CE0074948D /* icon_applied@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8B1D20B3CE0074948D /* icon_applied@2x.png */; };
+		049A1C901D20B3CE0074948D /* icon_applied@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8C1D20B3CE0074948D /* icon_applied@3x.png */; };
+		049A1C911D20B3CE0074948D /* icon_apply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8D1D20B3CE0074948D /* icon_apply@2x.png */; };
+		049A1C921D20B3CE0074948D /* icon_apply@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8E1D20B3CE0074948D /* icon_apply@3x.png */; };
+		049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A1C951D20B4230074948D /* ClickAttentionViewController.m */; };
 		04A2EC171CF5493200DF79B7 /* whiteDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC151CF5493200DF79B7 /* whiteDown.png */; };
 		04A2EC181CF5493200DF79B7 /* whiteTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC161CF5493200DF79B7 /* whiteTop.png */; };
 		04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2EC1B1CF567EE00DF79B7 /* MessageViewController.m */; };
@@ -295,6 +300,12 @@
 		04983FCB1D0FD02A006538AE /* icon_warring@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_warring@3x.png"; sourceTree = "<group>"; };
 		04983FCE1D0FD034006538AE /* icon_cancelsend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cancelsend@2x.png"; sourceTree = "<group>"; };
 		04983FCF1D0FD034006538AE /* icon_cancelsend@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_cancelsend@3x.png"; sourceTree = "<group>"; };
+		049A1C8B1D20B3CE0074948D /* icon_applied@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_applied@2x.png"; sourceTree = "<group>"; };
+		049A1C8C1D20B3CE0074948D /* icon_applied@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_applied@3x.png"; sourceTree = "<group>"; };
+		049A1C8D1D20B3CE0074948D /* icon_apply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_apply@2x.png"; sourceTree = "<group>"; };
+		049A1C8E1D20B3CE0074948D /* icon_apply@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_apply@3x.png"; sourceTree = "<group>"; };
+		049A1C941D20B4230074948D /* ClickAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickAttentionViewController.h; sourceTree = "<group>"; };
+		049A1C951D20B4230074948D /* ClickAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickAttentionViewController.m; sourceTree = "<group>"; };
 		04A2EC151CF5493200DF79B7 /* whiteDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteDown.png; sourceTree = "<group>"; };
 		04A2EC161CF5493200DF79B7 /* whiteTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteTop.png; sourceTree = "<group>"; };
 		04A2EC1A1CF567EE00DF79B7 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -581,6 +592,10 @@
 		043BF9521CD8676100372213 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				049A1C8B1D20B3CE0074948D /* icon_applied@2x.png */,
+				049A1C8C1D20B3CE0074948D /* icon_applied@3x.png */,
+				049A1C8D1D20B3CE0074948D /* icon_apply@2x.png */,
+				049A1C8E1D20B3CE0074948D /* icon_apply@3x.png */,
 				0495CAAE1D0E959F00D598DE /* icon_photo_delete@2x.png */,
 				0495CAAF1D0E959F00D598DE /* icon_photo_delete@3x.png */,
 				04A4D67C1CFD2F9500A5BD35 /* 1.mp4 */,
@@ -661,6 +676,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				049A1C931D20B3DF0074948D /* 点赞动画 */,
 				04FCD96D1D18DAE700547D3F /* 自定义图片浏览 */,
 				0495CAA61D0E832200D598DE /* 添加图片 */,
 				041328061D05498B0042CFE8 /* 分段视图 */,
@@ -776,6 +792,15 @@
 				04983FCF1D0FD034006538AE /* icon_cancelsend@3x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		049A1C931D20B3DF0074948D /* 点赞动画 */ = {
+			isa = PBXGroup;
+			children = (
+				049A1C941D20B4230074948D /* ClickAttentionViewController.h */,
+				049A1C951D20B4230074948D /* ClickAttentionViewController.m */,
+			);
+			name = "点赞动画";
 			sourceTree = "<group>";
 		};
 		04A2EC191CF567CD00DF79B7 /* 聊天界面 */ = {
@@ -1153,6 +1178,7 @@
 				04F4F0751CD9E92200F46C7E /* bc.jpg in Resources */,
 				04983FC81D0FD01D006538AE /* icon_soundvoule_7@2x.png in Resources */,
 				04A2EC3A1CF5A0F300DF79B7 /* icon_camera@3x.png in Resources */,
+				049A1C8F1D20B3CE0074948D /* icon_applied@2x.png in Resources */,
 				04A2EC181CF5493200DF79B7 /* whiteTop.png in Resources */,
 				04983FC51D0FD015006538AE /* icon_soundvoule_6@3x.png in Resources */,
 				04F4F0771CD9EC3800F46C7E /* bc1.jpg in Resources */,
@@ -1160,6 +1186,7 @@
 				0495CAB01D0E959F00D598DE /* icon_photo_delete@2x.png in Resources */,
 				04D878941CDAE02F0015916C /* grade_star_path@3x.png in Resources */,
 				04983FB91D0FD001006538AE /* icon_soundvoule_3@3x.png in Resources */,
+				049A1C911D20B3CE0074948D /* icon_apply@2x.png in Resources */,
 				0495CAAC1D0E83C900D598DE /* btn_addPic@2x.png in Resources */,
 				04A2EC361CF59F2400DF79B7 /* icon_menu_more.png in Resources */,
 				04D878931CDAE02F0015916C /* grade_star_path@2x.png in Resources */,
@@ -1167,6 +1194,7 @@
 				047BD7131D129E1900BA5700 /* BCCollectionViewCell.xib in Resources */,
 				04A2EC3D1CF5A10B00DF79B7 /* icon_photo@2x.png in Resources */,
 				04A2EC391CF5A0F300DF79B7 /* icon_camera@2x.png in Resources */,
+				049A1C921D20B3CE0074948D /* icon_apply@3x.png in Resources */,
 				04983FCD1D0FD02A006538AE /* icon_warring@3x.png in Resources */,
 				04A2EC3E1CF5A10B00DF79B7 /* icon_photo@3x.png in Resources */,
 				04A2EC1E1CF56A0200DF79B7 /* chat_bg_default.jpg in Resources */,
@@ -1183,6 +1211,7 @@
 				043BF9861CD8699800372213 /* head.jpg in Resources */,
 				04A2EC331CF59AA000DF79B7 /* icon_keyboard.png in Resources */,
 				043E8A801D113B1900A7F609 /* mapIcon.png in Resources */,
+				049A1C901D20B3CE0074948D /* icon_applied@3x.png in Resources */,
 				043BF95F1CD8676100372213 /* Assets.xcassets in Resources */,
 				04983FC11D0FD00E006538AE /* icon_soundvoule_5@3x.png in Resources */,
 				04D2B9661D12A48C00C23EAE /* check_button_selected.png in Resources */,
@@ -1230,6 +1259,7 @@
 				04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */,
 				0492CC791CFFCE2A0027066B /* UIViewController+Test.m in Sources */,
 				04911D051CE07F550004A5A4 /* NonCopyViewController.m in Sources */,
+				049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */,
 				04E72CD31CE411CD003FF8CD /* TurnOffViewController.m in Sources */,
 				041328371D056F270042CFE8 /* PingFoundation.m in Sources */,
 				04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */,

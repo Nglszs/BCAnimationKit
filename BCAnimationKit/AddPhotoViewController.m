@@ -12,10 +12,13 @@
 #import "BCPhotoViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #define photoWidth (BCWidth - 50)/4
+#define tempValue 10 //10个像素的间隙
+
+
 @interface AddPhotoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 {
-    BOOL isFristGet;
+   
     NSInteger photoCount;
     NSMutableArray *imageArray;//用来上传图片，里面保存的是路径
 
@@ -35,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    isFristGet = YES;
+   
     self.title = @"添加图片";
     
     imageArray = [[NSMutableArray alloc] init];
@@ -45,13 +48,13 @@
     
  
     
-    _photoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, BCWidth, photoWidth)];
+    _photoBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 200, BCWidth, photoWidth)];
     _photoBackView.backgroundColor = GreenColor;
     [self.view addSubview:_photoBackView];
     
     
     _addPhotoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _addPhotoBtn.frame = CGRectMake(10, 0, photoWidth, photoWidth);
+    _addPhotoBtn.frame = CGRectMake(tempValue, 0, photoWidth, photoWidth);
     _addPhotoBtn.backgroundColor = line228Color;
     [_addPhotoBtn setImage:[UIImage imageNamed:@"btn_addPic"] forState:UIControlStateNormal];
     [_addPhotoBtn addTarget:self action:@selector(addPhotoAction) forControlEvents:UIControlEventTouchUpInside];
@@ -59,6 +62,7 @@
 
 
     
+    //通知来刷新图片
    [[NSNotificationCenter defaultCenter] addObserverForName:@"IMG" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
        
        NSArray *imageArr = (NSArray *)note.object;
@@ -126,7 +130,7 @@
 //                   [group setAssetsFilter:[ALAssetsFilter allPhotos]];
                     
                   
-                        NSLog(@"888");
+                    
                         
                         [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                             
@@ -231,19 +235,20 @@
     
     if (photoCount%4 == 0 && photoCount != 0) {//改变背景的frame
         
-        _photoBackView.frame = CGRectMake(0, 300, BCWidth, (10 + photoWidth) * (photoCount/4 + 1));
+        _photoBackView.frame = CGRectMake(0, 200, BCWidth,  (tempValue + photoWidth) * (photoCount/4 + 1) - tempValue);
     }
     
     //用imageview显示出来，然后移动button的位置
-    UIImageView *showImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 + (photoCount - 1)%4 * (photoWidth + 10),(10 + photoWidth) * ((photoCount - 1)/4), photoWidth, photoWidth)];
+    UIImageView *showImage = [[UIImageView alloc] initWithFrame:CGRectMake(tempValue + (photoCount - 1)%4 * (photoWidth + tempValue),(tempValue + photoWidth) * ((photoCount - 1)/4), photoWidth, photoWidth)];
     showImage.tag = 400 + photoCount;
     showImage.layer.borderWidth = 1;
     showImage.layer.borderColor = DefaultColor.CGColor;
     showImage.image = newImage;
     [_photoBackView addSubview:showImage];
     
-    _addPhotoBtn.frame = CGRectMake(10 + photoCount%4 * (photoWidth + 10), (10 + photoWidth) * (photoCount/4), photoWidth, photoWidth);
+    _addPhotoBtn.frame = CGRectMake(tempValue + photoCount%4 * (photoWidth + tempValue), (tempValue + photoWidth) * (photoCount/4), photoWidth, photoWidth);
     
+   
     
     //删除按钮
     UIButton *deleteImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -295,11 +300,13 @@
     
     if (photoCount%4 == 0 && photoCount != 0) {//改变背景的frame
         
-        _photoBackView.frame = CGRectMake(0, 300, BCWidth, photoWidth * photoCount/4);
+
+        
+        _photoBackView.frame = CGRectMake(0, 200, BCWidth, (tempValue + photoWidth) * photoCount/4 - tempValue);//后面需要去见到10px的像素
     }
 
     photoCount--;
-    _addPhotoBtn.frame = CGRectMake(10 + photoCount%4 * (photoWidth + 10), (10 + photoWidth) * (photoCount/4), photoWidth, photoWidth);
+    _addPhotoBtn.frame = CGRectMake(tempValue + photoCount%4 * (photoWidth + tempValue), (tempValue + photoWidth) * (photoCount/4), photoWidth, photoWidth);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

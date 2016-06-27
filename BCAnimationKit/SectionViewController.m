@@ -30,6 +30,7 @@
     userHeadImageView.text = @"点击屏幕";
     userHeadImageView.clipsToBounds = YES;
     userHeadImageView.textAlignment = NSTextAlignmentCenter;
+
     [self.view addSubview:userHeadImageView];
     
     

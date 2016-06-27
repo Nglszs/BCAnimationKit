@@ -103,8 +103,21 @@
         } completion:^(BOOL finished) {
             
         }];
-
         
+        
+        
+        //下面方法是模仿弹窗效果
+//        [UIView animateWithDuration:1 animations:^{
+//            _imageView1.transform = CGAffineTransformMakeScale(1.2, 1.2);
+//        } completion:^(BOOL finished) {
+//            
+//            [UIView animateWithDuration:1 animations:^{
+//                _imageView1.transform = CGAffineTransformScale(_imageView1.transform, .2, .2);
+//
+//            }];
+//            
+//        }];
+//
 });
     
     

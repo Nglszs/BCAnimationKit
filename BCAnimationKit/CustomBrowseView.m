@@ -19,8 +19,9 @@
         _backgroundImageV = [[UIImageView alloc] initWithFrame:self.bounds];
        
         
-        UIVisualEffectView *visualView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        UIVisualEffectView *visualView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
         
+       
         visualView.frame = _backgroundImageV.frame;
 
         _backgroundImageV.image = [UIImage imageNamed:@"bc.jpg"];
@@ -73,7 +74,7 @@
         
             if (point.x < 0) {
                 
-                //绕某点转动
+                //绕某点转动,这里是绕（100，500）运动
                 CGAffineTransform  trans  = CGAffineTransformMakeTranslation(100, 500);
                 trans = CGAffineTransformRotate(trans,MAX(-M_PI_4, point.x/(M_PI *30)));
                 trans = CGAffineTransformTranslate(trans,-100, -500);

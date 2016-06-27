@@ -20,8 +20,11 @@
     CustomBrowseView  *customView = [[CustomBrowseView alloc] initWithFrame:BCScreen];
     [self.view addSubview:customView];
 
+    
 
 }
+
+ 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

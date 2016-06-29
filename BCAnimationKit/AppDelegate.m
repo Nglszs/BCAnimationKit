@@ -32,9 +32,25 @@
     [self.window makeKeyAndVisible];
     
     
-       
+    
+    
+   // NSLog(@"%@",[self getAnyCharStringWitn:32])
     
         return YES;
+}
+
+//获取随机字符串，可用来作为异步登录判断，也可用devicetoken
+- (NSString *)getAnyCharStringWitn:(int)tempLength {
+    NSString *tempStr = @"abcdefABCDEF0123456789abcdefABCDEF0123456789abcdefABCDEF0123456789";
+    NSString *kRandomAlphabet = [NSString stringWithFormat:@"%@",tempStr];
+    
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:tempLength];
+    for (int i = 0; i<tempLength; i++) {
+        [randomString appendFormat: @"%C", [kRandomAlphabet characterAtIndex:arc4random_uniform((u_int32_t)[kRandomAlphabet length])]];
+    }
+ 
+    
+    return randomString;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

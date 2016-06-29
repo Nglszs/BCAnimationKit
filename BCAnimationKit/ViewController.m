@@ -44,7 +44,7 @@
 #import "CustomViewController.h"
 #import "ClickAttentionViewController.h"
 #import "CRMotionViewController.h"
-
+#import "TableAnimationViewController.h"
 
 @interface ViewController ()
 {
@@ -57,8 +57,9 @@
     NSUInteger testType;//动画类型
     
     CGFloat motionOffset;
-    BOOL isFinish;//动画是否执行完成
-   }
+    NSTimer *time;
+
+}
 
 
 @property (strong,nonatomic) CMMotionManager *motionManager;//重力滚动相关
@@ -69,7 +70,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
     isFristLoad = YES;
     testType = arc4random_uniform(10);
     self.title = @"动画";
@@ -81,11 +82,11 @@
     testTableView.delegate = self;
     testTableView.dataSource = self;
     testTableView.tableFooterView = [UIView new];
-  
+ 
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果"];
     
     
     
@@ -107,7 +108,11 @@
 //        
 //    }
 // 
-//    
+//
+    
+    //这个是用重力来控制列表的滑动，这里已经不用，还有些瑕疵
+
+  // [self initMotion];
    
    }
 
@@ -126,10 +131,31 @@
     
     
     
-    
-   [self startAccelerometer];
+   time = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(RoundRobinTableview) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:time forMode:NSRunLoopCommonModes];
+  
 }
 
+- (void)RoundRobinTableview {
+
+    if (testTableView.isDragging || testTableView.isDecelerating) {
+        
+        [self.motionManager stopDeviceMotionUpdates];
+        
+        
+    } else {
+        
+       
+            
+            [self startAccelerometer];
+
+      
+        
+    }
+
+    
+
+}
 
 -(void)startAccelerometer
 {
@@ -154,7 +180,7 @@
         
        
         
-        motionOffset = _maximumOffset/ 60 * motionDataY;
+        motionOffset = _maximumOffset/ 90 * motionDataY;
         
        
         
@@ -168,7 +194,8 @@
         
         }
         
-        
+        NSLog(@"%.2f==%.2f",motionOffset,motionDataY);
+     
        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
         
            [testTableView setContentOffset:CGPointMake(0, -motionOffset) animated:NO];
@@ -188,8 +215,7 @@
     _maximumOffset = testTableView.contentSize.height - testTableView.frame.size.height;
     
     
-    //这个是用重力来控制列表的滑动，这里已经不用，还有些瑕疵
-   // [self initMotion];
+    
     
 }
 
@@ -209,7 +235,7 @@
     if ([notification.name
          isEqualToString:UIApplicationDidEnterBackgroundNotification])
     {
-        [self.motionManager stopAccelerometerUpdates];
+        [self.motionManager stopDeviceMotionUpdates];
         
     }else{
         
@@ -269,6 +295,8 @@
     
     return cell;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -527,6 +555,12 @@
             break;
             
         }
+        case 37:{//tableview动画
+            
+            [self.navigationController pushViewController:[TableAnimationViewController new] animated:NO];
+            break;
+            
+        }
             default:
             break;
     }
@@ -537,22 +571,23 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+  
     if (isFristLoad) {//动画只加载一次
        
-        [self tableviewAnimation:tableView andCell:cell row:indexPath animationType:testType finish:^(BOOL finish) {
-            
-        }];
-        
+        [self tableviewAnimation:tableView andCell:cell row:indexPath animationType:testType];
     }
     
     
     
     
+    
+    
+
+    
 }
 #pragma mark 动画类型
 
-- (void)tableviewAnimation:(UITableView *)tableView andCell:(UITableViewCell *)cell row:(NSIndexPath *)indexPath animationType:(NSUInteger)type finish:(void (^)(BOOL finish))block{
+- (void)tableviewAnimation:(UITableView *)tableView andCell:(UITableViewCell *)cell row:(NSIndexPath *)indexPath animationType:(NSUInteger)type {
     CGFloat tableWidth = tableView.bounds.size.width;
     CGFloat tableHeight = tableView.bounds.size.height;
     switch (type) {
@@ -654,7 +689,7 @@
         }
             break;
             
-            case 6://3D
+            case 6://3D，这个动画和万象城一样，不过万象城是没有delay时间的，而且duration都为.5
         {
             CATransform3D transform = CATransform3DIdentity;
             transform.m34 = 1.0 / -500;
@@ -662,7 +697,7 @@
             transform = CATransform3DRotate(transform, M_PI/2, 0.0f, 1.0f, 0.0f);
             cell.layer.transform = CATransform3DTranslate(transform, cell.layer.bounds.size.width/2.0f, 0.0f, 0.0f);
             
-            //下面两个时间都可以调整，看自己喜好
+            //下面duration和delay时间可以自己调整，看自己需求
             [UIView animateWithDuration:.5 delay:0.005 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
                 
                 
@@ -752,17 +787,39 @@
             
         }
             break;
+        case 11://逐渐放大,这个以后待改进，我想要的效果类似于滚轮那种，现在还没有实现
+            
+        {
+             CGFloat gapX = CGRectGetMidY(self.view.frame) - CGRectGetMidY(cell.frame);
+            // 根据间距值计算 cell的缩放比例
+            CGFloat scale = 1 - ABS(gapX) / BCWidth;
+            
+            // 设置缩放比例
+            cell.transform = CGAffineTransformMakeScale(scale, scale);
+            
+            [UIView animateWithDuration:1 delay:0.05 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
+                
+                cell.transform = CGAffineTransformMakeScale(1, 1);
+                
+            } completion:^(BOOL finished) {
+                
+                
+            }];
+
+            
+
+            
+        }
+            break;
 
         default:
             break;
     }
     
-    if (indexPath.row >= currentIndex) {
-        block(YES);
-    }
-
+  
 
 }
+
 
 
 - (void)dealloc {

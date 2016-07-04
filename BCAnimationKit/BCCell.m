@@ -15,7 +15,10 @@
     [super awakeFromNib];
     self.testImage.layer.borderWidth = 3;
     self.testImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    //去掉锯齿
     self.testImage.layer.shouldRasterize = YES;
+    self.testImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     
 }

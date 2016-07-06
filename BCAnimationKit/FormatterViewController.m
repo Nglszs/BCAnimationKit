@@ -7,7 +7,7 @@
 //
 
 #import "FormatterViewController.h"
-
+#import <AudioToolbox/AudioToolbox.h>
 #define Numeber 11
 
 @interface FormatterViewController ()<UITextFieldDelegate>
@@ -27,7 +27,7 @@
    
 //输入格式化的难点在于当删除时怎么能保证输入依然正确，格式化其实很简单，只是插入空格而已
     
-    textFiled = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, 200, 50)];
+    textFiled = [[UITextField alloc] initWithFrame:CGRectMake((BCWidth - 200)/2, 100, 200, 50)];
     textFiled.backgroundColor = [UIColor cyanColor];
   
     textFiled.keyboardType = UIKeyboardTypeNumberPad;
@@ -93,6 +93,16 @@
 
             }
            
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+            animation.duration = 0.2;
+            animation.fromValue = [NSNumber numberWithFloat:textField.center.x - 10];
+            animation.toValue = [NSNumber numberWithFloat:textField.center.x + 10];
+            animation.repeatCount = 1;
+            animation.autoreverses = YES;
+            animation.delegate = self;
+            [textField.layer addAnimation:animation forKey:@"shake"];
+
+            
             return NO;
         }
     
@@ -111,8 +121,23 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+//    CABasicAnimation *momAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+//    momAnimation.fromValue = [NSNumber numberWithFloat:-0.3];
+//    momAnimation.toValue = [NSNumber numberWithFloat:0.3];
+//    momAnimation.duration = 0.2;
+//    momAnimation.repeatCount = 2;
+//    momAnimation.autoreverses = YES;
+//    momAnimation.delegate = self;
+//    [textField.layer addAnimation:momAnimation forKey:@"animateLayer"];
+    
+   
 
+}
 
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -53,6 +53,7 @@
 		047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BD70E1D129E1900BA5700 /* BCCollectionViewCell.m */; };
 		047BD7131D129E1900BA5700 /* BCCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047BD70F1D129E1900BA5700 /* BCCollectionViewCell.xib */; };
 		047BD7141D129E1900BA5700 /* BCPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BD7111D129E1900BA5700 /* BCPhotoViewController.m */; };
+		0483BA661D2A54C1009BDBAA /* UIButton+FillColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483BA651D2A54C1009BDBAA /* UIButton+FillColor.m */; };
 		048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048BA6D91CF3E55A00185CAD /* BCCell.m */; };
 		048BA6DC1CF3E55A00185CAD /* BCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048BA6DA1CF3E55A00185CAD /* BCCell.xib */; };
 		048FDB6D1CD9863F00F10826 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FDB6C1CD9863F00F10826 /* BaseViewController.m */; };
@@ -120,6 +121,8 @@
 		04AB05C21CF2E22500C96F07 /* DazStarOutline.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AB05C11CF2E22500C96F07 /* DazStarOutline.png */; };
 		04AB05C61CF2E57D00C96F07 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB05C51CF2E57D00C96F07 /* CollectionViewController.m */; };
 		04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB05C81CF2E6A100C96F07 /* BCFlowLayout.m */; };
+		04B387F01D2C9AE200396ED2 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B387EF1D2C9AE200396ED2 /* ChartViewController.m */; };
+		04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B387F21D2C9B6A00396ED2 /* BCChartView.m */; };
 		04B3AB451CE426B8000EC479 /* CubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3AB441CE426B8000EC479 /* CubeViewController.m */; };
 		04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */; };
 		04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA61CE172A200BA3BDD /* UIScrollView+UITouch.m */; };
@@ -281,6 +284,8 @@
 		047BD70F1D129E1900BA5700 /* BCCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCCollectionViewCell.xib; sourceTree = "<group>"; };
 		047BD7101D129E1900BA5700 /* BCPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPhotoViewController.h; sourceTree = "<group>"; };
 		047BD7111D129E1900BA5700 /* BCPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPhotoViewController.m; sourceTree = "<group>"; };
+		0483BA641D2A54C1009BDBAA /* UIButton+FillColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FillColor.h"; sourceTree = "<group>"; };
+		0483BA651D2A54C1009BDBAA /* UIButton+FillColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FillColor.m"; sourceTree = "<group>"; };
 		048BA6D81CF3E55A00185CAD /* BCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCCell.h; sourceTree = "<group>"; };
 		048BA6D91CF3E55A00185CAD /* BCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCCell.m; sourceTree = "<group>"; };
 		048BA6DA1CF3E55A00185CAD /* BCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCCell.xib; sourceTree = "<group>"; };
@@ -371,6 +376,10 @@
 		04AB05C51CF2E57D00C96F07 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		04AB05C71CF2E6A100C96F07 /* BCFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCFlowLayout.h; sourceTree = "<group>"; };
 		04AB05C81CF2E6A100C96F07 /* BCFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCFlowLayout.m; sourceTree = "<group>"; };
+		04B387EE1D2C9AE200396ED2 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		04B387EF1D2C9AE200396ED2 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
+		04B387F11D2C9B6A00396ED2 /* BCChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCChartView.h; sourceTree = "<group>"; };
+		04B387F21D2C9B6A00396ED2 /* BCChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCChartView.m; sourceTree = "<group>"; };
 		04B3AB431CE426B8000EC479 /* CubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeViewController.h; sourceTree = "<group>"; };
 		04B3AB441CE426B8000EC479 /* CubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeViewController.m; sourceTree = "<group>"; };
 		04C9ACA21CE16C0E00BA3BDD /* KeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
@@ -736,10 +745,13 @@
 				048FDB6C1CD9863F00F10826 /* BaseViewController.m */,
 				0492CC771CFFCE2A0027066B /* UIViewController+Test.h */,
 				0492CC781CFFCE2A0027066B /* UIViewController+Test.m */,
+				0483BA641D2A54C1009BDBAA /* UIButton+FillColor.h */,
+				0483BA651D2A54C1009BDBAA /* UIButton+FillColor.m */,
 				04DE7D431D0122B60088A654 /* BCKeyChain.h */,
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04B387ED1D2C9AC100396ED2 /* 网格 */,
 				04D079B21D2246E2006F36EA /* TableView动画 */,
 				04E78BCD1D2126FE007FC9B3 /* 滚动的图片 */,
 				049A1C931D20B3DF0074948D /* 点赞动画 */,
@@ -926,6 +938,17 @@
 				048BA6DA1CF3E55A00185CAD /* BCCell.xib */,
 			);
 			name = "CollectionView浏览图片";
+			sourceTree = "<group>";
+		};
+		04B387ED1D2C9AC100396ED2 /* 网格 */ = {
+			isa = PBXGroup;
+			children = (
+				04B387EE1D2C9AE200396ED2 /* ChartViewController.h */,
+				04B387EF1D2C9AE200396ED2 /* ChartViewController.m */,
+				04B387F11D2C9B6A00396ED2 /* BCChartView.h */,
+				04B387F21D2C9B6A00396ED2 /* BCChartView.m */,
+			);
+			name = "网格";
 			sourceTree = "<group>";
 		};
 		04B3AB3F1CE4260D000EC479 /* 3D浏览图片 */ = {
@@ -1394,6 +1417,7 @@
 				041328301D056F270042CFE8 /* FSMStateUtil.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
 				048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */,
+				04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */,
 				047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */,
 				0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */,
 				0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */,
@@ -1414,6 +1438,7 @@
 				043BF95A1CD8676100372213 /* ViewController.m in Sources */,
 				04D07A141D226AAD006F36EA /* RollingTableViewCell.m in Sources */,
 				044552A31D0D2954001298D9 /* SpeechToTextViewController.m in Sources */,
+				0483BA661D2A54C1009BDBAA /* UIButton+FillColor.m in Sources */,
 				04A4D67B1CFD2E3000A5BD35 /* ShowPageViewController.m in Sources */,
 				04B3AB451CE426B8000EC479 /* CubeViewController.m in Sources */,
 				04EC9C8C1CD99C3F0012BA8E /* UINavigationBar+Gradient.m in Sources */,
@@ -1445,6 +1470,7 @@
 				04AB05BE1CF2D00100C96F07 /* CalayerViewController.m in Sources */,
 				041328331D056F270042CFE8 /* ReachStateUnloaded.m in Sources */,
 				041328341D056F270042CFE8 /* ReachStateUnReachable.m in Sources */,
+				04B387F01D2C9AE200396ED2 /* ChartViewController.m in Sources */,
 				04D878991CDB0DFC0015916C /* FormatterViewController.m in Sources */,
 				04F4F06E1CD9DCB100F46C7E /* RefreshViewController.m in Sources */,
 				04D8788C1CDADBE40015916C /* StarViewController.m in Sources */,

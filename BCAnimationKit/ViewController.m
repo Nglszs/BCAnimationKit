@@ -45,7 +45,7 @@
 #import "ClickAttentionViewController.h"
 #import "CRMotionViewController.h"
 #import "TableAnimationViewController.h"
-
+#import "ChartViewController.h"
 @interface ViewController ()
 {
 
@@ -86,7 +86,7 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图"];
     
     
     
@@ -314,7 +314,9 @@
             //导航栏渐变
             NavbarGradientViewController *navVC = [NavbarGradientViewController new];
             navVC.isGradient = YES;//yes 时为渐变，no为突变
+           
             [self.navigationController pushViewController:navVC animated:NO];
+            
             
         }
             break;
@@ -346,8 +348,12 @@
         }
         case 6:{//输入格式化
             
+            //由于CATranstion的私有API里的动画并不能通过审核，这里用uiview 的动画来实现
+            [UIView transitionWithView:self.navigationController.view duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            
             [self.navigationController pushViewController:[FormatterViewController new] animated:NO];
-            break;
+            } completion:nil];
+                       break;
             
         }
         case 7:{//发散按钮
@@ -561,6 +567,13 @@
             break;
             
         }
+        case 38:{//网格视图
+            
+            [self.navigationController pushViewController:[ChartViewController new] animated:NO];
+            break;
+            
+        }
+
             default:
             break;
     }

@@ -54,7 +54,7 @@
     
     
     
-    //下面是所有图的集合花在一起
+    //下面是所有图的集合画在一起
     for (int i = 0; i < self.valueY.count; i ++) {
         
        
@@ -68,7 +68,6 @@
         
         
         UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-        
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = path.CGPath;
         layer.strokeColor = [UIColor whiteColor].CGColor;

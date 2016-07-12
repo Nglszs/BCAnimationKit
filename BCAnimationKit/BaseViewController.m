@@ -39,8 +39,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDayModel) name:Day object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openNightModel) name:Night object:nil];
    
-    
-    
+ 
     //保存用户名和密码
     
    // NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
@@ -250,7 +249,107 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     
     
 }
+#pragma  mark  网络请求缓存框架,这里用etag和LastModified两种方法结合
 
+
+- (void)getDataFromInternet:(GetDataCompletion)completion {
+    //支持etag
+   NSString *kETagImageURL = @"http://ac-g3rossf7.clouddn.com/xc8hxXBbXexA8LpZEHbPQVB.jpg";
+    
+    //下面这个链接不支持etag
+    NSString *kLastModifiedImageURL = @"http://image17-c.poco.cn/mypoco/myphoto/20151211/16/17338872420151211164742047.png";
+
+    NSURL *url = [NSURL URLWithString:kETagImageURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
+
+    if (isEtag) {
+        // 发送 etag
+        if (self.etag.length > 0) {
+            [request setValue:self.etag forHTTPHeaderField:@"If-None-Match"];
+        }
+
+    } else {
+    
+        if (self.localLastModified.length > 0) {
+            [request setValue:self.localLastModified forHTTPHeaderField:@"If-Modified-Since"];
+        }
+
+    
+    }
+
+    //请求
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+       
+        //判断是否支持etag
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+
+        if (httpResponse.allHeaderFields[@"Etag"]) {
+            
+            isEtag = YES;
+            NSLog(@"支持etag");
+            
+            if (httpResponse.statusCode == 304) {
+                
+                NSLog(@"加载本地缓存图片");
+                // 如果是，使用本地缓存
+                // 根据请求获取到`被缓存的响应`！
+                NSCachedURLResponse *cacheResponse =  [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+                // 拿到缓存的数据
+                data = cacheResponse.data;
+           
+            }
+            
+            // 获取并且纪录 etag，区分大小写
+            self.etag = httpResponse.allHeaderFields[@"Etag"];
+            
+
+        } else {
+        
+            NSLog(@"不支持etag");
+            isEtag = NO;
+        
+            if (httpResponse.statusCode == 304) {
+                NSLog(@"加载本地缓存图片");
+                // 如果是，使用本地缓存
+                // 根据请求获取到`被缓存的响应`！
+                NSCachedURLResponse *cacheResponse =  [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+                // 拿到缓存的数据
+              
+                data = cacheResponse.data;
+            }
+            
+            // 获取并且纪录 LastModified
+            self.localLastModified = httpResponse.allHeaderFields[@"Last-Modified"];
+        
+        }
+        
+        
+        if (data) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                completion(data);
+            });
+        }
+        
+    }] resume];
+
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+    //[self getDataFromInternet:^(NSData *data) {
+   
+//    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    image.image = [UIImage imageWithData:data];
+//    [[UIApplication sharedApplication].keyWindow addSubview:image];
+    
+//}];
+
+}
 //汉字转拼音
 //- (NSString *)chineseToPinyin:(NSString *)chinese withSpace:(BOOL)withSpace {
 //    CFStringRef hanzi = (__bridge CFStringRef)chinese;

@@ -34,12 +34,14 @@
     
     
     
-   // NSLog(@"%@",[self getAnyCharStringWitn:32])
+    
+    
+  
     
         return YES;
 }
 
-//获取随机字符串，可用来作为异步登录判断，也可用devicetoken
+//获取随机字符串，可用来作为异步登录判断，也可用devicetoken,将这些保存在keychain里即可
 - (NSString *)getAnyCharStringWitn:(int)tempLength {
     NSString *tempStr = @"abcdefABCDEF0123456789abcdefABCDEF0123456789abcdefABCDEF0123456789";
     NSString *kRandomAlphabet = [NSString stringWithFormat:@"%@",tempStr];

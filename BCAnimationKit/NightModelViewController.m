@@ -69,7 +69,7 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    
+     NSLog(@"开启夜间模式");
     
 }
 - (void)openDayModel {

@@ -14,6 +14,8 @@
 {
 
     UILabel  *resultLabel;
+    NSInteger shopNumber;
+    UITextField *tf;
 }
 @end
 
@@ -50,11 +52,70 @@
     resultLabel.center = self.view.center;
     resultLabel.font = text12Font;
     [self.view addSubview:resultLabel];
+    
+    
+    
+    // 兑换数量控制
+    
+    tf = [[UITextField alloc] initWithFrame:CGRectMake(100, 400, 28 * 3, 28)];
+    tf.backgroundColor = [UIColor lightGrayColor];
+    tf.leftViewMode = UITextFieldViewModeAlways;
+    tf.rightViewMode = UITextFieldViewModeAlways;
+    tf.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tf];
 
+    UIButton *reduceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    reduceBtn.frame = CGRectMake(0, 0, 28, 28);
+    reduceBtn.backgroundColor = [UIColor whiteColor];
+    reduceBtn.tag = 9;
+    [reduceBtn setImage:[UIImage imageNamed:@"btn_reduce"] forState:UIControlStateNormal];
+    [reduceBtn addTarget:self action:@selector(exchangeNumberBtn:) forControlEvents:UIControlEventTouchUpInside];
+    tf.leftView = reduceBtn;
+    
+    UIButton *upBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    upBtn.frame = CGRectMake(50, 10, 28, 28);
+    upBtn.tag = 10;
+    upBtn.backgroundColor = [UIColor whiteColor];
+    [upBtn setImage:[UIImage imageNamed:@"btn_add"] forState:UIControlStateNormal];
+    [upBtn addTarget:self action:@selector(exchangeNumberBtn:) forControlEvents:UIControlEventTouchUpInside];
+    tf.rightView = upBtn;
 
+    
+    shopNumber = 1;
+    
+ tf.text = [NSString stringWithFormat:@"%ld",shopNumber];
 
 }
 
+- (void)exchangeNumberBtn:(UIButton *)btn {
+
+
+    if (tf.editing) {
+        [tf endEditing:YES];
+    }
+    
+    if (btn.tag == 9) {
+        
+        shopNumber --;
+        
+        
+        
+    } else {
+    
+        shopNumber ++;
+    
+    }
+    if (shopNumber <= 1 ) {
+        
+        shopNumber = 1;
+        
+    }
+
+   
+    tf.text = [NSString stringWithFormat:@"%ld",shopNumber];
+
+
+}
 - (void)clickButton:(UIButton *)sender {
 
    

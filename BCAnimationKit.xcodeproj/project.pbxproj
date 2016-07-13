@@ -181,6 +181,7 @@
 		04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E87B1A1CF427E800076BE4 /* ShimmerViewController.m */; };
 		04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E87B1E1CF450D900076BE4 /* ScaleViewController.m */; };
 		04EC9C8C1CD99C3F0012BA8E /* UINavigationBar+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9C8B1CD99C3F0012BA8E /* UINavigationBar+Gradient.m */; };
+		04F4B7CE1D35D7BC008AB867 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4B7CD1D35D7BC008AB867 /* LoadingViewController.m */; };
 		04F4F05F1CD9BBCA00F46C7E /* icon_arrow_right_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F4F05D1CD9BBCA00F46C7E /* icon_arrow_right_d@2x.png */; };
 		04F4F0601CD9BBCA00F46C7E /* icon_arrow_right_d@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F4F05E1CD9BBCA00F46C7E /* icon_arrow_right_d@3x.png */; };
 		04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4F0621CD9C29900F46C7E /* ShoppingCartViewController.m */; };
@@ -466,6 +467,8 @@
 		04E87B1E1CF450D900076BE4 /* ScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleViewController.m; sourceTree = "<group>"; };
 		04EC9C8A1CD99C3F0012BA8E /* UINavigationBar+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Gradient.h"; sourceTree = "<group>"; };
 		04EC9C8B1CD99C3F0012BA8E /* UINavigationBar+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Gradient.m"; sourceTree = "<group>"; };
+		04F4B7CC1D35D7BC008AB867 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		04F4B7CD1D35D7BC008AB867 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		04F4F05C1CD9BA0D00F46C7E /* BCHeadFix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHeadFix.pch; sourceTree = "<group>"; };
 		04F4F05D1CD9BBCA00F46C7E /* icon_arrow_right_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrow_right_d@2x.png"; sourceTree = "<group>"; };
 		04F4F05E1CD9BBCA00F46C7E /* icon_arrow_right_d@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrow_right_d@3x.png"; sourceTree = "<group>"; };
@@ -775,6 +778,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04F4B7CB1D35D7A4008AB867 /* 加载动画 */,
 				04189FA21D336A98006799D5 /* 显示webview上的图片 */,
 				04B387ED1D2C9AC100396ED2 /* 网格 */,
 				04D079B21D2246E2006F36EA /* TableView动画 */,
@@ -1156,6 +1160,15 @@
 			name = "UIView放大动画";
 			sourceTree = "<group>";
 		};
+		04F4B7CB1D35D7A4008AB867 /* 加载动画 */ = {
+			isa = PBXGroup;
+			children = (
+				04F4B7CC1D35D7BC008AB867 /* LoadingViewController.h */,
+				04F4B7CD1D35D7BC008AB867 /* LoadingViewController.m */,
+			);
+			name = "加载动画";
+			sourceTree = "<group>";
+		};
 		04F4F0671CD9CC1000F46C7E /* 点击左上角按钮 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1500,6 +1513,7 @@
 				04AB05BE1CF2D00100C96F07 /* CalayerViewController.m in Sources */,
 				041328331D056F270042CFE8 /* ReachStateUnloaded.m in Sources */,
 				041328341D056F270042CFE8 /* ReachStateUnReachable.m in Sources */,
+				04F4B7CE1D35D7BC008AB867 /* LoadingViewController.m in Sources */,
 				04B387F01D2C9AE200396ED2 /* ChartViewController.m in Sources */,
 				04D878991CDB0DFC0015916C /* FormatterViewController.m in Sources */,
 				04F4F06E1CD9DCB100F46C7E /* RefreshViewController.m in Sources */,

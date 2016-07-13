@@ -47,7 +47,7 @@
 #import "TableAnimationViewController.h"
 #import "ChartViewController.h"
 #import "WebImageViewController.h"
-
+#import "LoadingViewController.h"
 
 
 @interface ViewController ()
@@ -90,7 +90,7 @@
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片",@"等待加载动画"];
     
     
     
@@ -581,6 +581,12 @@
             break;
             
         }
+        case 40:{//加载动画
+            
+            [self.navigationController pushViewController:[LoadingViewController new] animated:NO];
+            break;
+            
+        }
 
             default:
             break;
@@ -600,7 +606,7 @@
     
     
     
-    
+  
     
     
 
@@ -793,7 +799,7 @@
         }
             break;
 
-        case 10://放大
+        case 10://逐渐像两边放大的效果,这种放大效果其实是从（0，0）放大到（1，1）也就是整个cell
         {
             cell.transform = CGAffineTransformMakeScale(0, 0);
             [UIView animateWithDuration:1 delay:0.05 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
@@ -808,19 +814,14 @@
             
         }
             break;
-        case 11://逐渐放大,这个以后待改进，我想要的效果类似于滚轮那种，现在还没有实现
+        case 11://也是放大不过是从（0，1）点放大到（1，1）
             
         {
-             CGFloat gapX = CGRectGetMidY(self.view.frame) - CGRectGetMidY(cell.frame);
-            // 根据间距值计算 cell的缩放比例
-            CGFloat scale = 1 - ABS(gapX) / BCWidth;
-            
-            // 设置缩放比例
-            cell.transform = CGAffineTransformMakeScale(scale, scale);
+            cell.layer.transform = CATransform3DMakeScale(1, .1, 1);
             
             [UIView animateWithDuration:1 delay:0.05 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
                 
-                cell.transform = CGAffineTransformMakeScale(1, 1);
+                cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
                 
             } completion:^(BOOL finished) {
                 
@@ -828,8 +829,62 @@
             }];
 
             
+        }
+            break;
+        case 12://上下翻转，左右翻转
+            
+        {
+            CATransform3D transform = CATransform3DIdentity;
+            transform = CATransform3DRotate(transform, M_PI, 0.0, 1.0, 0.0);
+            //这里m_pi代表转动方向加个正负就好了，（0，1）则是左右翻滚，（1.0）上下翻滚
+            
+            transform = CATransform3DTranslate(transform, 0.0, 0.0, 0.0);
+            
+            cell.layer.transform = transform;
 
             
+            [UIView animateWithDuration:1 delay:0.05 * indexPath.row usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:0 animations:^{
+                
+                cell.layer.transform = CATransform3DIdentity;
+
+            } completion:^(BOOL finished) {
+                
+                
+            }];
+            
+            
+        }
+            break;
+        case 13://绕某点旋转
+            
+        {
+            CATransform3D transform = CATransform3DIdentity;
+            transform = CATransform3DMakeRotation( M_PI_2, 0.0, 0.7, 0.4);
+            transform.m34 = 1.0/ -600;
+            
+            
+            cell.layer.anchorPoint = CGPointMake(0, 0.5);
+            cell.layer.transform = transform;
+            
+            
+            [UIView animateWithDuration:.5 animations:^{
+                
+                cell.layer.transform = CATransform3DIdentity;
+                cell.frame = CGRectMake(0, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+            }];
+            
+            //这个是从中间旋转，跟上面类似
+//            cell.layer.transform = CATransform3DMakeRotation(-M_PI_2, 0, 0, 1);
+//            
+//            [UIView animateWithDuration:1.0 animations:^{
+//                
+//                cell.layer.transform = CATransform3DMakeRotation(M_PI_2, 0, 0, 0);
+//                
+//            }];
+
+            
+           
+        
         }
             break;
 

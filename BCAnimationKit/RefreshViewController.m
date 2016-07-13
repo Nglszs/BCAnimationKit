@@ -81,7 +81,7 @@
     
     
     
-    self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(20, 0, 0);
+    self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(20, 0, 0);//设置间隔
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     animation.duration = 1;
     animation.repeatCount = MAXFLOAT;

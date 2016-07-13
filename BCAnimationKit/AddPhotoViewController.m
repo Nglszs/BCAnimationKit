@@ -174,7 +174,7 @@
     } else {
     
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-     [self presentViewController:self.imagePicker animated:YES completion:nil];
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
     
     }
     
@@ -202,9 +202,9 @@
 
     
 
-}
+        }
    
-    [self showChosePhoto:newImage];
+        [self showChosePhoto:newImage];
     
     
 }

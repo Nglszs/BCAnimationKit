@@ -90,21 +90,11 @@
     transform = CATransform3DRotate(transform, M_PI/2, 0.0f, 1.0f, 0.0f);
     cell.layer.transform = CATransform3DTranslate(transform, cell.layer.bounds.size.width/2.0f, 0.0f, 0.0f);
     
-    //这里的动画完全和万象城一样，没有延时时间，耗时为。5，可以参考首页的6动画，那个是带延时的
-    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.0 options:0 animations:^{
-        
-        
-        
-        
-        cell.layer.transform = CATransform3DIdentity;
-        cell.layer.opacity = 1.0f;
-        
-        
-    } completion:^(BOOL finished) {
-        
-        
-    }];
-   
+    //这里的动画完全和万象城一样，没有延时时间，耗时为。5，可以参考首页的6动画，那个是带延时和弹性的
+   [UIView animateWithDuration:.5 animations:^{
+       cell.layer.transform = CATransform3DIdentity;
+       
+   }];
     
    
    

@@ -118,7 +118,7 @@
 }
 
 
-- (void)loadCAEmitterLayer {//烟花动画，参考别人的demo
+- (void)loadCAEmitterLayer {//烟花动画
 
 
 

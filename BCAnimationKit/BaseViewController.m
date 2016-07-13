@@ -362,4 +362,16 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    }
 //    return pinyin;
 //}
+
+//- (CGFloat)getStringHeightNotFormatWith:(NSString*)tempStr width:(CGFloat)tempWidth font:(UIFont*)tempFont {
+//    
+//    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(tempWidth, 0)
+//                                        options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesDeviceMetrics|NSStringDrawingUsesFontLeading
+//                                     attributes:@{NSFontAttributeName:tempFont}
+//                                        context:nil];
+//    //文字的高度
+//    float tempHeight = rect.size.height;
+//    
+//    return tempHeight;
+//}
 @end

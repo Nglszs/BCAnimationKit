@@ -106,7 +106,7 @@
     } else {
         
     UIImagePickerController *_imagePicker = [[UIImagePickerController alloc] init];
-    _imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     _imagePicker.delegate = self;
     [self presentViewController:_imagePicker animated:NO completion:nil];
     

@@ -10,7 +10,7 @@
 
 #define count  5
 
-@interface StarViewController ()
+@interface StarViewController ()<UITextFieldDelegate>
 {
 
     UILabel  *resultLabel;
@@ -62,13 +62,15 @@
     tf.leftViewMode = UITextFieldViewModeAlways;
     tf.rightViewMode = UITextFieldViewModeAlways;
     tf.textAlignment = NSTextAlignmentCenter;
+    tf.keyboardType = UIKeyboardTypeNumberPad;
+    tf.delegate = self;
     [self.view addSubview:tf];
 
     UIButton *reduceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     reduceBtn.frame = CGRectMake(0, 0, 28, 28);
     reduceBtn.backgroundColor = [UIColor whiteColor];
     reduceBtn.tag = 9;
-    [reduceBtn setImage:[UIImage imageNamed:@"btn_reduce"] forState:UIControlStateNormal];
+    [reduceBtn setImage:[UIImage imageNamed:@"btn_reduce1"] forState:UIControlStateNormal];
     [reduceBtn addTarget:self action:@selector(exchangeNumberBtn:) forControlEvents:UIControlEventTouchUpInside];
     tf.leftView = reduceBtn;
     
@@ -85,6 +87,33 @@
     
  tf.text = [NSString stringWithFormat:@"%ld",shopNumber];
 
+}
+
+#pragma mark textField代理
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    if (string.length <= 0) {
+        if (textField.text.length <= 1) {
+            return NO;
+        }
+        return YES;
+    }
+    
+    if (![self isPureInt:string]) {//判断是否为数字
+        
+        NSLog(@"当前输入字符非字符串");
+        
+        return NO;
+    }
+    
+   
+    return YES;
+}
+- (BOOL)isPureInt:(NSString*)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
 }
 
 - (void)exchangeNumberBtn:(UIButton *)btn {

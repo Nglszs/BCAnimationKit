@@ -14,7 +14,7 @@
 
 @implementation BaseViewController
 
-NSString * const KEY_USERNAME_PASSWORD = @"com.company.app.usernamepassword";
+NSString * const KEY_USERNAME_PASSWORD = @"com.jack.app.usernamepassword";;
 NSString * const KEY_USERNAME = @"com.company.app.username";
 NSString * const KEY_PASSWORD = @"com.company.app.password";
 
@@ -52,9 +52,9 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    NSMutableDictionary *usernamepasswordKVPairs1 = (NSMutableDictionary *)[BCKeyChain load:KEY_USERNAME_PASSWORD];
 //    NSString *name = [usernamepasswordKVPairs1 objectForKey:KEY_USERNAME];
 //    NSString *pass = [usernamepasswordKVPairs1 objectForKey:KEY_PASSWORD];
+//
 //    
-//    
-//    NSLog(@"%@ -- %@",name,pass);
+//   NSLog(@"%@ -- %@",name,pass);
 //    删除用户
 //    [BCKeyChain delete:KEY_USERNAME_PASSWORD];
 
@@ -366,7 +366,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //- (CGFloat)getStringHeightNotFormatWith:(NSString*)tempStr width:(CGFloat)tempWidth font:(UIFont*)tempFont {
 //    
 //    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(tempWidth, 0)
-//                                        options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesDeviceMetrics|NSStringDrawingUsesFontLeading
+//                                        options:NSStringDrawingUsesLineFragmentOrigin|        NSStringDrawingUsesDeviceMetrics|NSStringDrawingUsesFontLeading
 //                                     attributes:@{NSFontAttributeName:tempFont}
 //                                        context:nil];
 //    //文字的高度

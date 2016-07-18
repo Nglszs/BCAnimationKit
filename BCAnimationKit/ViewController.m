@@ -48,7 +48,9 @@
 #import "ChartViewController.h"
 #import "WebImageViewController.h"
 #import "LoadingViewController.h"
-
+#import "BCClearCache.h"
+#import "CustomPushViewController.h"
+#import "CustomPresentViewController.h"
 
 @interface ViewController ()
 {
@@ -62,12 +64,15 @@
     
     CGFloat motionOffset;
     NSTimer *time;
+    
+    
 
 }
 
 
 @property (strong,nonatomic) CMMotionManager *motionManager;//重力滚动相关
 @property (nonatomic, assign) NSInteger maximumOffset;//最大偏移
+@property (nonatomic) CAShapeLayer* shapeLayer;//表头形变用到的
 @end
 
 @implementation ViewController
@@ -79,18 +84,31 @@
     testType = arc4random_uniform(10);
     self.title = @"动画";
    
+    
+    
     //此项目的目地是为了将一些常用的功能封装起来，供大家直接使用或者学习
     
     
-    testTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    testTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BCWidth, BCHeight) style:UITableViewStylePlain];
     testTableView.delegate = self;
     testTableView.dataSource = self;
     testTableView.tableFooterView = [UIView new];
  
     testTableView.rowHeight = 44;
     [self.view addSubview:testTableView];
+    
+    //添加可形变的tableview表头
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BCWidth, 50)];
+    testTableView.tableHeaderView = headView;
+    testTableView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0);
+    //添加形变的layer
+    self.shapeLayer = [CAShapeLayer layer];
+    self.shapeLayer.fillColor = [UIColor lightGrayColor].CGColor;
+    [headView.layer addSublayer: self.shapeLayer];
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片",@"等待加载动画"];
+    
+
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片",@"等待加载动画",@"自定义Pop动画",@"自定义Present动画"];
     
     
     
@@ -117,8 +135,11 @@
     //这个是用重力来控制列表的滑动，这里已经不用，还有些瑕疵
 
   // [self initMotion];
+    
+    
    
-   }
+    
+}
 
 #pragma mark 重力滚动相关
 - (void)initMotion {
@@ -280,6 +301,7 @@
         
         cell.accessoryView = rightImage;
         cell.textLabel.textColor = DefaultColor;
+    
     }
     
     if (indexPath.row > currentIndex) {//限制动画范围，只让当前屏幕显示的cell有动画
@@ -584,6 +606,18 @@
         case 40:{//加载动画
             
             [self.navigationController pushViewController:[LoadingViewController new] animated:NO];
+            break;
+            
+        }
+        case 41:{//自定义push
+            
+            [self.navigationController pushViewController:[CustomPushViewController new] animated:NO];
+            break;
+            
+        }
+        case 42:{//自定义present
+            
+            [self.navigationController pushViewController:[CustomPresentViewController new] animated:NO];
             break;
             
         }
@@ -904,6 +938,40 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+//下面这个方法获取当前应用所占的存储空间
+//   NSLog(@"%@",[BCClearCache getCacheSizeWithFilePath:NSHomeDirectory()]);
+//
+//    //这个方法获取整个设备的存储空间用量
+//    NSString* path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] ;
+//    NSFileManager* fileManager = [[NSFileManager alloc ]init];
+  // NSDictionary *fileSysAttributes = [fileManager attributesOfFileSystemForPath:path error:nil];
+//    NSNumber *freeSpace = [fileSysAttributes objectForKey:NSFileSystemFreeSize];
+//    NSNumber *totalSpace = [fileSysAttributes objectForKey:NSFileSystemSize];
+//    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1024.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
+//    NSLog(@"%@",text);
+
+#pragma mark 表头形变
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+ 
+  
+    if (scrollView.contentOffset.y <= 0) {
+        
+        UIBezierPath* bezier = [UIBezierPath new];
+        [bezier moveToPoint: CGPointMake(0, scrollView.contentOffset.y + 64)];//因为这里有导航栏所以加上导航栏高度
+        [bezier addLineToPoint: CGPointMake(BCWidth,scrollView.contentOffset.y +64)];
+        [bezier addQuadCurveToPoint: CGPointMake(0,scrollView.contentOffset.y +64)
+                       controlPoint: CGPointMake(BCWidth / 2, 100 - scrollView.contentOffset.y - 64)];//这里的100是headview的宽度乘以2
+        
+        
+        self.shapeLayer.path = bezier.CGPath;
+    }
+    
+   
+
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

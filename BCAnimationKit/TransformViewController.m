@@ -64,10 +64,10 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
-[self.navigationController pushViewController:[SecondViewController new] animated:NO];
+   [self.navigationController pushViewController:[SecondViewController new] animated:NO];
 
     
-    //下面是缩小回来的动画
+//    //下面是缩小回来的动画,配合下面的代理
 //    CGRect tempRect = CGRectInset(testRect, -600, -600);
 //    CGPathRef startPath;
 //    CGPathRef endPath;
@@ -90,7 +90,7 @@
 //    
 //    CGPathRelease(startPath);
 //    CGPathRelease(endPath);
-    
+//    
     
     
 
@@ -101,7 +101,7 @@
 //    if ([[anim valueForKey:@"animate1"] isEqualToString:@"animate1"]) {
 //        
 //    if (flag) {
-       // [self.navigationController pushViewController:[SecondViewController new] animated:NO];
+//        [self.navigationController pushViewController:[SecondViewController new] animated:NO];
 //    }
 //        
 //    }

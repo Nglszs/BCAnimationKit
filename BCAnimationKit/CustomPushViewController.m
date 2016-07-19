@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    //如果需要全局都使用这种动画，最好将下面的方法写在appdelegate里面，这里写在vc中，然后退出此界面会调用系统默认的动画
+    //如果需要全局都使用这种动画，最好将下面的代理方法写在appdelegate里面，这里写在vc中，然后退出此界面会调用系统默认的动画
     
     
     self.navigationController.navigationBarHidden = YES;
@@ -85,7 +85,7 @@
 - (void)viewWillDisappear:(BOOL)animated {//恢复原样
     [super viewWillDisappear:animated];
     
-    if (self.navigationController.viewControllers.count == 2) {
+    if (self.navigationController.viewControllers.count == 1) {
         
         self.navigationController.navigationBarHidden = NO;
         self.navigationController.delegate = nil;

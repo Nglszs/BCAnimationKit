@@ -22,6 +22,7 @@
 		0405DC2C1CFC1B97003F2741 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405DC2B1CFC1B97003F2741 /* CoreTelephony.framework */; };
 		0405DC2E1CFC1B9E003F2741 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405DC2D1CFC1B9E003F2741 /* CoreLocation.framework */; };
 		0405DC3B1CFC4519003F2741 /* ValueChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405DC3A1CFC4519003F2741 /* ValueChangeViewController.m */; };
+		04080C941D3DEEE8004FFD62 /* CustomSpread.m in Sources */ = {isa = PBXBuildFile; fileRef = 04080C931D3DEEE8004FFD62 /* CustomSpread.m */; };
 		041328091D0549EB0042CFE8 /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041328081D0549EB0042CFE8 /* SectionViewController.m */; };
 		0413280C1D054A900042CFE8 /* BCSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280B1D054A900042CFE8 /* BCSectionViewController.m */; };
 		0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280E1D055F010042CFE8 /* BCClearCache.m */; };
@@ -56,6 +57,9 @@
 		045521A81D3CBBE700775845 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A71D3CBBE700775845 /* background.jpg */; };
 		045521AA1D3CBBEE00775845 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A91D3CBBEE00775845 /* login.jpg */; };
 		045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521AC1D3CBC3400775845 /* PresentSecondViewController.m */; };
+		0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */; };
+		0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */; };
+		0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */; };
 		0471D2511CF52FD000A0C8CB /* TableScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471D2501CF52FD000A0C8CB /* TableScaleViewController.m */; };
 		0471D2541CF530F300A0C8CB /* BCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471D2531CF530F300A0C8CB /* BCTableViewCell.m */; };
 		047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BD70E1D129E1900BA5700 /* BCCollectionViewCell.m */; };
@@ -239,6 +243,8 @@
 		0405DC2D1CFC1B9E003F2741 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0405DC391CFC4519003F2741 /* ValueChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueChangeViewController.h; sourceTree = "<group>"; };
 		0405DC3A1CFC4519003F2741 /* ValueChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueChangeViewController.m; sourceTree = "<group>"; };
+		04080C921D3DEEE8004FFD62 /* CustomSpread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSpread.h; sourceTree = "<group>"; };
+		04080C931D3DEEE8004FFD62 /* CustomSpread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSpread.m; sourceTree = "<group>"; };
 		041328071D0549EB0042CFE8 /* SectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
 		041328081D0549EB0042CFE8 /* SectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionViewController.m; sourceTree = "<group>"; };
 		0413280A1D054A900042CFE8 /* BCSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCSectionViewController.h; sourceTree = "<group>"; };
@@ -302,6 +308,12 @@
 		045521A91D3CBBEE00775845 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login.jpg; path = Images/login.jpg; sourceTree = "<group>"; };
 		045521AB1D3CBC3400775845 /* PresentSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentSecondViewController.h; sourceTree = "<group>"; };
 		045521AC1D3CBC3400775845 /* PresentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSecondViewController.m; sourceTree = "<group>"; };
+		0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteViewController.h; sourceTree = "<group>"; };
+		0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteViewController.m; sourceTree = "<group>"; };
+		0468DF7C1D3DBEB000519E42 /* KeynoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteTransition.h; sourceTree = "<group>"; };
+		0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteTransition.m; sourceTree = "<group>"; };
+		0468DF7F1D3DC65400519E42 /* KeynoteSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteSecondViewController.h; sourceTree = "<group>"; };
+		0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteSecondViewController.m; sourceTree = "<group>"; };
 		0471D24F1CF52FD000A0C8CB /* TableScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableScaleViewController.h; sourceTree = "<group>"; };
 		0471D2501CF52FD000A0C8CB /* TableScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableScaleViewController.m; sourceTree = "<group>"; };
 		0471D2521CF530F300A0C8CB /* BCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTableViewCell.h; sourceTree = "<group>"; };
@@ -794,6 +806,19 @@
 			name = "自定义present动画";
 			sourceTree = "<group>";
 		};
+		0468DF781D3DBDEE00519E42 /* keynote动画 */ = {
+			isa = PBXGroup;
+			children = (
+				0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */,
+				0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */,
+				0468DF7F1D3DC65400519E42 /* KeynoteSecondViewController.h */,
+				0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */,
+				0468DF7C1D3DBEB000519E42 /* KeynoteTransition.h */,
+				0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */,
+			);
+			name = "keynote动画";
+			sourceTree = "<group>";
+		};
 		0471D24E1CF52FAB00A0C8CB /* TableView展开 */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,6 +840,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				0468DF781D3DBDEE00519E42 /* keynote动画 */,
 				045521A01D3CBB4E00775845 /* 自定义present动画 */,
 				04B24AA81D3CA85A0028A66B /* 自定义pop动画 */,
 				04F4B7CB1D35D7A4008AB867 /* 加载动画 */,
@@ -888,6 +914,8 @@
 				0492CC821CFFFC6D0027066B /* TransformViewController.m */,
 				0492CC841D0002B10027066B /* SecondViewController.h */,
 				0492CC851D0002B10027066B /* SecondViewController.m */,
+				04080C921D3DEEE8004FFD62 /* CustomSpread.h */,
+				04080C931D3DEEE8004FFD62 /* CustomSpread.m */,
 			);
 			name = "转场动画";
 			sourceTree = "<group>";
@@ -1527,6 +1555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */,
 				045521A61D3CBBD300775845 /* FYLoginTranslation.m in Sources */,
 				0405DC1C1CFC1A5C003F2741 /* ISRDataHelper.m in Sources */,
 				04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */,
@@ -1539,6 +1568,7 @@
 				0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */,
 				041328321D056F270042CFE8 /* ReachStateLoading.m in Sources */,
 				04D2A3141CDC2EA500376284 /* GifPlayViewController.m in Sources */,
+				0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */,
 				041328301D056F270042CFE8 /* FSMStateUtil.m in Sources */,
 				045521A31D3CBB6E00775845 /* CustomPresentViewController.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
@@ -1598,6 +1628,7 @@
 				04189FA51D336AC9006799D5 /* WebImageViewController.m in Sources */,
 				04AB05BE1CF2D00100C96F07 /* CalayerViewController.m in Sources */,
 				041328331D056F270042CFE8 /* ReachStateUnloaded.m in Sources */,
+				04080C941D3DEEE8004FFD62 /* CustomSpread.m in Sources */,
 				041328341D056F270042CFE8 /* ReachStateUnReachable.m in Sources */,
 				04B24AB11D3CA96F0028A66B /* PopControllerAnimation.m in Sources */,
 				04F4B7CE1D35D7BC008AB867 /* LoadingViewController.m in Sources */,
@@ -1610,6 +1641,7 @@
 				04E384FD1D372525006E9437 /* NSTimer+block.m in Sources */,
 				048FDB731CD991AA00F10826 /* NavbarGradientViewController.m in Sources */,
 				04D079B51D224712006F36EA /* TableAnimationViewController.m in Sources */,
+				0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */,
 				04D2A31C1CDC61BA00376284 /* ClickImageViewController.m in Sources */,
 				04A2EC241CF56DF200DF79B7 /* MessageModel.m in Sources */,
 				04FCD9701D18DB5D00547D3F /* CustomViewController.m in Sources */,

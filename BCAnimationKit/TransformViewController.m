@@ -19,8 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //这个方法可以不用重写转场动画来实现，下面被屏蔽的是另一种方法，如果只是在某两个界面需要这种效果那建议手写，如果在多个界面都需要此动画效果，那就重写
     testRect = CGRectMake(BCWidth - 10, 10, 10, 10);
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     
     
     UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake((BCWidth - 100)/2, 80, 150, 50)];
@@ -31,28 +33,29 @@
 
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {//放大
 
     [super viewWillAppear:animated];
     
-    CGRect tempRect = CGRectInset(testRect, -1000, -1000);
-    CGPathRef startPath = CGPathCreateWithEllipseInRect(tempRect, NULL);
-    CGPathRef endPath   = CGPathCreateWithEllipseInRect(testRect, NULL);
-    
-    CAShapeLayer *showLayer = [CAShapeLayer layer];
-    showLayer.path = startPath;
-    self.view.layer.mask = showLayer;
-    CABasicAnimation *pingAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pingAnimation.fromValue = (__bridge id)(endPath);
-    pingAnimation.toValue  = (__bridge id)(startPath);
-    pingAnimation.duration  = 1;
-    pingAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [pingAnimation setValue:@"animate2" forKey:@"animate2"];
-    [showLayer addAnimation:pingAnimation forKey:@"BackPath"];
-    
-    CGPathRelease(startPath);
-    CGPathRelease(endPath);
-
+//    CGRect tempRect = CGRectInset(testRect, -1000, -1000);
+//    CGPathRef startPath = CGPathCreateWithEllipseInRect(tempRect, NULL);
+//    CGPathRef endPath   = CGPathCreateWithEllipseInRect(testRect, NULL);
+//    
+//    CAShapeLayer *showLayer = [CAShapeLayer layer];
+//    showLayer.path = startPath;
+//    self.view.layer.mask = showLayer;
+//    CABasicAnimation *pingAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+//    pingAnimation.fromValue = (__bridge id)(endPath);
+//    pingAnimation.toValue  = (__bridge id)(startPath);
+//    pingAnimation.duration  = 1;
+//    pingAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    [pingAnimation setValue:@"animate2" forKey:@"animate2"];
+//    [showLayer addAnimation:pingAnimation forKey:@"BackPath"];
+//    
+//    CGPathRelease(startPath);
+//    CGPathRelease(endPath);
+//
 
 
 }
@@ -64,7 +67,9 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
-   [self.navigationController pushViewController:[SecondViewController new] animated:NO];
+    SecondViewController *second = [[SecondViewController alloc] init];
+    self.navigationController.delegate = second;
+   [self.navigationController pushViewController:second animated:YES];
 
     
 //    //下面是缩小回来的动画,配合下面的代理
@@ -91,9 +96,9 @@
 //    CGPathRelease(startPath);
 //    CGPathRelease(endPath);
 //    
-    
-    
-
+//    
+//    
+//
 
 }
 
@@ -102,6 +107,8 @@
 //        
 //    if (flag) {
 //        [self.navigationController pushViewController:[SecondViewController new] animated:NO];
+//        
+//        self.view.layer.mask = nil;
 //    }
 //        
 //    }

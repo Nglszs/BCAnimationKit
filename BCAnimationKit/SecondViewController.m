@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-
+#import "CustomSpread.h"
 @interface SecondViewController ()
 {
 
@@ -20,7 +20,9 @@ CGRect testRect;
 - (void)viewDidLoad {
     [super viewDidLoad];
      testRect = CGRectMake(BCWidth - 10, 10, 10, 10);
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:self.view.frame];
+    iv.image = [UIImage imageNamed:@"bg"];
+    [self.view addSubview:iv];
     
     UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake((BCWidth - 100)/2, 80, 150, 50)];
     showLabel.text = @"这是第二界面";
@@ -31,32 +33,12 @@ CGRect testRect;
 
 
 }
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    CGRect tempRect = CGRectInset(testRect, -1000, -1000);
-    CGPathRef startPath = CGPathCreateWithEllipseInRect(tempRect, NULL);
-    CGPathRef endPath   = CGPathCreateWithEllipseInRect(testRect, NULL);
-    
-    CAShapeLayer *showLayer = [CAShapeLayer layer];
-    showLayer.path = startPath;
-    self.view.layer.mask = showLayer;
-    CABasicAnimation *pingAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pingAnimation.fromValue = (__bridge id)(endPath);
-    pingAnimation.toValue  = (__bridge id)(startPath);
-    pingAnimation.duration  = 1;
-    pingAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [pingAnimation setValue:@"animate2" forKey:@"animate2"];
-    [showLayer addAnimation:pingAnimation forKey:@"BackPath"];
-    
-    CGPathRelease(startPath);
-    CGPathRelease(endPath);
-    
-    
-    
-}
 
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+{
+    return [[CustomSpread new] initWithTransitionType:operation == UINavigationControllerOperationPush ?  SpreadTransitionTypePush: SpreadTransitionTypePop];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

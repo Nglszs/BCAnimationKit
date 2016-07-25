@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-
 #import <Bugtags/Bugtags.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
   
     BugtagsOptions *options = [[BugtagsOptions alloc] init];
     options.trackingCrashes = YES;
@@ -36,7 +38,6 @@
     
     
   
-    
         return YES;
 }
 

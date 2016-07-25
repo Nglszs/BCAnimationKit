@@ -379,7 +379,8 @@
             //由于CATranstion的私有API里的动画并不能通过审核，这里用uiview 的动画来实现
             [UIView transitionWithView:self.navigationController.view duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
             
-            [self.navigationController pushViewController:[FormatterViewController new] animated:NO];
+                [self.navigationController pushViewController:[FormatterViewController new] animated:NO];
+                
             } completion:nil];
                        break;
             

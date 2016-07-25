@@ -638,8 +638,7 @@
 				043BF9561CD8676100372213 /* AppDelegate.m */,
 				043BF9581CD8676100372213 /* ViewController.h */,
 				043BF9591CD8676100372213 /* ViewController.m */,
-				048F1FAF1D459D4D00C755B6 /* Bugtags.bundle */,
-				048F1FAD1D459D4800C755B6 /* Bugtags.framework */,
+				048F1FB71D45B2C100C755B6 /* 崩溃收集 */,
 				048FDB6A1CD9861600F10826 /* Animation */,
 				043BF95E1CD8676100372213 /* Assets.xcassets */,
 				043BF9601CD8676100372213 /* LaunchScreen.storyboard */,
@@ -759,6 +758,15 @@
 				0471D2531CF530F300A0C8CB /* BCTableViewCell.m */,
 			);
 			name = "TableView展开";
+			sourceTree = "<group>";
+		};
+		048F1FB71D45B2C100C755B6 /* 崩溃收集 */ = {
+			isa = PBXGroup;
+			children = (
+				048F1FAF1D459D4D00C755B6 /* Bugtags.bundle */,
+				048F1FAD1D459D4800C755B6 /* Bugtags.framework */,
+			);
+			name = "崩溃收集";
 			sourceTree = "<group>";
 		};
 		048FDB6A1CD9861600F10826 /* Animation */ = {

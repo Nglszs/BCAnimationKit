@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "CustomSpread.h"
+#import "JXCircleSpreadTransition.h"
 @interface SecondViewController ()
 {
 
@@ -16,6 +17,17 @@ CGRect testRect;
 @end
 
 @implementation SecondViewController
+
+//下面如果是用模态必须用的
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.transitioningDelegate = self;
+//        self.modalPresentationStyle = UIModalPresentationCustom;
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,11 +46,34 @@ CGRect testRect;
 
 }
 
-
+#pragma 导航视图的代理
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
     return [[CustomSpread new] initWithTransitionType:operation == UINavigationControllerOperationPush ?  SpreadTransitionTypePush: SpreadTransitionTypePop];
 }
+
+
+
+
+#pragma  mark 模态视图的代理
+
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+//{
+//    return [JXCircleSpreadTransition transitionWithTransitionType:JXCircleSpreadTransitionTypePresent];
+//}
+//
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+//{
+//    return [JXCircleSpreadTransition transitionWithTransitionType:JXCircleSpreadTransitionTypeDismiss];
+//}
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    self.clickedPoint = [[touches anyObject] locationInView:[touches anyObject].view];
+//    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

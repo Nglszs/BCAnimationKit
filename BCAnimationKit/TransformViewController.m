@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //这个方法可以不用重写转场动画来实现，下面被屏蔽的是另一种方法，如果只是在某两个界面需要这种效果那建议手写，如果在多个界面都需要此动画效果，那就重写
+    //这个方法可以不用重写转场动画来实现，下面被屏蔽的是另一种方法，如果只是在某两个界面需要这种效果那建议手写，如果在多个界面都需要此动画效果，那就重写,而重写也分两种，一种是模态一种是导航，这里使用的是导航
     testRect = CGRectMake(BCWidth - 10, 10, 10, 10);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     
@@ -67,10 +67,18 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
+    
+    //这个是重写navigation的代理
     SecondViewController *second = [[SecondViewController alloc] init];
     self.navigationController.delegate = second;
    [self.navigationController pushViewController:second animated:YES];
 
+    //这个是重写模态视图的代理
+//    UITouch *touch = [touches anyObject];
+//    self.clickedPoint = [touch locationInView:touch.view];
+//    [self presentViewController:second animated:YES completion:nil];
+   
+    
     
 //    //下面是缩小回来的动画,配合下面的代理
 //    CGRect tempRect = CGRectInset(testRect, -600, -600);

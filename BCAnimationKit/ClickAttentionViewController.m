@@ -7,7 +7,7 @@
 //
 
 #import "ClickAttentionViewController.h"
-
+#import "UIButton+Common.h"
 @interface ClickAttentionViewController ()
 {
 
@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//   
+   
     UIButton *testBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     testBtn1.frame = CGRectMake(100, 100, 100, 50);
     testBtn1.center = self.view.center;
@@ -29,6 +29,7 @@
     testBtn1.layer.borderWidth = 2;
     testBtn1.tag = 10010;
     
+    [testBtn1 avoidClick];//避免重复点击
    
     
     [testBtn1 setImage:[UIImage imageNamed:@"icon_apply"] forState:UIControlStateNormal];

@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "BCKeyChain.h"
 #import "BCClearCache.h"
-#import "RealReachability.h"
+
 
 @implementation BaseViewController
 
@@ -73,87 +73,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
    // BOOL isSuccess = [BCClearCache clearCacheWithFilePath:filePath];
     
     
-    //监听网络状态
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(networkChanged:)
-                                                 name:kRealReachabilityChangedNotification
-                                               object:nil];
-    
-    
-    ReachabilityStatus status = [GLobalRealReachability currentReachabilityStatus];
-   
-    
-    if (status == RealStatusNotReachable)
-    {
-        NSLog(@"无网络连接");
-
-    }
-    
-    if (status == RealStatusViaWiFi)
-    {
-        NSLog(@"当前网络为WIFI");
-
-    }
-    
-    if (status == RealStatusViaWWAN)
-    {
-         NSLog(@"手机网络");
-    }
-//
-//下面这个方法也是监听网络的，只不过是block写的
-//    [GLobalRealReachability reachabilityWithBlock:^(ReachabilityStatus status) {
-//        switch (status)
-//        {
-//            case RealStatusNotReachable:
-//            {
-//                NSLog(@"Network unreachable!");
-//                break;
-//            }
-//                
-//            case RealStatusViaWiFi:
-//            {
-//                NSLog(@"Network wifi! Free!");
-//                
-//                break;
-//            }
-//                
-//            case RealStatusViaWWAN:
-//            {
-//                NSLog(@"Network WWAN! In charge!");
-//                
-//                
-//                WWANAccessType accessType = [GLobalRealReachability currentWWANtype];
-//                
-//                if (status == RealStatusViaWWAN)
-//                {
-//                    if (accessType == WWANType2G)
-//                    {
-//                        NSLog(@"RealReachabilityStatus2G");
-//                    }
-//                    else if (accessType == WWANType3G)
-//                    {
-//                        NSLog(@"RealReachabilityStatus3G");
-//                    }
-//                    else if (accessType == WWANType4G)
-//                    {
-//                        NSLog(@"RealReachabilityStatus4G");
-//                        
-//                    }
-//                    else
-//                    {
-//                        NSLog(@"Unknown RealReachability WWAN Status, might be iOS6");
-//                    }
-//                }
-//                
-//                break;
-//            }
-//                
-//            default:
-//                break;
-//        }
-//    }];
-// 
+ 
     
 
     //下面这个方法是参考知乎的退出app后再次进入会自动跳转上一次进入的界面
@@ -201,53 +121,6 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     }
 
 
-}
-- (void)networkChanged:(NSNotification *)notification
-{
-    RealReachability *reachability = (RealReachability *)notification.object;
-    ReachabilityStatus status = [reachability currentReachabilityStatus];
-  //  ReachabilityStatus previousStatus = [reachability previousReachabilityStatus];
-//    NSLog(@"networkChanged, currentStatus:%@, previousStatus:%@", @(status), @(previousStatus));
-    
-    if (status == RealStatusNotReachable)
-    {
-       NSLog(@"无网络");
-    }
-    
-    if (status == RealStatusViaWiFi)
-    {
-        NSLog(@"WIFI");
-    }
-    
-    if (status == RealStatusViaWWAN)
-    {
-        NSLog(@"手机网");
-    }
-    
-    WWANAccessType accessType = [GLobalRealReachability currentWWANtype];
-    
-    if (status == RealStatusViaWWAN)
-    {
-        if (accessType == WWANType2G)
-        {
-          NSLog(@"2G");
-        }
-        else if (accessType == WWANType3G)
-        {
-            NSLog(@"3G");
-        }
-        else if (accessType == WWANType4G)
-        {
-            NSLog(@"4G");
-
-        }
-        else
-        {
-          NSLog(@"Unknown RealReachability WWAN Status, might be iOS6");
-        }
-    }
-    
-    
 }
 #pragma  mark  网络请求缓存框架,这里用etag和LastModified两种方法结合
 
@@ -363,6 +236,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    return pinyin;
 //}
 
+//返回文字高度
 //- (CGFloat)getStringHeightNotFormatWith:(NSString*)tempStr width:(CGFloat)tempWidth font:(UIFont*)tempFont {
 //    
 //    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(tempWidth, 0)
@@ -374,4 +248,32 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    
 //    return tempHeight;
 //}
+
+
+
+//四舍五入浮点数使用方法
+ //NSLog(@"----%@---",[self decimalwithFormat:@"0" value:1.848]);
+
+//- (NSString *) decimalwithFormat:(NSString *)format  value:(CGFloat)tempValue
+//{
+//    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//    
+//    [numberFormatter setPositiveFormat:format];
+//    
+//    return  [numberFormatter stringFromNumber:[NSNumber numberWithFloat:tempValue]];
+//}
+
+
+//下面这个方法获取当前应用所占的存储空间
+//   NSLog(@"%@",[BCClearCache getCacheSizeWithFilePath:NSHomeDirectory()]);
+//
+//    //这个方法获取整个设备的存储空间用量
+//    NSString* path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] ;
+//    NSFileManager* fileManager = [[NSFileManager alloc ]init];
+// NSDictionary *fileSysAttributes = [fileManager attributesOfFileSystemForPath:path error:nil];
+//    NSNumber *freeSpace = [fileSysAttributes objectForKey:NSFileSystemFreeSize];
+//    NSNumber *totalSpace = [fileSysAttributes objectForKey:NSFileSystemSize];
+//    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1024.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
+//    NSLog(@"%@",text);
+
 @end

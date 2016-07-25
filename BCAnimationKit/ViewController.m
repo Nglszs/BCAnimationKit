@@ -52,6 +52,9 @@
 #import "CustomPushViewController.h"
 #import "CustomPresentViewController.h"
 #import "KeynoteViewController.h"
+#import "ReactMsgViewController.h"
+
+
 @interface ViewController ()
 {
 
@@ -108,7 +111,7 @@
 
     
 
-     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片",@"等待加载动画",@"自定义Pop动画",@"自定义Present动画",@"keynote动画"];
+     testArray = @[@"下拉放大",@"导航栏渐变",@"上拉和下拉刷新",@"点击按钮弹出气泡",@"无限轮播",@"评星",@"输入格式化",@"发散按钮",@"播放Gif动画",@"图片浏览",@"禁止复制/粘贴",@"键盘自适应高度",@"图片裁剪",@"夜间模式",@"果冻动画",@"QQ电话动画",@"关机动画",@"3D浏览图片",@"重力及碰撞",@"Calayer及其子类",@"CollectionView浏览图片",@"辉光动画",@"放大动画",@"Tableview展开",@"聊天界面",@"语音转文字",@"数值改变动画",@"引导页",@"图片加载动画",@"转场动画",@"淘宝购物车",@"分段视图",@"文字转语音",@"添加图片",@"View绕某点转动",@"点赞动画",@"摇晃浏览图片",@"TableView效果",@"图表视图",@"显示网页上的图片",@"等待加载动画",@"自定义Pop动画",@"自定义Present动画",@"keynote动画",@"原生短信效果"];
     
     
     
@@ -277,7 +280,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
 
-    return testArray.count;
+    return testArray.count ;
 
 }
 
@@ -301,7 +304,8 @@
         
         cell.accessoryView = rightImage;
         cell.textLabel.textColor = DefaultColor;
-    
+        
+         
     }
     
     if (indexPath.row > currentIndex) {//限制动画范围，只让当前屏幕显示的cell有动画
@@ -627,6 +631,12 @@
             break;
             
         }
+        case 44:{//原生短信
+            
+            [self.navigationController pushViewController:[ReactMsgViewController new] animated:NO];
+            break;
+            
+        }
 
             default:
             break;
@@ -944,17 +954,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-//下面这个方法获取当前应用所占的存储空间
-//   NSLog(@"%@",[BCClearCache getCacheSizeWithFilePath:NSHomeDirectory()]);
-//
-//    //这个方法获取整个设备的存储空间用量
-//    NSString* path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] ;
-//    NSFileManager* fileManager = [[NSFileManager alloc ]init];
-  // NSDictionary *fileSysAttributes = [fileManager attributesOfFileSystemForPath:path error:nil];
-//    NSNumber *freeSpace = [fileSysAttributes objectForKey:NSFileSystemFreeSize];
-//    NSNumber *totalSpace = [fileSysAttributes objectForKey:NSFileSystemSize];
-//    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1024.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
-//    NSLog(@"%@",text);
 
 #pragma mark 表头形变
 

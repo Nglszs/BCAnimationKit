@@ -101,7 +101,7 @@
            bottomView.frame = CGRectMake(0, 300, BCWidth, BCHeight - 300);
         }];
 
-        [UIView animateWithDuration:.25 animations:^{
+        [UIView animateWithDuration:.25 animations:^{//倾斜动画
             
             
             
@@ -114,7 +114,7 @@
             
         } completion:^(BOOL finished) {
             
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:0.25 animations:^{//缩小动画
                 
                 CATransform3D t2 = CATransform3DIdentity;
                 t2.m34 = 1.0/-900;

@@ -111,8 +111,8 @@
         {
             UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.testView attachedToAnchor:CGPointMake(300, 900)];
             [attachmentBehavior setLength:300];
-            [attachmentBehavior setDamping:0.1];
-
+            [attachmentBehavior setDamping:0.5];
+            attachmentBehavior.frequency = .8;
             [self.animator addBehavior:attachmentBehavior];
             
         }

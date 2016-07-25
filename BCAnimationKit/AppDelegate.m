@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "RealReachability.h"
 
+#import <Bugtags/Bugtags.h>
 @interface AppDelegate ()
 
 @end
@@ -19,10 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
+    BugtagsOptions *options = [[BugtagsOptions alloc] init];
+    options.trackingCrashes = YES;
+    [Bugtags startWithAppKey:@"2f2c238e660e1123a0c9275154a9d405" invocationEvent:BTGInvocationEventNone options:options];
     
-    //监听网络状态
-    [GLobalRealReachability  startNotifier];
     
+       
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -30,9 +32,6 @@
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
-    
-    
-    
     
     
     

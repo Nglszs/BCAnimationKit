@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SecondViewController : BaseViewController<UINavigationControllerDelegate>
-
+@interface SecondViewController : BaseViewController<UINavigationControllerDelegate,UIViewControllerTransitioningDelegate>
+@property (nonatomic, assign) CGPoint clickedPoint;
 @end

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface TransformViewController : BaseViewController
-
+@property (nonatomic, assign) CGPoint clickedPoint;
 @end

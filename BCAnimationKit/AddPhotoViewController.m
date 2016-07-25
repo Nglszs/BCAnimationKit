@@ -109,7 +109,13 @@
 - (void)cameraFromUIImagePickerController:(NSUInteger)type {
 
     
-    
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author == ALAuthorizationStatusRestricted || author == ALAuthorizationStatusDenied){
+        NSLog(@"无权限");
+        
+        return;
+        
+    }
     
     if (type == 0) {//从相册中读取
     
@@ -158,11 +164,15 @@
         
         
         NSBlockOperation *reloadOp = [NSBlockOperation blockOperationWithBlock:^{
-            
-            BCPhotoViewController *photoVC = [[BCPhotoViewController alloc] init];
-            photoVC.assetArray = [[weakSelf.photosArrayM reverseObjectEnumerator] allObjects];
+            if (self.photosArrayM.count > 0) {
+                
+                BCPhotoViewController *photoVC = [[BCPhotoViewController alloc] init];
+                photoVC.assetArray = [[weakSelf.photosArrayM reverseObjectEnumerator] allObjects];
+                
+                [self.navigationController pushViewController:photoVC animated:YES];
 
-            [self.navigationController pushViewController:photoVC animated:YES];
+            }
+            
             
         }];
         

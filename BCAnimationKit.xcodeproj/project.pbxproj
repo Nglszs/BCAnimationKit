@@ -71,6 +71,8 @@
 		0492CC831CFFFC6D0027066B /* TransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC821CFFFC6D0027066B /* TransformViewController.m */; };
 		0492CC861D0002B10027066B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC851D0002B10027066B /* SecondViewController.m */; };
 		0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC931D002C830027066B /* PuchaseCarViewController.m */; };
+		04944C811D4704E600C9E96A /* ScrollNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944C801D4704E600C9E96A /* ScrollNumberViewController.m */; };
+		04944C841D4704F900C9E96A /* NumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944C831D4704F900C9E96A /* NumberView.m */; };
 		0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */; };
 		0495CAAC1D0E83C900D598DE /* btn_addPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */; };
 		0495CAAD1D0E83C900D598DE /* btn_addPic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1D0E83C900D598DE /* btn_addPic@3x.png */; };
@@ -324,6 +326,10 @@
 		0492CC851D0002B10027066B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0492CC921D002C830027066B /* PuchaseCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuchaseCarViewController.h; sourceTree = "<group>"; };
 		0492CC931D002C830027066B /* PuchaseCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuchaseCarViewController.m; sourceTree = "<group>"; };
+		04944C7F1D4704E600C9E96A /* ScrollNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollNumberViewController.h; sourceTree = "<group>"; };
+		04944C801D4704E600C9E96A /* ScrollNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNumberViewController.m; sourceTree = "<group>"; };
+		04944C821D4704F900C9E96A /* NumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberView.h; sourceTree = "<group>"; };
+		04944C831D4704F900C9E96A /* NumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberView.m; sourceTree = "<group>"; };
 		0495CAA71D0E833D00D598DE /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoViewController.h; sourceTree = "<group>"; };
 		0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
 		0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_addPic@2x.png"; sourceTree = "<group>"; };
@@ -779,6 +785,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04944C7E1D4704BA00C9E96A /* 数值滚动 */,
 				04A8DA011D3F0AA10043E546 /* 原生短信效果 */,
 				0468DF781D3DBDEE00519E42 /* keynote动画 */,
 				045521A01D3CBB4E00775845 /* 自定义present动画 */,
@@ -869,6 +876,17 @@
 				0492CC931D002C830027066B /* PuchaseCarViewController.m */,
 			);
 			name = "购物车动画";
+			sourceTree = "<group>";
+		};
+		04944C7E1D4704BA00C9E96A /* 数值滚动 */ = {
+			isa = PBXGroup;
+			children = (
+				04944C7F1D4704E600C9E96A /* ScrollNumberViewController.h */,
+				04944C801D4704E600C9E96A /* ScrollNumberViewController.m */,
+				04944C821D4704F900C9E96A /* NumberView.h */,
+				04944C831D4704F900C9E96A /* NumberView.m */,
+			);
+			name = "数值滚动";
 			sourceTree = "<group>";
 		};
 		0495CAA61D0E832200D598DE /* 添加图片 */ = {
@@ -1512,12 +1530,14 @@
 				0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */,
 				045521A61D3CBBD300775845 /* FYLoginTranslation.m in Sources */,
 				0405DC1C1CFC1A5C003F2741 /* ISRDataHelper.m in Sources */,
+				04944C841D4704F900C9E96A /* NumberView.m in Sources */,
 				04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */,
 				04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */,
 				04E78BD01D21271B007FC9B3 /* CRMotionViewController.m in Sources */,
 				0471D2511CF52FD000A0C8CB /* TableScaleViewController.m in Sources */,
 				045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */,
 				04FCD9731D18DC1F00547D3F /* CustomBrowseView.m in Sources */,
+				04944C811D4704E600C9E96A /* ScrollNumberViewController.m in Sources */,
 				04A2EC211CF56ACB00DF79B7 /* MessageCell.m in Sources */,
 				0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */,
 				04D2A3141CDC2EA500376284 /* GifPlayViewController.m in Sources */,

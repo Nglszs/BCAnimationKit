@@ -144,7 +144,7 @@ static void *frameKey = &frameKey;
     [UIView animateWithDuration:.5 animations:^{
         
         
-        self.layer.bounds = CGRectMake(0, 0, 50, 50);//用layer的bound属性可以使view向中间收缩
+        self.layer.bounds = CGRectMake(0, 0, 50, 50);//用layer的bound属性可以使view向中间收缩，如果用其他属性会使其向某一边收缩
         
         self.maskView = [[UIView alloc] initWithFrame:self.bounds];
         self.maskView.layer.cornerRadius = 25;

@@ -68,10 +68,10 @@
         CATransform3D t1 = CATransform3DIdentity;
         t1.m34 = 1.0/-900;
         t1 = CATransform3DScale(t1, 0.95, 0.95, 1);
-        t1 = CATransform3DRotate(t1, 15.0f * M_PI/180.0f, 1, 0, 0);
+        t1 = CATransform3DRotate(t1, 15.0f * M_PI/180.0f, 1, 0, 0);//这里（1，1，1）分别对应xyz，这里是x旋转为1时向下
         fromVC.view.layer.transform = t1;
         
-    } completion:^(BOOL finished) {
+    } completion:^(BOOL finished) {//缩小动画
         
         [UIView animateWithDuration:.25 animations:^{
             CATransform3D t2 = CATransform3DIdentity;

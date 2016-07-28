@@ -39,6 +39,7 @@
 		043BF9861CD8699800372213 /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043BF9851CD8699800372213 /* head.jpg */; };
 		043E8A801D113B1900A7F609 /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 043E8A7F1D113B1900A7F609 /* mapIcon.png */; };
 		044552A31D0D2954001298D9 /* SpeechToTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044552A21D0D2954001298D9 /* SpeechToTextViewController.m */; };
+		044D45861D49A98800E6FA78 /* SystemPushTranistion.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D45851D49A98800E6FA78 /* SystemPushTranistion.m */; };
 		0453D8841D33749000C78392 /* btn_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0453D8801D33749000C78392 /* btn_add@2x.png */; };
 		0453D8851D33749000C78392 /* btn_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0453D8811D33749000C78392 /* btn_add@3x.png */; };
 		045521A31D3CBB6E00775845 /* CustomPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521A21D3CBB6E00775845 /* CustomPresentViewController.m */; };
@@ -141,6 +142,8 @@
 		04B3AB451CE426B8000EC479 /* CubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3AB441CE426B8000EC479 /* CubeViewController.m */; };
 		04BB0B4F1D38BB5300519B85 /* btn_reduce1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB0B4D1D38BB5300519B85 /* btn_reduce1@2x.png */; };
 		04BB0B501D38BB5300519B85 /* btn_reduce1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB0B4E1D38BB5300519B85 /* btn_reduce1@3x.png */; };
+		04C548871D49A78B0073B091 /* SystemPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548861D49A78B0073B091 /* SystemPopViewController.m */; };
+		04C5488A1D49A79E0073B091 /* SystemSecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548891D49A79E0073B091 /* SystemSecViewController.m */; };
 		04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */; };
 		04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA61CE172A200BA3BDD /* UIScrollView+UITouch.m */; };
 		04C9ACAB1CE1B50500BA3BDD /* CorpImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACAA1CE1B50500BA3BDD /* CorpImageViewController.m */; };
@@ -276,6 +279,8 @@
 		043E8A7F1D113B1900A7F609 /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapIcon.png; sourceTree = "<group>"; };
 		044552A11D0D2954001298D9 /* SpeechToTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechToTextViewController.h; sourceTree = "<group>"; };
 		044552A21D0D2954001298D9 /* SpeechToTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextViewController.m; sourceTree = "<group>"; };
+		044D45841D49A98800E6FA78 /* SystemPushTranistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPushTranistion.h; sourceTree = "<group>"; };
+		044D45851D49A98800E6FA78 /* SystemPushTranistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemPushTranistion.m; sourceTree = "<group>"; };
 		0453D8801D33749000C78392 /* btn_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_add@2x.png"; path = "Images/btn_add@2x.png"; sourceTree = "<group>"; };
 		0453D8811D33749000C78392 /* btn_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_add@3x.png"; path = "Images/btn_add@3x.png"; sourceTree = "<group>"; };
 		045521A11D3CBB6E00775845 /* CustomPresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPresentViewController.h; sourceTree = "<group>"; };
@@ -424,6 +429,10 @@
 		04B3AB441CE426B8000EC479 /* CubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeViewController.m; sourceTree = "<group>"; };
 		04BB0B4D1D38BB5300519B85 /* btn_reduce1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reduce1@2x.png"; sourceTree = "<group>"; };
 		04BB0B4E1D38BB5300519B85 /* btn_reduce1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reduce1@3x.png"; sourceTree = "<group>"; };
+		04C548851D49A78B0073B091 /* SystemPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPopViewController.h; sourceTree = "<group>"; };
+		04C548861D49A78B0073B091 /* SystemPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemPopViewController.m; sourceTree = "<group>"; };
+		04C548881D49A79E0073B091 /* SystemSecViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSecViewController.h; sourceTree = "<group>"; };
+		04C548891D49A79E0073B091 /* SystemSecViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSecViewController.m; sourceTree = "<group>"; };
 		04C9ACA21CE16C0E00BA3BDD /* KeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
 		04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
 		04C9ACA51CE172A200BA3BDD /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
@@ -794,6 +803,7 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04C548841D49A75E0073B091 /* 推出动画 */,
 				04944C7E1D4704BA00C9E96A /* 数值滚动 */,
 				04A8DA011D3F0AA10043E546 /* 原生短信效果 */,
 				0468DF781D3DBDEE00519E42 /* keynote动画 */,
@@ -1062,6 +1072,19 @@
 				04B3AB441CE426B8000EC479 /* CubeViewController.m */,
 			);
 			name = "3D浏览图片";
+			sourceTree = "<group>";
+		};
+		04C548841D49A75E0073B091 /* 推出动画 */ = {
+			isa = PBXGroup;
+			children = (
+				04C548851D49A78B0073B091 /* SystemPopViewController.h */,
+				04C548861D49A78B0073B091 /* SystemPopViewController.m */,
+				04C548881D49A79E0073B091 /* SystemSecViewController.h */,
+				04C548891D49A79E0073B091 /* SystemSecViewController.m */,
+				044D45841D49A98800E6FA78 /* SystemPushTranistion.h */,
+				044D45851D49A98800E6FA78 /* SystemPushTranistion.m */,
+			);
+			name = "推出动画";
 			sourceTree = "<group>";
 		};
 		04C9ACA11CE16BCF00BA3BDD /* 键盘自适应高度 */ = {
@@ -1576,6 +1599,7 @@
 				0405DC0E1CFC140C003F2741 /* SpeechViewController.m in Sources */,
 				04DE7D451D0122B60088A654 /* BCKeyChain.m in Sources */,
 				04A2EC2E1CF5943000DF79B7 /* MessageEnterView.m in Sources */,
+				044D45861D49A98800E6FA78 /* SystemPushTranistion.m in Sources */,
 				0492CC831CFFFC6D0027066B /* TransformViewController.m in Sources */,
 				041328091D0549EB0042CFE8 /* SectionViewController.m in Sources */,
 				04A2EC2B1CF5769F00DF79B7 /* MessageFrame.m in Sources */,
@@ -1612,6 +1636,7 @@
 				040B99B91D3F5B4700F2F0FC /* UIButton+Common.m in Sources */,
 				04080C941D3DEEE8004FFD62 /* CustomSpread.m in Sources */,
 				04B24AB11D3CA96F0028A66B /* PopControllerAnimation.m in Sources */,
+				04C5488A1D49A79E0073B091 /* SystemSecViewController.m in Sources */,
 				04F4B7CE1D35D7BC008AB867 /* LoadingViewController.m in Sources */,
 				04B387F01D2C9AE200396ED2 /* ChartViewController.m in Sources */,
 				04D878991CDB0DFC0015916C /* FormatterViewController.m in Sources */,
@@ -1629,6 +1654,7 @@
 				04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */,
 				04F4F0661CD9C5F600F46C7E /* SuspendViewController.m in Sources */,
 				04944CCA1D4753E000C9E96A /* Car1ViewController.m in Sources */,
+				04C548871D49A78B0073B091 /* SystemPopViewController.m in Sources */,
 				043BF9541CD8676100372213 /* main.m in Sources */,
 				04E1A27E1CE2F7650055DDFB /* SpringViewController.m in Sources */,
 			);

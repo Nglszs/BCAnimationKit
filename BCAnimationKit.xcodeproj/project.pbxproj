@@ -73,6 +73,9 @@
 		0492CC941D002C830027066B /* PuchaseCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC931D002C830027066B /* PuchaseCarViewController.m */; };
 		04944C811D4704E600C9E96A /* ScrollNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944C801D4704E600C9E96A /* ScrollNumberViewController.m */; };
 		04944C841D4704F900C9E96A /* NumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944C831D4704F900C9E96A /* NumberView.m */; };
+		04944CC71D4753CB00C9E96A /* CarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944CC61D4753CA00C9E96A /* CarViewController.m */; };
+		04944CCA1D4753E000C9E96A /* Car1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944CC91D4753E000C9E96A /* Car1ViewController.m */; };
+		04944CCD1D47555500C9E96A /* JXPopPresentTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 04944CCC1D47555500C9E96A /* JXPopPresentTransition.m */; };
 		0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */; };
 		0495CAAC1D0E83C900D598DE /* btn_addPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */; };
 		0495CAAD1D0E83C900D598DE /* btn_addPic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1D0E83C900D598DE /* btn_addPic@3x.png */; };
@@ -330,6 +333,12 @@
 		04944C801D4704E600C9E96A /* ScrollNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNumberViewController.m; sourceTree = "<group>"; };
 		04944C821D4704F900C9E96A /* NumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberView.h; sourceTree = "<group>"; };
 		04944C831D4704F900C9E96A /* NumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberView.m; sourceTree = "<group>"; };
+		04944CC51D4753CA00C9E96A /* CarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarViewController.h; sourceTree = "<group>"; };
+		04944CC61D4753CA00C9E96A /* CarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarViewController.m; sourceTree = "<group>"; };
+		04944CC81D4753E000C9E96A /* Car1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car1ViewController.h; sourceTree = "<group>"; };
+		04944CC91D4753E000C9E96A /* Car1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car1ViewController.m; sourceTree = "<group>"; };
+		04944CCB1D47555500C9E96A /* JXPopPresentTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPopPresentTransition.h; sourceTree = "<group>"; };
+		04944CCC1D47555500C9E96A /* JXPopPresentTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPopPresentTransition.m; sourceTree = "<group>"; };
 		0495CAA71D0E833D00D598DE /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoViewController.h; sourceTree = "<group>"; };
 		0495CAA81D0E833D00D598DE /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
 		0495CAAA1D0E83C900D598DE /* btn_addPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_addPic@2x.png"; sourceTree = "<group>"; };
@@ -874,6 +883,12 @@
 			children = (
 				0492CC921D002C830027066B /* PuchaseCarViewController.h */,
 				0492CC931D002C830027066B /* PuchaseCarViewController.m */,
+				04944CC51D4753CA00C9E96A /* CarViewController.h */,
+				04944CC61D4753CA00C9E96A /* CarViewController.m */,
+				04944CC81D4753E000C9E96A /* Car1ViewController.h */,
+				04944CC91D4753E000C9E96A /* Car1ViewController.m */,
+				04944CCB1D47555500C9E96A /* JXPopPresentTransition.h */,
+				04944CCC1D47555500C9E96A /* JXPopPresentTransition.m */,
 			);
 			name = "购物车动画";
 			sourceTree = "<group>";
@@ -1557,6 +1572,7 @@
 				04B24AB21D3CA96F0028A66B /* PushControllerAnimation.m in Sources */,
 				04E72CD31CE411CD003FF8CD /* TurnOffViewController.m in Sources */,
 				04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */,
+				04944CCD1D47555500C9E96A /* JXPopPresentTransition.m in Sources */,
 				0405DC0E1CFC140C003F2741 /* SpeechViewController.m in Sources */,
 				04DE7D451D0122B60088A654 /* BCKeyChain.m in Sources */,
 				04A2EC2E1CF5943000DF79B7 /* MessageEnterView.m in Sources */,
@@ -1567,6 +1583,7 @@
 				043BF95A1CD8676100372213 /* ViewController.m in Sources */,
 				04D07A141D226AAD006F36EA /* RollingTableViewCell.m in Sources */,
 				044552A31D0D2954001298D9 /* SpeechToTextViewController.m in Sources */,
+				04944CC71D4753CB00C9E96A /* CarViewController.m in Sources */,
 				04A4D67B1CFD2E3000A5BD35 /* ShowPageViewController.m in Sources */,
 				04A8DA071D3F0BF90043E546 /* ReactMsgTableViewCell.m in Sources */,
 				04B3AB451CE426B8000EC479 /* CubeViewController.m in Sources */,
@@ -1611,6 +1628,7 @@
 				04FCD9701D18DB5D00547D3F /* CustomViewController.m in Sources */,
 				04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */,
 				04F4F0661CD9C5F600F46C7E /* SuspendViewController.m in Sources */,
+				04944CCA1D4753E000C9E96A /* Car1ViewController.m in Sources */,
 				043BF9541CD8676100372213 /* main.m in Sources */,
 				04E1A27E1CE2F7650055DDFB /* SpringViewController.m in Sources */,
 			);

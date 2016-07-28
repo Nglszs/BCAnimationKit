@@ -23,8 +23,10 @@
     
     numberView = [[NumberView alloc] initViewFrame:CGRectMake(0, 0, 200, 100) andValue:@(arc4random_uniform(3000))];
     numberView.center = self.view.center;
+    [numberView startAnimation];
     [self.view addSubview:numberView];
 
+  
 
 }
 

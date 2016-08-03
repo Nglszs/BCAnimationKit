@@ -13,19 +13,21 @@
 
     [super viewDidLoad];
 
-    self.title = @"下拉放大";
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    testTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
+    testTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, BCWidth, BCHeight - 64) style:UITableViewStylePlain];
     testTableView.delegate = self;
     testTableView.dataSource = self;
+    testTableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:testTableView];
     
-    testTableView.contentInset = UIEdgeInsetsMake(BCImageOriginHight, 0, 0, 0);
+    testTableView.contentInset = UIEdgeInsetsMake(BCImageOriginHight - 64, 0, 0, 0);
     
    
-    headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, -BCImageOriginHight, BCWidth, BCImageOriginHight)];
+    headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, BCWidth, BCImageOriginHight)];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
        
@@ -36,6 +38,8 @@
             
             headImage.image = newImage;
             cornerImage.image = [UIImage imageNamed:@"head.jpg"];
+            
+            NSLog(@"加载成功");
             
         });
     });
@@ -48,14 +52,32 @@
     
    
     [headImage addSubview:cornerImage];
-    [testTableView addSubview:headImage];
-    
+   // [testTableView addSubview:headImage];//会随着tableview滚动，这种适合下拉放大，不适合上拉缩小，如果用这种实现下拉放大，那就得参考改变headimage起点也为负的-height，同时改变tableview的inset为hegiht
+      [self.view insertSubview:headImage belowSubview:testTableView];//这个就不会
     
     
     
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {//导航栏透明
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {//恢复原样
+    [super viewWillDisappear:animated];
+    
+    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+  
+
+
+}
 #pragma mark  UITableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,7 +89,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 22;
+    return 44;
     
 }
 
@@ -80,7 +102,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
-    cell.textLabel.text = @"下拉放大";
+    cell.textLabel.text = @"下拉放大和上拉缩小";
     
     
     return cell;
@@ -93,34 +115,52 @@
     
     CGFloat Value = scrollView.contentOffset.y;
     
-    NSLog(@"%.2f",Value);
     
-    if (Value <= -350) {//限制滚动范围
+    if (Value <= -236) {//下拉限制滚动范围,计算方法根据下面缩放比例
         
-        Value = -350;
+        Value = -236;
         testTableView.contentOffset = CGPointMake(0, Value);
     }
     
-    
-    if (Value < -BCImageOriginHight ) {
+    //这里136是初始偏移量
+   if (Value <= -136) {//放大
         
-        headImage.frame = CGRectMake(0, Value, BCWidth,-Value);
+        headImage.frame = CGRectMake(0, 0, BCWidth,-(Value + 136) + BCImageOriginHight);
         
-        CGFloat zoomValue = MIN(1.5, ABS(Value + 200)/100);
+        CGFloat zoomValue = MIN(1.0, ABS(Value + 136)/100);
       
-        
+       
 
         
-        cornerImage.frame = CGRectMake((BCWidth - 100 * (1 + zoomValue))/2, (-Value -100 *(1 + zoomValue))/2, 100 * (1 + zoomValue), 100 *(1 + zoomValue));
+        cornerImage.frame = CGRectMake((BCWidth - 100 * (1 + zoomValue))/2, (CGRectGetHeight(headImage.frame)  -100 *(1 + zoomValue))/2, 100 * (1 + zoomValue), 100 *(1 + zoomValue));
+        
+        
         cornerImage.layer.cornerRadius =  100 *(1 + zoomValue)/2;
         
         
-        
-        //如果将headimage设为tableview的headview，调用下面的放大来计算height，但是用headview时会出现遮挡cell的情况，所以这里换了种实现方法
-        //CGFloat zoomValue = ABS(Value)/BCImageOriginHight;
-        //  headImage.height = BCImageOriginHight * (1 + zoomValue);
-        
-    }
+       
+   } else {//缩小
+    
+       
+       if (Value >= 0) {
+           
+           headImage.frame = CGRectMake(0, 0, BCWidth,64);
+           cornerImage.frame = CGRectMake((BCWidth - 50)/2, (64 -50)/2, 50, 50);
+           cornerImage.layer.cornerRadius =  25;
+           return;
+
+       }
+       headImage.frame = CGRectMake(0, 0, BCWidth,-(Value + 136) + BCImageOriginHight);
+       CGFloat zoomValue = MIN(0.5, (Value + 136)/200);//这里本来是100，但这里为了减小缩小的速率，所以只能增大分母了
+       
+       
+
+       cornerImage.frame = CGRectMake((BCWidth - 100 * (1 - zoomValue))/2, (CGRectGetHeight(headImage.frame)  -100 *(1 - zoomValue))/2, 100 * (1 - zoomValue), 100 *(1 - zoomValue));
+       
+       
+       cornerImage.layer.cornerRadius =  100 *(1 - zoomValue)/2;
+
+   }
     
        
 }

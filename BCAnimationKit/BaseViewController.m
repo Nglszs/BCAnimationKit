@@ -116,7 +116,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 - (void)sendData:(void (^)(BOOL))block {
 
 
-    if (block) {
+    if (block) {//这里暂时用block代替，如果是网络请求可以用来判断是否有返回数据
         block(YES);
     }
 
@@ -132,6 +132,8 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     //下面这个链接不支持etag
     NSString *kLastModifiedImageURL = @"http://image17-c.poco.cn/mypoco/myphoto/20151211/16/17338872420151211164742047.png";
 
+    
+    //上面不管用哪个连接，这里都会进行缓存，下面进行了判断
     NSURL *url = [NSURL URLWithString:kETagImageURL];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
@@ -274,7 +276,44 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 // NSDictionary *fileSysAttributes = [fileManager attributesOfFileSystemForPath:path error:nil];
 //    NSNumber *freeSpace = [fileSysAttributes objectForKey:NSFileSystemFreeSize];
 //    NSNumber *totalSpace = [fileSysAttributes objectForKey:NSFileSystemSize];
-//    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1024.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
+//    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1000.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
 //    NSLog(@"%@",text);
 
+
+
+
+
+//下面这个方法用来实现登录按钮和输入框的联动，有两种方式，个人倾向第二种，如果用通知会大材小用
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    
+//   
+//      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(change:) name:UITextFieldTextDidChangeNotification object:self.name];
+//        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(change:) name:UITextFieldTextDidChangeNotification object:self.password];
+//    
+//    
+//    [self.name addTarget:self action:@selector(change:) forControlEvents:UIControlEventEditingChanged];
+//    
+//    [self.password addTarget:self action:@selector(change:) forControlEvents:UIControlEventEditingChanged];
+//    
+//    
+//    
+//}
+//
+//-(void)change:(NSNotification *)notif
+//{
+//    
+//    
+//    if (self.name.text.length >= 6 && self.password.text.length >= 3) {
+//        
+//        self.login.enabled = YES;
+//    } else {
+//        
+//        self.login.enabled = NO;
+//    }
+//    
+//    
+//    
+//    
+//}
 @end

@@ -228,7 +228,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSData *imageData = UIImageJPEGRepresentation(newImage, 0.5);
-        // NSString *str = [self getCurrentTimeString];
+    
         
         NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];//二级文件夹
         NSString *str = [self getCurrentTimeString];

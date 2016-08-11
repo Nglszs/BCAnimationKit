@@ -52,7 +52,7 @@
     
    
     [headImage addSubview:cornerImage];
-   // [testTableView addSubview:headImage];//会随着tableview滚动，这种适合下拉放大，不适合上拉缩小，如果用这种实现下拉放大，那就得参考改变headimage起点也为负的-height，同时改变tableview的inset为hegiht
+   // [testTableView addSubview:headImage];//会随着tableview滚动，这种适合下拉放大，不适合上拉缩小，如果用这种实现下拉放大，那就得改变headimage起点也为负的-height，同时改变tableview的inset为hegiht
       [self.view insertSubview:headImage belowSubview:testTableView];//这个就不会
     
     
@@ -116,7 +116,7 @@
     CGFloat Value = scrollView.contentOffset.y;
     
     
-    if (Value <= -236) {//下拉限制滚动范围,计算方法根据下面缩放比例
+    if (Value <= -236) {//下拉限制滚动范围,计算方法根据下面放大比例计算(Value + 136)/100 = 1;得出value为-236
         
         Value = -236;
         testTableView.contentOffset = CGPointMake(0, Value);
@@ -151,7 +151,7 @@
 
        }
        headImage.frame = CGRectMake(0, 0, BCWidth,-(Value + 136) + BCImageOriginHight);
-       CGFloat zoomValue = MIN(0.5, (Value + 136)/200);//这里本来是100，但这里为了减小缩小的速率，所以只能增大分母了
+       CGFloat zoomValue = MIN(0.5, (Value + 136)/272);//这里本来是100，但这里为了减小缩小的速率，所以只能增大分母了
        
        
 

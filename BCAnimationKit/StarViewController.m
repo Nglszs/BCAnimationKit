@@ -115,6 +115,18 @@
     int val;
     return [scan scanInt:&val] && [scan isAtEnd];
 }
+-(BOOL)IsChinese:(NSString *)str {//是否包含中文
+    for(int i=0; i< [str length];i++){
+        int a = [str characterAtIndex:i];
+        if( a > 0x4e00 && a < 0x9fff)
+        {
+            return YES;
+        }
+        
+    }
+    return NO;
+    
+}
 
 - (void)exchangeNumberBtn:(UIButton *)btn {
 

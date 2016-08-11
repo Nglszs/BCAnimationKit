@@ -547,7 +547,8 @@
             
             testAnimation.subtype = kCATransitionFromRight;//动画开始位置
             testAnimation.removedOnCompletion = YES;
-            [self.navigationController.view.layer addAnimation:testAnimation forKey:nil];
+             //[self.view.window.layer addAnimation:testAnimation forKey:nil]; 也可以加载window上，不过动画效果可能不太好,这个适用于模态跳转时，不适用于导航跳转
+           [self.navigationController.view.layer addAnimation:testAnimation forKey:nil];
             [self.navigationController pushViewController:[TransformViewController new] animated:NO];
             break;
             

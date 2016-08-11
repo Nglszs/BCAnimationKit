@@ -47,6 +47,7 @@
 		045521A81D3CBBE700775845 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A71D3CBBE700775845 /* background.jpg */; };
 		045521AA1D3CBBEE00775845 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A91D3CBBEE00775845 /* login.jpg */; };
 		045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521AC1D3CBC3400775845 /* PresentSecondViewController.m */; };
+		04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */; };
 		0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */; };
 		0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */; };
 		0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */; };
@@ -187,6 +188,7 @@
 		04D878931CDAE02F0015916C /* grade_star_path@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8788F1CDAE02F0015916C /* grade_star_path@2x.png */; };
 		04D878941CDAE02F0015916C /* grade_star_path@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D878901CDAE02F0015916C /* grade_star_path@3x.png */; };
 		04D878991CDB0DFC0015916C /* FormatterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D878981CDB0DFC0015916C /* FormatterViewController.m */; };
+		04DCFED61D52DB08008A21A3 /* NetWorkFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DCFED51D52DB07008A21A3 /* NetWorkFlow.m */; };
 		04DE7D451D0122B60088A654 /* BCKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE7D441D0122B60088A654 /* BCKeyChain.m */; };
 		04E1A27E1CE2F7650055DDFB /* SpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1A27D1CE2F7650055DDFB /* SpringViewController.m */; };
 		04E1A2821CE326280055DDFB /* QQPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1A2811CE326280055DDFB /* QQPhoneViewController.m */; };
@@ -291,6 +293,8 @@
 		045521A91D3CBBEE00775845 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login.jpg; path = Images/login.jpg; sourceTree = "<group>"; };
 		045521AB1D3CBC3400775845 /* PresentSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentSecondViewController.h; sourceTree = "<group>"; };
 		045521AC1D3CBC3400775845 /* PresentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSecondViewController.m; sourceTree = "<group>"; };
+		04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Check.h"; sourceTree = "<group>"; };
+		04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Check.m"; sourceTree = "<group>"; };
 		0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteViewController.h; sourceTree = "<group>"; };
 		0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteViewController.m; sourceTree = "<group>"; };
 		0468DF7C1D3DBEB000519E42 /* KeynoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteTransition.h; sourceTree = "<group>"; };
@@ -489,6 +493,8 @@
 		04D878901CDAE02F0015916C /* grade_star_path@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grade_star_path@3x.png"; sourceTree = "<group>"; };
 		04D878971CDB0DFC0015916C /* FormatterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatterViewController.h; sourceTree = "<group>"; };
 		04D878981CDB0DFC0015916C /* FormatterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatterViewController.m; sourceTree = "<group>"; };
+		04DCFED41D52DB07008A21A3 /* NetWorkFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkFlow.h; sourceTree = "<group>"; };
+		04DCFED51D52DB07008A21A3 /* NetWorkFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkFlow.m; sourceTree = "<group>"; };
 		04DE7D431D0122B60088A654 /* BCKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCKeyChain.h; sourceTree = "<group>"; };
 		04DE7D441D0122B60088A654 /* BCKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCKeyChain.m; sourceTree = "<group>"; };
 		04E1A27C1CE2F7650055DDFB /* SpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringViewController.h; sourceTree = "<group>"; };
@@ -803,6 +809,8 @@
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
 				0413280E1D055F010042CFE8 /* BCClearCache.m */,
+				04DCFED41D52DB07008A21A3 /* NetWorkFlow.h */,
+				04DCFED51D52DB07008A21A3 /* NetWorkFlow.m */,
 				04C548841D49A75E0073B091 /* 推出动画 */,
 				04944C7E1D4704BA00C9E96A /* 数值滚动 */,
 				04A8DA011D3F0AA10043E546 /* 原生短信效果 */,
@@ -1231,6 +1239,8 @@
 				040B99B81D3F5B4700F2F0FC /* UIButton+Common.m */,
 				04E384FB1D372525006E9437 /* NSTimer+block.h */,
 				04E384FC1D372525006E9437 /* NSTimer+block.m */,
+				04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */,
+				04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */,
 			);
 			name = CateGory;
 			sourceTree = "<group>";
@@ -1581,6 +1591,7 @@
 				04D2A3141CDC2EA500376284 /* GifPlayViewController.m in Sources */,
 				0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */,
 				045521A31D3CBB6E00775845 /* CustomPresentViewController.m in Sources */,
+				04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
 				048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */,
 				04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */,
@@ -1603,6 +1614,7 @@
 				0492CC831CFFFC6D0027066B /* TransformViewController.m in Sources */,
 				041328091D0549EB0042CFE8 /* SectionViewController.m in Sources */,
 				04A2EC2B1CF5769F00DF79B7 /* MessageFrame.m in Sources */,
+				04DCFED61D52DB08008A21A3 /* NetWorkFlow.m in Sources */,
 				0492CC861D0002B10027066B /* SecondViewController.m in Sources */,
 				043BF95A1CD8676100372213 /* ViewController.m in Sources */,
 				04D07A141D226AAD006F36EA /* RollingTableViewCell.m in Sources */,

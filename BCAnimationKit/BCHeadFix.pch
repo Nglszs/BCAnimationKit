@@ -12,7 +12,7 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-
+#import "NSTimer+block.h"
 
 #define BCWidth   [UIScreen mainScreen].bounds.size.width
 #define BCHeight  [UIScreen mainScreen].bounds.size.height
@@ -48,6 +48,8 @@
 #define kContentRight 15 //文本内容与按钮右边缘间隔
 
 
+
+
 //文件相关
 
 
@@ -66,7 +68,7 @@
 /**
  *  工程全局环境控制
  *
- *  0:开发环境  1:发布环境
+ *  0:测试环境  1:发布环境
  */
 #define MY_Test 0
 
@@ -79,6 +81,24 @@
 #if (MY_Test == 1)
 
 #define NSLog(...)
+
+#endif
+
+
+
+
+/**
+ *  下面这个是可以区分电脑安装还是adhoc下载的
+ *
+ *  DEBUG:测试环境  ELSE:发布环境
+ */
+#ifdef DEBUG
+
+#define NImage @"bc1.jpg"
+
+#else
+
+#define NImage @"bc.jpg"
 
 #endif
 

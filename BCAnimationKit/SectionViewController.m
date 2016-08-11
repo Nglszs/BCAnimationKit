@@ -61,7 +61,9 @@
     bas.fromValue = [NSNumber numberWithInteger:0];
     bas.toValue = [NSNumber numberWithInteger:1];
     bas.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
-    
+    //这里如果是0到1，则不需要加下面的代码，如果反过来则加下面的代码
+//    bas.removedOnCompletion = NO;
+//    bas.fillMode = kCAFillModeForwards;
     [layer addAnimation:bas forKey:@"key"];
 }
 

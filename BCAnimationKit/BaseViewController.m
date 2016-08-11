@@ -63,19 +63,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     //    WS(ws);
     //    ws.view
     
-    
-    //清除缓存
-    
-    // NSString *cacheSize = [BCClearCache getCacheSizeWithFilePath:filePath];
-     //   NSLog(@"缓存大小为%@",cacheSize);
-    
-    //是否清除缓存成功
-   // BOOL isSuccess = [BCClearCache clearCacheWithFilePath:filePath];
-    
-    
- 
-    
-
+     
     //下面这个方法是参考知乎的退出app后再次进入会自动跳转上一次进入的界面
     
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationWillResignActiveNotification object:nil];

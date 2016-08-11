@@ -10,6 +10,10 @@
 #import "ViewController.h"
 #import <Bugtags/Bugtags.h>
 #import <objc/runtime.h>
+#import "NetWorkFlow.h"
+
+#import <sys/sysctl.h>
+#import <mach/mach.h>
 
 @interface AppDelegate ()
 
@@ -36,11 +40,32 @@
     [self.window makeKeyAndVisible];
     
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    dismpatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self test];//这个也可以用下面的接收推送之后来代替
 //    });
-  
-        return YES;
+   
+    
+    
+    //下面方法会测试当前app的网速
+//    [[NetWorkFlow new] startNetworkFlow];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:@"RE" object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification * _Nonnull note) {
+//        
+//        NSString *dic = note.object;
+//        
+//        NSLog(@"heh%@",dic);
+//        
+//    }];
+
+   //获取当前内存使用情况
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 block:^{
+        
+        NSLog(@"%lfM",[self usedMemory]);
+        
+    } repeats:YES];
+    
+           return YES;
 }
 
 - (void)test {//runtime 跳转到任意界面
@@ -195,6 +220,43 @@
     
     
     return randomString;
+}
+
+#pragma mark 当前内存使用情况
+
+// 获取当前设备可用内存(单位：MB）
+- (double)availableMemory
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(),
+                                               HOST_VM_INFO,
+                                               (host_info_t)&vmStats,
+                                               &infoCount);
+    
+    if (kernReturn != KERN_SUCCESS) {
+        return NSNotFound;
+    }
+    
+    return ((vm_page_size *vmStats.free_count) / 1000.0) / 1000.0;
+}
+
+// 获取当前任务所占用的内存（单位：MB）
+- (double)usedMemory
+{
+    task_basic_info_data_t taskInfo;
+    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
+    kern_return_t kernReturn = task_info(mach_task_self(),
+                                         TASK_BASIC_INFO,
+                                         (task_info_t)&taskInfo,
+                                         &infoCount);
+    
+    if (kernReturn != KERN_SUCCESS
+        ) {
+        return NSNotFound;
+    }
+    
+    return taskInfo.resident_size / 1000.0 / 1000.0;
 }
 
 @end

@@ -25,10 +25,10 @@
     [super viewDidLoad];
     webview = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webview];
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     
     NSURLRequest *re = [NSURLRequest requestWithURL:url];
-    
+    [webview scalesPageToFit];
     webview.delegate = self;
     [webview loadRequest:re];
     
@@ -67,14 +67,13 @@
         //这里为了获取图片和webview进行比较，当然也可以直接在这里显示图片,在这里显示有个缺点是不管是什么图片都会显示出来，比如点击新闻页面的小图标还未进入正文时，他也会显示出来图片，显然不符合交互的，所以这个方法就适合简单的静态界面，不包含跳转的
         imageURL = [NSURL URLWithString:urlToSave];
         
-        
         if ([[NSString stringWithFormat:@"%@",imageURL] isEqualToString:@""]) {
            
             [self zoomMinImage];
             
         }
         
-        
+//
     }
 
 
@@ -85,6 +84,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
+   
     
     //下面是设置缓存
 //    NSURLCache *urlCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1000 * 1000 diskCapacity:20 * 1000 * 1000 diskPath:kPathTemp];

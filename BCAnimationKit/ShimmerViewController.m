@@ -24,7 +24,7 @@
     [self loadLabel];
     
     
-   
+    [self loadLabel1];
 
 
 }
@@ -78,6 +78,34 @@
 
 }
 
+- (void)loadLabel1 {
+    // title label
+    UILabel * title = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 200, 100)];
+    title.textColor = [UIColor whiteColor];
+    title.font = [UIFont boldSystemFontOfSize:17];
+    title.text = @"Tap To Full Screen";
+    title.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:title];
+    
+    [self shimmerHeaderTitle:title];
+
+
+}
+- (void)shimmerHeaderTitle:(UILabel *)title {
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.75f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        title.transform = CGAffineTransformMakeScale(0.98, 0.98);
+        title.alpha = 0.3;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.75f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            title.alpha = 1.0;
+            title.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [weakSelf shimmerHeaderTitle:title];
+        }];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

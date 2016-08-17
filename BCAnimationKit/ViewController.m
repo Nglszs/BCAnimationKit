@@ -98,8 +98,9 @@
     testTableView.delegate = self;
     testTableView.dataSource = self;
     testTableView.tableFooterView = [UIView new];
- 
+    
     testTableView.rowHeight = 44;
+ 
     [self.view addSubview:testTableView];
     
     //添加可形变的tableview表头
@@ -332,7 +333,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+   [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     switch (indexPath.row) {
         case 0:

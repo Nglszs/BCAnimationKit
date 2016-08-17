@@ -34,6 +34,8 @@
     return self;
 }
 
+
+//每次cell重用时会调用这个方法
 - (void)prepareForReuse {//这里解决复用产生的图片短暂停留
 
     [super prepareForReuse];

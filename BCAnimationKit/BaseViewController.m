@@ -255,7 +255,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //}
 
 
-//下面这个方法获取当前应用所占的存储空间
+//下面这个方法获取当前应用所占的存储空间，或者单独计算  下面给出方法
 //   NSLog(@"%@",[BCClearCache getCacheSizeWithFilePath:NSHomeDirectory()]);
 //
 //    //这个方法获取整个设备的存储空间用量
@@ -267,6 +267,49 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    NSString *text = [NSString stringWithFormat:@"已占用%0.1fG/剩余%0.1fG",([totalSpace longLongValue] - [freeSpace longLongValue])/1000.0/1000.0/1000.0,[freeSpace longLongValue]/1000.0/1000.0/1000.0];
 //    NSLog(@"%@",text);
 
+
+
+//计算缓存大小，这里路径写死了
+//-(float)getCacheSizeAtPath {
+//    
+//    NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSFileManager* manager = [NSFileManager defaultManager];
+//    if (![manager fileExistsAtPath:cachPath]) return 0;
+//    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:cachPath] objectEnumerator];//从前向后枚举器
+//    NSString* fileName;
+//    long long folderSize = 0;
+//    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+//        
+//        NSString* fileAbsolutePath = [cachPath stringByAppendingPathComponent:fileName];
+//        
+//        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+//    }
+//    
+//    return folderSize/(1000.0 * 1000.0);
+//}
+//- (long long)fileSizeAtPath:(NSString*)filePath{
+//    NSFileManager* manager = [NSFileManager defaultManager];
+//    if ([manager fileExistsAtPath:filePath]){
+//        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+//    }
+//    return 0;
+//}
+//
+////清除缓存
+//- (void)clearCacheAtPath {
+//    
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    
+//    NSFileManager *fileManager=[NSFileManager defaultManager];
+//    if ([fileManager fileExistsAtPath:path]) {
+//        NSArray *childerFiles=[fileManager subpathsAtPath:path];
+//        for (NSString *fileName in childerFiles) {
+//            //如有需要，加入条件，过滤掉不想删除的文件
+//            NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
+//            [fileManager removeItemAtPath:absolutePath error:nil];
+//        }
+//    }
+//}
 
 
 

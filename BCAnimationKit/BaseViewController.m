@@ -347,4 +347,54 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    
 //    
 //}
+
+
+
+#pragma mark gcd 定时器 创建及释放，下面分别写在两个方法里
+
+
+//@property (nonatomic, strong) dispatch_source_t timer;
+//
+//{
+//dispatch_queue_t queue = dispatch_get_main_queue();
+//self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+//
+//
+//dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC));//什么时候开始
+//uint64_t interval = (uint64_t)(3.0 * NSEC_PER_SEC);//间隔
+//dispatch_source_set_timer(self.timer, start, interval, 0);
+//dispatch_source_set_event_handler(self.timer, ^{
+//    
+//    //做一些事
+//    
+//    
+//    
+//});
+//
+//dispatch_resume(self.timer);//开始
+//
+//}
+//
+//
+////停止
+//{
+//dispatch_cancel(self.timer);
+//self.timer = nil;
+//}
+
+
+
+#pragma mark 单个删除按钮，多个删除可以看云盘
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [msgListArray removeObjectAtIndex:indexPath.row];
+//        
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+//    }
+//    
+//}
+
 @end

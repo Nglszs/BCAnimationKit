@@ -152,6 +152,7 @@
 		04CAF5FE1CFD5F44003FC72D /* LoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAF5FD1CFD5F44003FC72D /* LoadImageViewController.m */; };
 		04CDFE451D2270FD00875AF9 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CDFE431D2270FD00875AF9 /* bg@2x.png */; };
 		04CDFE461D2270FD00875AF9 /* bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CDFE441D2270FD00875AF9 /* bg@3x.png */; };
+		04CFECEB1D66F1440015EAED /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CFECEA1D66F1440015EAED /* UIImage+Common.m */; };
 		04D079B51D224712006F36EA /* TableAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D079B41D224712006F36EA /* TableAnimationViewController.m */; };
 		04D079CB1D224826006F36EA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04D079B71D224826006F36EA /* 1.jpg */; };
 		04D079CC1D224826006F36EA /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04D079B81D224826006F36EA /* 10.jpg */; };
@@ -449,6 +450,8 @@
 		04CAF5FD1CFD5F44003FC72D /* LoadImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadImageViewController.m; sourceTree = "<group>"; };
 		04CDFE431D2270FD00875AF9 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		04CDFE441D2270FD00875AF9 /* bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@3x.png"; sourceTree = "<group>"; };
+		04CFECE91D66F1440015EAED /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
+		04CFECEA1D66F1440015EAED /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		04D079B31D224712006F36EA /* TableAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableAnimationViewController.h; sourceTree = "<group>"; };
 		04D079B41D224712006F36EA /* TableAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableAnimationViewController.m; sourceTree = "<group>"; };
 		04D079B71D224826006F36EA /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -1237,6 +1240,8 @@
 				0492CC781CFFCE2A0027066B /* UIViewController+Test.m */,
 				040B99B71D3F5B4700F2F0FC /* UIButton+Common.h */,
 				040B99B81D3F5B4700F2F0FC /* UIButton+Common.m */,
+				04CFECE91D66F1440015EAED /* UIImage+Common.h */,
+				04CFECEA1D66F1440015EAED /* UIImage+Common.m */,
 				04E384FB1D372525006E9437 /* NSTimer+block.h */,
 				04E384FC1D372525006E9437 /* NSTimer+block.m */,
 				04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */,
@@ -1601,6 +1606,7 @@
 				04B24AAB1D3CA8880028A66B /* CustomPushViewController.m in Sources */,
 				04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */,
 				0492CC791CFFCE2A0027066B /* UIViewController+Test.m in Sources */,
+				04CFECEB1D66F1440015EAED /* UIImage+Common.m in Sources */,
 				04911D051CE07F550004A5A4 /* NonCopyViewController.m in Sources */,
 				049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */,
 				04B24AB21D3CA96F0028A66B /* PushControllerAnimation.m in Sources */,

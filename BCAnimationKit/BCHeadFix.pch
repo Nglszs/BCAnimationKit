@@ -21,7 +21,7 @@
 
 #define RealValue(value) (value * BCWidth/375)
 
-#define WS(weakSelf)  __weak __typeof(self)weakSelf = self;
+
 
 //颜色相关的宏
 #define DefaultColor [UIColor colorWithRed:174/255.0 green:143/255.0 blue:101/255.0 alpha:1]
@@ -103,7 +103,33 @@
 #endif
 
 
-//获取图片资源
+/**
+ *  下面两个加载图片的方法，区别是用不用@""
+ * 使用方法：BCImage(@"head.jpg") / newImage(head.jpg)
+ *
+ */
 #define BCImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+
+#define newImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",@#imageName]]
+/**
+ *  下面这个是用来替换@“”这个符号的，当然也可以用于上面的图片
+ *
+ *
+ */
+
+#define Toast(str) [NSString stringWithFormat:@"%@",@#str]
+
+/**
+ *  下面两种weakself的写法，都是可行的
+ *
+ *
+ */
+
+#define WS(weakSelf)  __weak __typeof(self)weakSelf = self;
+
+#define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
+
+
+
 
 #endif /* BCHeadFix_pch */

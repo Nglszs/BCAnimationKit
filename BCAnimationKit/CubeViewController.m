@@ -21,7 +21,7 @@
     [super viewDidLoad];
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((BCWidth - 200)/2, 200, 200, 200)];
   
-    _imageView.image = [UIImage imageNamed:@"bc.jpg"];//默认图片
+    _imageView.image = newImage(bc.jpg);//默认图片
     [self.view addSubview:_imageView];
     
     UISwipeGestureRecognizer *leftSwipeGesture=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftSwipe:)];
@@ -89,7 +89,7 @@
         
     }
     NSString *imageName = imageArr[_currentIndex];
-    return [UIImage imageNamed:imageName];
+    return BCImage(imageName);
 }
 
 - (void)didReceiveMemoryWarning {

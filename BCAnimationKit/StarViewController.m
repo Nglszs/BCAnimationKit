@@ -25,6 +25,20 @@
     [super viewDidLoad];
     self.title = @"评星";
     
+    //动画按钮
+    UIButton * pushBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    pushBtn.frame = CGRectMake(100, 100, 100, 50);
+    [pushBtn setTitle:@"点我" forState:UIControlStateNormal];
+    [pushBtn setTitleColor:DefaultColor forState:UIControlStateNormal];
+    [pushBtn setBackgroundColor:RandomColor];
+    [pushBtn addTarget:self action:@selector(pressedEvent:) forControlEvents:UIControlEventTouchDown];
+    [pushBtn addTarget:self action:@selector(unpressedEvent:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
+   
+    [self.view addSubview:pushBtn];
+    
+    
+    
+   //评星
     for (int i = 0; i < count; i ++) {
         
         
@@ -88,6 +102,32 @@
  tf.text = [NSString stringWithFormat:@"%ld",shopNumber];
 
 }
+#pragma  mark  按钮点击事件
+
+//按钮的压下事件 按钮缩小
+- (void)pressedEvent:(UIButton *)btn
+{
+    //缩放比例必须大于0，且小于等于1
+    CGFloat scale = .9;
+    
+    [UIView animateWithDuration:.15 animations:^{
+        
+        btn.transform = CGAffineTransformMakeScale(scale, scale);
+        
+    }];
+}
+
+
+//按钮的松开事件 按钮复原 执行响应
+- (void)unpressedEvent:(UIButton *)btn
+{
+    [UIView animateWithDuration:.15 animations:^{
+        
+        btn.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    
+    }];
+}
+
 
 #pragma mark textField代理
 

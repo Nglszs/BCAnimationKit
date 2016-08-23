@@ -35,7 +35,7 @@
     NSError *error = nil;
     [self.avaudioSession setCategory:AVAudioSessionCategoryAmbient error:&error];
     
-
+  
     
     //播放视频
     NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp4"];

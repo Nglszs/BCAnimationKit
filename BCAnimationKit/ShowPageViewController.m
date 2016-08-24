@@ -18,6 +18,7 @@
     UIImageView *_imageView;
 
 }
+
 @property(nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @property(nonatomic, strong) AVAudioSession *avaudioSession;
 @end

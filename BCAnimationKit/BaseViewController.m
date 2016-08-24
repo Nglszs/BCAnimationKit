@@ -437,4 +437,54 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //
 //NSLog(@"ddd%@",[fileManager subpathsAtPath:subtestDirectoryPath]);
 
+
+#pragma 保存图片注意事项
+
+/**
+ *  writeToFile 有时候出现保存图片失败的原因，如果是一级文件夹，则去掉nsfilemage，此时直接写即可
+    
+    如果是二级或者多级文件夹，则需要先创建文件夹，在写进去,下面就是二级文件夹写图片的例子
+ *
+ *
+ *
+ *
+ */
+
+
+
+
+//NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"bc.jpg"], 0.5);
+//
+//
+//NSString *imageName = [NSString stringWithFormat:@"%@.png", @"str21"];
+//NSString *subPath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"IMG"] stringByAppendingPathComponent:imageName];
+//
+
+//如果是一级文件夹，则不需要nsfilemanager，多级文件夹则需要先创建文件夹
+//if (![[NSFileManager defaultManager] fileExistsAtPath:subPath]) {
+//    NSLog(@"文件夹创建失败。正在重新创建。。");
+//    
+//    [[NSFileManager defaultManager] createDirectoryAtPath:[subPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+//    
+//} else {
+//    
+//    NSLog(@"FileDir is exists.");
+//}
+//
+//BOOL data = [imageData writeToFile:subPath atomically:NO];
+//
+//
+//if (!data) {
+//    NSLog(@"保存失败");
+//} else {
+//    
+//    UIImageView  *image = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    image.backgroundColor = [UIColor redColor];
+//    
+//    image.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:subPath]];
+//    
+//    [self.view addSubview:image];
+//
+
+
 @end

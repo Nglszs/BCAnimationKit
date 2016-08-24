@@ -230,16 +230,17 @@
         NSData *imageData = UIImageJPEGRepresentation(newImage, 0.5);
     
         
-        NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];//二级文件夹，二级文件夹必须同filemanage创建
+        NSString *subPath = [filePath stringByAppendingPathComponent:@"IMG"];//二级文件夹，二级文件夹必须同filemanage创建，一级则不用，直接写即可
         NSString *str = [self getCurrentTimeString];
         NSString *imageName = [NSString stringWithFormat:@"%@.png", str];
         NSString *imagePath = [subPath stringByAppendingPathComponent:imageName];
         
         
+        //如果是以及文件夹则不用下面判断语句，二级必须用
         if (![[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
             NSLog(@"文件夹创建失败。正在重新创建。。");
             
-            [[NSFileManager defaultManager] createDirectoryAtPath:imagePath withIntermediateDirectories:YES attributes:nil error:nil];
+            [[NSFileManager defaultManager] createDirectoryAtPath:[imagePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
             
         } else {
             

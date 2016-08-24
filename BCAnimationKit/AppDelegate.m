@@ -59,11 +59,11 @@
 
    //获取当前内存使用情况
     
-    [NSTimer scheduledTimerWithTimeInterval:1 block:^{
-        
-        NSLog(@"%lfM",[self usedMemory]);
-        
-    } repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:1 block:^{
+//        
+//        NSLog(@"%lfM",[self usedMemory]);
+//        
+//    } repeats:YES];
     
     
                return YES;

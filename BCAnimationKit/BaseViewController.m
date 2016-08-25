@@ -21,6 +21,10 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
+    
+    
    //这里可以用单例也可以用AppDelegate，这里用AppDelegate来实现
     
     AppDelegate *newAppDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -437,54 +441,78 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //
 //NSLog(@"ddd%@",[fileManager subpathsAtPath:subtestDirectoryPath]);
 
-
-#pragma 保存图片注意事项
+#pragma mark 开发中的小技巧
 
 /**
- *  writeToFile 有时候出现保存图片失败的原因，如果是一级文件夹，则去掉nsfilemage，此时直接写即可
-    
-    如果是二级或者多级文件夹，则需要先创建文件夹，在写进去,下面就是二级文件夹写图片的例子
- *
- *
- *
- *
+NSInteger count = 5;
+//02代表:如果count不足2位 用0在最前面补全(2代表总输出的个数)
+NSString *string = [NSString stringWithFormat:@"%02zd",count];
+//输出结果是: 05
+NSLog(@"%@", string);
+
+
+
+NSInteger count = 50;
+//%是一个特殊符号 如果在NSString中用到%需要如下写法
+NSString *string = [NSString stringWithFormat:@"%zd%%",count];
+//输出结果是: 50%
+NSLog(@"%@", string);
+ 
+ 
+ NSInteger count = 50;
+ //"是一个特殊符号, 如果在NSString中用到"需要用\进行转义
+ NSString *string = [NSString stringWithFormat:@"%zd\"",count];
+ //输出结果是: 50"
+ NSLog(@"%@", string);
+ 
+ 
+ 
+ bloc里有定时器打印值的时候必须强引用他才有效
+ LRWeakSelf(shop);
+ shop.myBlock = ^{
+ //强引用
+ LRStrongSelf(shop)
+ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ NSLog(@"%@",shop.string);
+ });
+ };
+ shop.myBlock();
+ 
+ 
+ 
+ 自定义控件里如何拿到导航控制器进行页面跳转
+ 如果有UITabBarController我们会这样获取导航控制器:
+ 
+ UIViewController *viewC = [[UIViewController alloc]init];
+ // 取出当前的导航控制器
+ UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+ //The view controller associated with the currently selected tab item
+ //当前选择的导航控制器
+ UINavigationController *navC = (UINavigationController *)tabBarVc.selectedViewController;
+ [navC pushViewController:viewC animated:YES];
+ 
+ 
+ 
+ 如果通过modal出来的控制器并且用UITabBarController不好使, 我们会这样获取导航控制器:
+ UIViewController *viewC = [[UIViewController alloc]init];
+ //获取最终的根控制器
+ UIViewController *rootC = [UIApplication sharedApplication].keyWindow.rootViewController;
+ //如果是modal出来的控制器,它就会通过presentedViewController拿到上一个控制器
+ UINavigationController *navC = (UINavigationController *)rootC.presentedViewController;
+ [navC pushViewController:viewC animated:YES];
+ 
+ 
+ 6.修改了leftBarButtonItem如何恢复系统侧滑返回功能
+ self.interactivePopGestureRecognizer.delegate = self;
+ #pragma mark - <UIGestureRecognizerDelegate>
+ //实现代理方法:return YES :手势有效, NO :手势无效
+ - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+ {
+ //当导航控制器的子控制器个数 大于1 手势才有效
+ return self.childViewControllers.count > 1;
+ }
+ 
+ 
+ 
  */
-
-
-
-
-//NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"bc.jpg"], 0.5);
-//
-//
-//NSString *imageName = [NSString stringWithFormat:@"%@.png", @"str21"];
-//NSString *subPath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"IMG"] stringByAppendingPathComponent:imageName];
-//
-
-//如果是一级文件夹，则不需要nsfilemanager，多级文件夹则需要先创建文件夹
-//if (![[NSFileManager defaultManager] fileExistsAtPath:subPath]) {
-//    NSLog(@"文件夹创建失败。正在重新创建。。");
-//    
-//    [[NSFileManager defaultManager] createDirectoryAtPath:[subPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
-//    
-//} else {
-//    
-//    NSLog(@"FileDir is exists.");
-//}
-//
-//BOOL data = [imageData writeToFile:subPath atomically:NO];
-//
-//
-//if (!data) {
-//    NSLog(@"保存失败");
-//} else {
-//    
-//    UIImageView  *image = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//    image.backgroundColor = [UIColor redColor];
-//    
-//    image.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:subPath]];
-//    
-//    [self.view addSubview:image];
-//
-
-
 @end

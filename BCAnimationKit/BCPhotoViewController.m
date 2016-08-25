@@ -115,12 +115,15 @@
     } else {
     
         if (cell.kCheckButton.selected) {
+            
             [imageArray addObject:cell.testImage.image];
             [buttonState replaceObjectAtIndex:indexpath.row withObject:@"1"];
+            
         } else {
             
             [imageArray removeObject:cell.testImage.image];
             [buttonState replaceObjectAtIndex:indexpath.row withObject:@"0"];
+            
         }
         
         

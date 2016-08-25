@@ -143,7 +143,8 @@
   // [self initMotion];
     
    
-
+  
+    
 }
 
 #pragma mark 重力滚动相关

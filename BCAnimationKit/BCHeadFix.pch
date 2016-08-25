@@ -129,7 +129,7 @@
 
 #define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
 
-
+#define LRStrongSelf(type)  __strong typeof(type) type = weak##type;
 
 
 #endif /* BCHeadFix_pch */

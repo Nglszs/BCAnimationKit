@@ -48,6 +48,8 @@
 		045521AA1D3CBBEE00775845 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A91D3CBBEE00775845 /* login.jpg */; };
 		045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521AC1D3CBC3400775845 /* PresentSecondViewController.m */; };
 		04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */; };
+		045691321D6ED2C8005460B9 /* NSArray+CrashIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */; };
+		045691331D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */; };
 		0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */; };
 		0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */; };
 		0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */; };
@@ -296,6 +298,10 @@
 		045521AC1D3CBC3400775845 /* PresentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSecondViewController.m; sourceTree = "<group>"; };
 		04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Check.h"; sourceTree = "<group>"; };
 		04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Check.m"; sourceTree = "<group>"; };
+		0456912E1D6ED2C8005460B9 /* NSArray+CrashIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CrashIntercept.h"; sourceTree = "<group>"; };
+		0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CrashIntercept.m"; sourceTree = "<group>"; };
+		045691301D6ED2C8005460B9 /* NSDictionary+CrashIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CrashIntercept.h"; sourceTree = "<group>"; };
+		045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashIntercept.m"; sourceTree = "<group>"; };
 		0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteViewController.h; sourceTree = "<group>"; };
 		0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteViewController.m; sourceTree = "<group>"; };
 		0468DF7C1D3DBEB000519E42 /* KeynoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteTransition.h; sourceTree = "<group>"; };
@@ -1246,6 +1252,10 @@
 				04E384FC1D372525006E9437 /* NSTimer+block.m */,
 				04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */,
 				04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */,
+				0456912E1D6ED2C8005460B9 /* NSArray+CrashIntercept.h */,
+				0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */,
+				045691301D6ED2C8005460B9 /* NSDictionary+CrashIntercept.h */,
+				045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */,
 			);
 			name = CateGory;
 			sourceTree = "<group>";
@@ -1609,6 +1619,7 @@
 				04CFECEB1D66F1440015EAED /* UIImage+Common.m in Sources */,
 				04911D051CE07F550004A5A4 /* NonCopyViewController.m in Sources */,
 				049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */,
+				045691321D6ED2C8005460B9 /* NSArray+CrashIntercept.m in Sources */,
 				04B24AB21D3CA96F0028A66B /* PushControllerAnimation.m in Sources */,
 				04E72CD31CE411CD003FF8CD /* TurnOffViewController.m in Sources */,
 				04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */,
@@ -1643,6 +1654,7 @@
 				04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */,
 				04C9ACAB1CE1B50500BA3BDD /* CorpImageViewController.m in Sources */,
 				04911D081CE07FDE0004A5A4 /* CustomTextView.m in Sources */,
+				045691331D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m in Sources */,
 				04F4F0731CD9E83200F46C7E /* CarouselViewController.m in Sources */,
 				047BD7141D129E1900BA5700 /* BCPhotoViewController.m in Sources */,
 				04E1A2821CE326280055DDFB /* QQPhoneViewController.m in Sources */,

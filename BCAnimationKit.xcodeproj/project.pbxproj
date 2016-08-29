@@ -48,7 +48,6 @@
 		045521AA1D3CBBEE00775845 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 045521A91D3CBBEE00775845 /* login.jpg */; };
 		045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521AC1D3CBC3400775845 /* PresentSecondViewController.m */; };
 		04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */; };
-		045691321D6ED2C8005460B9 /* NSArray+CrashIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */; };
 		045691331D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */; };
 		0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */; };
 		0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */; };
@@ -58,6 +57,7 @@
 		047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BD70E1D129E1900BA5700 /* BCCollectionViewCell.m */; };
 		047BD7131D129E1900BA5700 /* BCCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047BD70F1D129E1900BA5700 /* BCCollectionViewCell.xib */; };
 		047BD7141D129E1900BA5700 /* BCPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BD7111D129E1900BA5700 /* BCPhotoViewController.m */; };
+		047F13431D73CF8900FB5663 /* NSArray+check.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F13421D73CF8900FB5663 /* NSArray+check.m */; };
 		048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048BA6D91CF3E55A00185CAD /* BCCell.m */; };
 		048BA6DC1CF3E55A00185CAD /* BCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048BA6DA1CF3E55A00185CAD /* BCCell.xib */; };
 		048F1FAE1D459D4800C755B6 /* Bugtags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048F1FAD1D459D4800C755B6 /* Bugtags.framework */; };
@@ -298,8 +298,6 @@
 		045521AC1D3CBC3400775845 /* PresentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSecondViewController.m; sourceTree = "<group>"; };
 		04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Check.h"; sourceTree = "<group>"; };
 		04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Check.m"; sourceTree = "<group>"; };
-		0456912E1D6ED2C8005460B9 /* NSArray+CrashIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CrashIntercept.h"; sourceTree = "<group>"; };
-		0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CrashIntercept.m"; sourceTree = "<group>"; };
 		045691301D6ED2C8005460B9 /* NSDictionary+CrashIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CrashIntercept.h"; sourceTree = "<group>"; };
 		045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashIntercept.m"; sourceTree = "<group>"; };
 		0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteViewController.h; sourceTree = "<group>"; };
@@ -317,6 +315,8 @@
 		047BD70F1D129E1900BA5700 /* BCCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCCollectionViewCell.xib; sourceTree = "<group>"; };
 		047BD7101D129E1900BA5700 /* BCPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPhotoViewController.h; sourceTree = "<group>"; };
 		047BD7111D129E1900BA5700 /* BCPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPhotoViewController.m; sourceTree = "<group>"; };
+		047F13411D73CF8900FB5663 /* NSArray+check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+check.h"; sourceTree = "<group>"; };
+		047F13421D73CF8900FB5663 /* NSArray+check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+check.m"; sourceTree = "<group>"; };
 		048BA6D81CF3E55A00185CAD /* BCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCCell.h; sourceTree = "<group>"; };
 		048BA6D91CF3E55A00185CAD /* BCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCCell.m; sourceTree = "<group>"; };
 		048BA6DA1CF3E55A00185CAD /* BCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCCell.xib; sourceTree = "<group>"; };
@@ -1252,8 +1252,8 @@
 				04E384FC1D372525006E9437 /* NSTimer+block.m */,
 				04561F8E1D5C6A54004C70A0 /* NSMutableArray+Check.h */,
 				04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */,
-				0456912E1D6ED2C8005460B9 /* NSArray+CrashIntercept.h */,
-				0456912F1D6ED2C8005460B9 /* NSArray+CrashIntercept.m */,
+				047F13411D73CF8900FB5663 /* NSArray+check.h */,
+				047F13421D73CF8900FB5663 /* NSArray+check.m */,
 				045691301D6ED2C8005460B9 /* NSDictionary+CrashIntercept.h */,
 				045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */,
 			);
@@ -1619,7 +1619,6 @@
 				04CFECEB1D66F1440015EAED /* UIImage+Common.m in Sources */,
 				04911D051CE07F550004A5A4 /* NonCopyViewController.m in Sources */,
 				049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */,
-				045691321D6ED2C8005460B9 /* NSArray+CrashIntercept.m in Sources */,
 				04B24AB21D3CA96F0028A66B /* PushControllerAnimation.m in Sources */,
 				04E72CD31CE411CD003FF8CD /* TurnOffViewController.m in Sources */,
 				04E87B1B1CF427E800076BE4 /* ShimmerViewController.m in Sources */,
@@ -1685,6 +1684,7 @@
 				04F4F0661CD9C5F600F46C7E /* SuspendViewController.m in Sources */,
 				04944CCA1D4753E000C9E96A /* Car1ViewController.m in Sources */,
 				04C548871D49A78B0073B091 /* SystemPopViewController.m in Sources */,
+				047F13431D73CF8900FB5663 /* NSArray+check.m in Sources */,
 				043BF9541CD8676100372213 /* main.m in Sources */,
 				04E1A27E1CE2F7650055DDFB /* SpringViewController.m in Sources */,
 			);

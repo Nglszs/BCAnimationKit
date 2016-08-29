@@ -1,15 +1,16 @@
 //
-//  NSArray+CacheIntercept.m
-//  LoanPro
+//  NSArray+check.m
+//  BCAnimationKit
 //
-//  Created by 秦茂军 on 16/8/25.
-//  Copyright © 2016年 haodai. All rights reserved.
+//  Created by Jack on 16/8/29.
+//  Copyright © 2016年 毕研超. All rights reserved.
 //
 
-#import "NSArray+CrashIntercept"
-#import <objc/message.h>
-@implementation NSArray(CrashIntercept)
+#import "NSArray+check.h"
+#import <objc/runtime.h>
+@implementation NSArray (check)
 
+//这个方法在有键盘的见面按home键会出现crash，所以可以使用其他方法
 + (void)load{
     //不可变数组
     Method originArrayIndex = class_getInstanceMethod(NSClassFromString(@"__NSArrayI"), @selector(objectAtIndex:));
@@ -24,7 +25,7 @@
     if(originMutableArrayIndex&&newMutableArrayIndex){
         method_exchangeImplementations(originMutableArrayIndex, newMutableArrayIndex);
     }
-
+    
 }
 
 - (id)kpObjectAtIndex:(NSUInteger)index{
@@ -44,5 +45,6 @@
     NSLog(@"ERROR:可变数组取值index:%ld越界",index);
     return nil;
 }
+
 
 @end

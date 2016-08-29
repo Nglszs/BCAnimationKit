@@ -480,7 +480,7 @@ NSLog(@"%@", string);
  
  
  
- 自定义控件里如何拿到导航控制器进行页面跳转
+5. 自定义控件里如何拿到导航控制器进行页面跳转
  如果有UITabBarController我们会这样获取导航控制器:
  
  UIViewController *viewC = [[UIViewController alloc]init];
@@ -513,6 +513,17 @@ NSLog(@"%@", string);
  }
  
  
+7。 等线程1和2都执行完再做些事情
+ dispatch_group_t group = dispatch_group_create();
+ dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+ //线程一
+ });
+ dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+ // 线程二
+ });
+ dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
+ //汇总
+ });
  
  */
 @end

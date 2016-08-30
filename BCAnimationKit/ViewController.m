@@ -56,8 +56,10 @@
 #import "ScrollNumberViewController.h"
 #import "CarViewController.h"
 #import "SystemPopViewController.h"
-
 #import "NSArray+check.h"
+
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 @interface ViewController ()
 {
 
@@ -143,8 +145,39 @@
 
   // [self initMotion];
     
-   
+    
+    /**
+     *  下面是测试这两个用法的区别，
+     
+        可以发现：
+        #ifdef 只要后面testl存在。不管他的值为多少，都会执行下面的语句
+     *  #if 需要判断testl所代表的值,同时#if后面的判断条件必须写在pch文件里，写在其他地方会报错
+     *
+     *
+     *
+     */
+#ifdef Testl//只要testl存在就会执行debug
+    
+    NSLog(@" debug");
+    
+#else
+    
+    NSLog(@"not dubug");
+    
+#endif
   
+    
+ 
+    
+#if testl //这里就不能使用在这个本类定义的宏一使用就报错：使用上面的IS_IPAD就会报错
+    
+    NSLog(@"if");
+    
+#else
+    
+    NSLog(@"else if");
+    
+#endif
     
 }
 

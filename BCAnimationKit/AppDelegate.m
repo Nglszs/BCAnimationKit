@@ -40,7 +40,8 @@
     [self.window makeKeyAndVisible];
     
     
-//    dismpatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    
+   //    dismpatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self test];//这个也可以用下面的接收推送之后来代替
 //    });
    

@@ -49,7 +49,7 @@
 
 
 
-#define Testl 0
+
 //文件相关
 
 
@@ -91,6 +91,8 @@
  *  下面这个是可以区分电脑安装还是adhoc下载的，也可以用作上面的nslog
  *
  *  DEBUG:测试环境（电脑直接安装）  ELSE:发布环境（打包）
+    
+    这里#ifdef 后面只能跟debug有效，跟其他都是无效的
  */
 #ifdef DEBUG
 

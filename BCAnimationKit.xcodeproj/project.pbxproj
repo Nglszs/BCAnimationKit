@@ -108,6 +108,7 @@
 		049A1C911D20B3CE0074948D /* icon_apply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8D1D20B3CE0074948D /* icon_apply@2x.png */; };
 		049A1C921D20B3CE0074948D /* icon_apply@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049A1C8E1D20B3CE0074948D /* icon_apply@3x.png */; };
 		049A1C961D20B4230074948D /* ClickAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A1C951D20B4230074948D /* ClickAttentionViewController.m */; };
+		049A3E591D79200B00457266 /* NSDictionary+check.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A3E581D79200B00457266 /* NSDictionary+check.m */; };
 		04A2EC171CF5493200DF79B7 /* whiteDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC151CF5493200DF79B7 /* whiteDown.png */; };
 		04A2EC181CF5493200DF79B7 /* whiteTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A2EC161CF5493200DF79B7 /* whiteTop.png */; };
 		04A2EC1C1CF567EE00DF79B7 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2EC1B1CF567EE00DF79B7 /* MessageViewController.m */; };
@@ -385,6 +386,8 @@
 		049A1C8E1D20B3CE0074948D /* icon_apply@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_apply@3x.png"; sourceTree = "<group>"; };
 		049A1C941D20B4230074948D /* ClickAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickAttentionViewController.h; sourceTree = "<group>"; };
 		049A1C951D20B4230074948D /* ClickAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickAttentionViewController.m; sourceTree = "<group>"; };
+		049A3E571D79200B00457266 /* NSDictionary+check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+check.h"; sourceTree = "<group>"; };
+		049A3E581D79200B00457266 /* NSDictionary+check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+check.m"; sourceTree = "<group>"; };
 		04A2EC151CF5493200DF79B7 /* whiteDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteDown.png; sourceTree = "<group>"; };
 		04A2EC161CF5493200DF79B7 /* whiteTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteTop.png; sourceTree = "<group>"; };
 		04A2EC1A1CF567EE00DF79B7 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -1242,6 +1245,8 @@
 		04E384FA1D372500006E9437 /* CateGory */ = {
 			isa = PBXGroup;
 			children = (
+				049A3E571D79200B00457266 /* NSDictionary+check.h */,
+				049A3E581D79200B00457266 /* NSDictionary+check.m */,
 				0492CC771CFFCE2A0027066B /* UIViewController+Test.h */,
 				0492CC781CFFCE2A0027066B /* UIViewController+Test.m */,
 				040B99B71D3F5B4700F2F0FC /* UIButton+Common.h */,
@@ -1591,6 +1596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */,
+				049A3E591D79200B00457266 /* NSDictionary+check.m in Sources */,
 				045521A61D3CBBD300775845 /* FYLoginTranslation.m in Sources */,
 				0405DC1C1CFC1A5C003F2741 /* ISRDataHelper.m in Sources */,
 				04944C841D4704F900C9E96A /* NumberView.m in Sources */,

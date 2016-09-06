@@ -431,4 +431,24 @@
 //    
 //}
 //
+
+#pragma mark 当把定时器封装成一个view时。要在自定义view内部实现下面方法
+
+//在VC中使用自定义view轮播图，当vc出栈时他会立即执行dealloc，但此时自定义view里的定时器并没有释放，所以必须用下面的方法。
+
+//但是如果当前vc有定时器而且没释放，那vc不会走dealloc，这两个就这个区别。。。很奇怪
+
+//- (void)willMoveToSuperview:(UIView *)newSuperview {
+//    
+//    if (!newSuperview) {
+//        NSLog(@"释放定时器");
+//        
+//        [time invalidate];
+//        time = nil;
+//        
+//    }
+//    
+//}
+
+
 @end

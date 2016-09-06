@@ -105,6 +105,9 @@
 #endif
 
 
+
+
+
 /**
  *  下面两个加载图片的方法，区别是用不用@""
  * 使用方法：BCImage(@"head.jpg") / newImage(head.jpg)

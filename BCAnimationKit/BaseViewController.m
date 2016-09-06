@@ -273,7 +273,9 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 
 
 
-//计算缓存大小，这里路径写死了
+
+
+//计算缓存大小，这里路径写死了，这个和上面计算缓存同理，上面计算缓存是单独写成一个类
 //-(float)getCacheSizeAtPath {
 //    
 //    NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -525,5 +527,109 @@ NSLog(@"%@", string);
  //汇总
  });
  
+ 
+ 8.录屏
+ 
+ - (void)viewDidLoad {
+ [super viewDidLoad];
+ 
+  
+ 
+ 
+ UIButton *startBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, 100, 100)];
+ [self.view addSubview:startBtn];
+ startBtn.backgroundColor = [UIColor blueColor];
+ [startBtn setTitle:@"开始录制" forState:UIControlStateNormal];
+ [startBtn addTarget:self action:@selector(start:) forControlEvents:UIControlEventTouchUpInside];
+ 
+ 
+ UIButton *endBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+ [self.view addSubview:endBtn];
+ endBtn.backgroundColor = [UIColor blueColor];
+ [endBtn setTitle:@"结束录制" forState:UIControlStateNormal];
+ [endBtn addTarget:self action:@selector(end:) forControlEvents:UIControlEventTouchUpInside];
+ }
+ 
+ 
+ - (void)start:(UIButton *)btn {
+ RPScreenRecorder *recorder = [RPScreenRecorder sharedRecorder];
+ [recorder startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
+ if (error) {
+ NSLog(@"start recorder error - %@",error);
+ }
+ [btn setTitle:@"开始啦" forState:UIControlStateNormal];
+ }];
+ 
+ }
+ 
+ - (void)end:(UIButton *)btn {
+ RPScreenRecorder *recorder = [RPScreenRecorder sharedRecorder];
+ [recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
+ 
+ previewViewController.previewControllerDelegate = self;
+ [self presentViewController:previewViewController animated:NO completion:^{
+ NSLog(@"开始播放啦");
+ }];
+ }];
+ 
+ 
+ }
+ - (void)previewControllerDidFinish:(RPPreviewViewController *)previewController
+ {
+ [previewController dismissViewControllerAnimated:YES completion:nil];
+ }
+ 
+# 保存图片
+ 
+ NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"bc.jpg"], 0.5);
+ 
+ 
+ NSString *subPath = [kPathCache stringByAppendingPathComponent:@"IMG"];//二级文件
+ NSString *str = @"Jack111";
+ NSString *imageName = [NSString stringWithFormat:@"%@.jpg", str];
+ NSString *imagePath = [subPath stringByAppendingPathComponent:imageName];
+ [[NSFileManager defaultManager] createDirectoryAtPath:[imagePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+ 
+ BOOL hehe = [imageData writeToFile:imagePath atomically:NO];
+ 
+ if (hehe) {
+ 
+ NSLog(@"%@",imagePath);
+ } else {
+ 
+ NSLog(@"失败");
+ }
+ UIImageView *im = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+ 
+ im.image = [UIImage imageWithContentsOfFile:[imagePath stringByExpandingTildeInPath]];//这里是为了获取绝对路径，因为每一次更新应用路径都会改变，这里是为了自动生成新的路径
+ im.backgroundColor = [UIColor redColor];
+ [self.view addSubview:im];
+
+ 
+ 
+ 
  */
+
+
+/**
+ *  有时候writetofile失败，就需要创建文件夹，这个在多级文件夹下回出现
+ */
+
+//- (NSString *)getImagePath{
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//    NSString *path = [[paths objectAtIndex:0]stringByAppendingPathComponent:@"IMG"];
+//    NSFileManager *manager = [[NSFileManager alloc]init];
+//    if (![manager fileExistsAtPath:path]) {
+//        NSError *error ;
+//        [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+//        if (error) {
+//            //            NSLog(@"creat error : %@",error.description);
+//        }
+//    }
+//    
+//    
+//    
+//    return path;
+//}
 @end

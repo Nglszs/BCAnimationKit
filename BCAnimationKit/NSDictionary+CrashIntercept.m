@@ -28,7 +28,10 @@
     
 }
 
-- (void)kpSetObject:(id)anObject forKey:(id)aKey{
+- (void)kpSetObject:(id)anObject forKey:(id<NSCopying>)aKey{
+    
+    
+   
     if (aKey!=nil) {
         [self kpSetObject:anObject forKey:aKey];
     }

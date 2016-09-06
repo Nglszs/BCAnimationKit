@@ -57,7 +57,7 @@
 #import "CarViewController.h"
 #import "SystemPopViewController.h"
 #import "NSArray+check.h"
-
+#import "NSDictionary+check.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 @interface ViewController ()
@@ -93,7 +93,7 @@
     self.title = @"动画";
    
     
-    
+  
     //此项目的目地是为了将一些常用的功能封装起来，供大家直接使用或者学习
     
     
@@ -178,7 +178,18 @@
     NSLog(@"else if");
     
 #endif
+  
+
     
+#if TARGET_IPHONE_SIMULATOR//模拟器
+    NSLog(@"模拟器");
+#elif TARGET_OS_IPHONE//真机
+    NSLog(@"真机");
+#endif
+ 
+    
+    
+      
 }
 
 #pragma mark 重力滚动相关
@@ -995,6 +1006,17 @@
         }
             break;
 
+        case 14:
+        {
+            //缩放
+            cell.layer.transform = CATransform3DMakeScale(0.6, 0.6, 1);
+            [UIView animateWithDuration:1 animations:^{
+                cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+            }];
+
+            break;
+        }
+            
         default:
             break;
     }

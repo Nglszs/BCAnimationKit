@@ -16,14 +16,14 @@
     Method originArrayIndex = class_getInstanceMethod(NSClassFromString(@"__NSArrayI"), @selector(objectAtIndex:));
     Method newArrayIndex = class_getInstanceMethod(NSClassFromString(@"__NSArrayI"), @selector(kpObjectAtIndex:));
     if(originArrayIndex&&newArrayIndex){
-        method_exchangeImplementations(originArrayIndex, newArrayIndex);
+      //  method_exchangeImplementations(originArrayIndex, newArrayIndex);
     }
     
     //可变数组
     Method originMutableArrayIndex = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(objectAtIndex:));
     Method newMutableArrayIndex = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(kpObjectAtIndexM:));
     if(originMutableArrayIndex&&newMutableArrayIndex){
-        method_exchangeImplementations(originMutableArrayIndex, newMutableArrayIndex);
+      //  method_exchangeImplementations(originMutableArrayIndex, newMutableArrayIndex);
     }
     
 }

@@ -271,19 +271,62 @@
 
 
 }
+
+#pragma mark 购物车动画
+
+//- (void)groupAnimation
+//{
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+//    animation.path = self.path.CGPath;
+//    animation.rotationMode = kCAAnimationRotateAuto;
+//    
+//    // 缩放动画
+//    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//    scaleAnimation.fromValue = [NSNumber numberWithFloat:1.0f];
+//    scaleAnimation.toValue = [NSNumber numberWithFloat:0.3f];
+//    scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//    
+//    // 组合动画
+//    CAAnimationGroup *groups = [CAAnimationGroup animation];
+//    groups.animations = @[animation, scaleAnimation];
+//    groups.duration = 0.8f;
+//    groups.removedOnCompletion = NO;
+//    groups.fillMode = kCAFillModeForwards;
+//    groups.delegate = self;
+//    [groups setValue:@"groupsAnimation" forKey:@"animationName"];
+//    [self.layer addAnimation:groups forKey:nil];
+//    [self performSelector:@selector(removeFromLayer:) withObject:self.layer afterDelay:0.8f];
+//}
+//
+//- (void)removeFromLayer:(CALayer *)layer
+//{
+//    [layer removeFromSuperlayer];
+//}
+//
+//#pragma mark - CAAnimationDelegate
+//- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+//{
+//    if ([[anim valueForKey:@"animationName"]isEqualToString:@"groupsAnimation"]) {
+//        
+//        if (self.isJoinCart == YES) {
+//            
+//            CABasicAnimation *cartAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//            cartAnimation.duration = 0.25f;
+//            cartAnimation.fromValue = [NSNumber numberWithFloat:0.9];
+//            cartAnimation.toValue = [NSNumber numberWithFloat:1];
+//            cartAnimation.autoreverses = YES;
+//            [self.cart.layer addAnimation:cartAnimation forKey:nil];
+//            
+//            [self numberChange];
+//        }
+//    }
+//}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

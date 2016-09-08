@@ -726,4 +726,121 @@ NSLog(@"%@", string);
 //    }
 //    
 //}
+
+#pragma mark  并发控制
+
+//- (NSOperationQueue *)queue
+//{
+//    if (_queue == nil) {
+//        _queue = [[NSOperationQueue alloc] init];
+//          _queue.maxConcurrentOperationCount = 3; // 最大并发数
+//    }
+//    return _queue;
+//}
+//
+//- (void)hehe:(int)num {
+//    
+//    
+//    [self.queue waitUntilAllOperationsAreFinished];//加上这句线程就会一步一步执行
+//    
+//    
+//    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+//        
+//        NSLog(@"%d",num);
+//        
+//        
+//    }];
+//    
+//    
+//    [self.queue addOperation:op];
+//    
+//}
+
+
+#pragma mark 按钮动画用在多张图片选择时
+
+//self.backGroudView.transform =CGAffineTransformMakeScale(0, 0);
+//[UIView animateWithDuration:0.2 animations:^{
+//    self.backGroudView.transform = CGAffineTransformMakeScale(1.1, 1.1);
+//}
+//                 completion:^(BOOL finished){
+//                     [UIView animateWithDuration:0.1 animations:^{
+//                         self.backGroudView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+//                     }];
+//                 }];
+//
+
+
+#pragma mark 控制多张图片上传时的顺序
+//dispatch_group_t group = dispatch_group_create();
+//
+//__block BOOL error = NO;
+//
+//[self.uploadImageArray enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL * _Nonnull stop) {
+//    
+//    dispatch_group_enter(group);
+//    [[AFFileClient sharedClient] upload:@"app/upload_file/imageList"
+//                             parameters:nil
+//                                  files:@{@"upload":UIImageJPEGRepresentation(image, 0.8)}
+//                               complete:^(ResponseData *response) {
+//                                   dispatch_group_leave(group);
+//                                   if (response.success) {
+//                                       NSLog(@"第%@张图片上传完成...",@(idx));
+//                                   }
+//                                   else {
+//                                       error = YES;
+//                                       NSLog(@"第%@张图片上传失败：%@",@(idx),response.message);
+//                                   }
+//                               }];
+//}];
+//
+//dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//    [self doSomethingWhenAllImageUpload:error];
+//});
+
+
+#pragma mark kvo监听按钮是否点击
+
+//[self.selectedBtn addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
+
+
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+//    
+//    if ([keyPath isEqualToString:@"selected"] && object == self.selectedBtn) {
+//        
+//        
+//        NSLog(@"%@",[change objectForKey:@"new"]);
+//        
+//        
+//        if ([[change objectForKey:@"new"] integerValue] == 1) {
+//            
+//            dayLabel.textColor = [UIColor whiteColor];
+//        } else {
+//            
+//            dayLabel.textColor = COLOR(174, 143, 101, 1);
+//        }
+//        
+//        
+//    } else {
+//        
+//        
+//        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//        
+//    }
+//    
+//    
+//    
+//    
+//    
+//}
+//
+//- (void)willMoveToSuperview:(UIView *)newSuperview {
+//    
+//    if (!newSuperview) {
+//        
+//        
+//        [self.selectedBtn removeObserver:self forKeyPath:@"selected" context:nil];
+//    }
+//    
+//}
 @end

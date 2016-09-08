@@ -189,7 +189,7 @@
  
     
     
-      
+    
 }
 
 #pragma mark 重力滚动相关
@@ -1022,6 +1022,16 @@
             break;
         }
             
+            case 15://缩放动画二
+        {
+            CATransform3D scale = CATransform3DMakeScale(0.5, 0.5, 0.5);
+            cell.layer.transform = scale;
+            
+            [UIView animateWithDuration:0.5f animations:^{
+                cell.layer.transform = CATransform3DIdentity;
+            }];
+            break;
+        }
         default:
             break;
     }

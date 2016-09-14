@@ -741,7 +741,7 @@ NSLog(@"%@", string);
 //- (void)hehe:(int)num {
 //    
 //    
-//    [self.queue waitUntilAllOperationsAreFinished];//加上这句线程就会一步一步执行
+//    [self.queue waitUntilAllOperationsAreFinished];//加上这句线程就会一步一步执行，如果去掉这个设置并发数为1效果是一样的
 //    
 //    
 //    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
@@ -961,4 +961,41 @@ NSLog(@"%@", string);
 //    return objResult;
 //}
 //
+
+//[[UIColor lightGrayColor] colorWithAlphaComponent:.9];
+
+
+
+#pragma mark 改变左划按钮的颜色
+
+
+//在自定义cell加上如下代码
+
+
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    [self dealDeleteButton];
+//}
+//- (void)dealDeleteButton{
+//    for (UIView *subView in self.subviews) {
+//        
+//        if ([subView isKindOfClass:NSClassFromString(@"UITableViewCellDeleteConfirmationView")]) {
+//            
+//            subView.backgroundColor = [UIColor blueColor];
+//            
+//            for (UIButton *button in subView.subviews) {
+//                
+//                if ([button isKindOfClass:[UIButton class]]) {
+//                    
+//                    button.backgroundColor = [UIColor blueColor];
+//                    button.titleLabel.font = [UIFont systemFontOfSize:11.0];
+//                    
+//                }
+//            }
+//        }
+//    }
+//}
+//
+
 @end

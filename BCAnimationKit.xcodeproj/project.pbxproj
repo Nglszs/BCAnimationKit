@@ -38,6 +38,7 @@
 		043BF9781CD8676100372213 /* BCAnimationKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9771CD8676100372213 /* BCAnimationKitUITests.m */; };
 		043BF9861CD8699800372213 /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043BF9851CD8699800372213 /* head.jpg */; };
 		043E8A801D113B1900A7F609 /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 043E8A7F1D113B1900A7F609 /* mapIcon.png */; };
+		04405F3A1D8E7B7D007EEA9C /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04405F391D8E7B7D007EEA9C /* BubbleTransition.swift */; };
 		044552A31D0D2954001298D9 /* SpeechToTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044552A21D0D2954001298D9 /* SpeechToTextViewController.m */; };
 		044D45861D49A98800E6FA78 /* SystemPushTranistion.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D45851D49A98800E6FA78 /* SystemPushTranistion.m */; };
 		0453D8841D33749000C78392 /* btn_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0453D8801D33749000C78392 /* btn_add@2x.png */; };
@@ -290,6 +291,8 @@
 		043BF9791CD8676100372213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043BF9851CD8699800372213 /* head.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = head.jpg; sourceTree = "<group>"; };
 		043E8A7F1D113B1900A7F609 /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapIcon.png; sourceTree = "<group>"; };
+		04405F381D8E7B7C007EEA9C /* BCAnimationKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BCAnimationKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		04405F391D8E7B7D007EEA9C /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		044552A11D0D2954001298D9 /* SpeechToTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechToTextViewController.h; sourceTree = "<group>"; };
 		044552A21D0D2954001298D9 /* SpeechToTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextViewController.m; sourceTree = "<group>"; };
 		044D45841D49A98800E6FA78 /* SystemPushTranistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPushTranistion.h; sourceTree = "<group>"; };
@@ -788,12 +791,14 @@
 		045521A01D3CBB4E00775845 /* 自定义present动画 */ = {
 			isa = PBXGroup;
 			children = (
+				04405F391D8E7B7D007EEA9C /* BubbleTransition.swift */,
 				045521A41D3CBBD300775845 /* FYLoginTranslation.h */,
 				045521A51D3CBBD300775845 /* FYLoginTranslation.m */,
 				045521A11D3CBB6E00775845 /* CustomPresentViewController.h */,
 				045521A21D3CBB6E00775845 /* CustomPresentViewController.m */,
 				045521AB1D3CBC3400775845 /* PresentSecondViewController.h */,
 				045521AC1D3CBC3400775845 /* PresentSecondViewController.m */,
+				04405F381D8E7B7C007EEA9C /* BCAnimationKit-Bridging-Header.h */,
 			);
 			name = "自定义present动画";
 			sourceTree = "<group>";
@@ -1686,6 +1691,7 @@
 				04EC9C8C1CD99C3F0012BA8E /* UINavigationBar+Gradient.m in Sources */,
 				048FDB6D1CD9863F00F10826 /* BaseViewController.m in Sources */,
 				048FDB701CD986B100F10826 /* DropEnlargeViewControler.m in Sources */,
+				04405F3A1D8E7B7D007EEA9C /* BubbleTransition.swift in Sources */,
 				04CAF5FB1CFD5F0A003FC72D /* UIImageView+LoadImage.m in Sources */,
 				04D2F9AB1CE2BFC100140EE1 /* NightModelViewController.m in Sources */,
 				040B99B31D3F1C0E00F2F0FC /* JXCircleSpreadTransition.m in Sources */,
@@ -1863,7 +1869,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1881,6 +1889,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jack.fuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BCAnimationKit/BCAnimationKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1888,7 +1898,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1906,6 +1918,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jack.fuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BCAnimationKit/BCAnimationKit-Bridging-Header.h";
 			};
 			name = Release;
 		};

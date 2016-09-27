@@ -771,6 +771,37 @@ NSLog(@"%@", string);
 //
 
 
+//
+//-(void)roundAnimation:(UILabel *)label
+//{
+//    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+//    animation.duration = 0.7;
+//    
+//    NSMutableArray *values = [NSMutableArray array];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9, 0.9, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+//    animation.values = values;
+//    [label.layer addAnimation:animation forKey:nil];
+//}
+//
+//-(void)selectAnimation:(UIButton *)button
+//{
+//    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+//    animation.duration = 0.5;
+//    
+//    NSMutableArray *values = [NSMutableArray array];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9, 0.9, 1.0)]];
+//    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+//    animation.values = values;
+//    [button.layer addAnimation:animation forKey:nil];
+//}
+//
+
+
 #pragma mark 控制多张图片上传时的顺序
 //dispatch_group_t group = dispatch_group_create();
 //
@@ -996,6 +1027,269 @@ NSLog(@"%@", string);
 //        }
 //    }
 //}
+//左划删除的代码
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    if (editingStyle == UITableViewCellEditingStyleDelete) { //删除事件
+//        
+//        [msgListArray removeObjectAtIndex:indexPath.row];//tableview数据源
+//        
+//        
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+//        
+//    }
+//    
+//    
+//    
+//}
 //
 
+#pragma mark  刮刮乐
+
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    
+// 
+//    
+//    
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(7, 50, 400, 400)];
+//    label.text = @"离思五首\n元稹\n曾经沧海难为水,\n除却巫山不是云!\n取次花丛懒回顾,\n半缘修道半缘君!\n";
+//    label.numberOfLines = 0;
+//    label.backgroundColor = [UIColor colorWithRed:(arc4random()%173)/346.0 + 0.5 green:(arc4random()%173)/346.0 + 0.5  blue:(arc4random()%173)/346.0 + 0.5  alpha: 1];
+//    label.font = [UIFont systemFontOfSize:30];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:label];
+//    
+//    self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(7, 50, 400, 400)];
+//    self.imageView.image = [UIImage imageNamed:@"bc.jpg"];
+//    [self.view addSubview:self.imageView ];
+//    
+//}
+//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    // 触摸任意位置
+//    UITouch *touch = touches.anyObject;
+//    // 触摸位置在图片上的坐标
+//    CGPoint cententPoint = [touch locationInView:self.imageView];
+//    // 设置清除点的大小
+//    CGRect  rect = CGRectMake(cententPoint.x, cententPoint.y, 20, 20);
+//    // 默认是去创建一个透明的视图
+//    UIGraphicsBeginImageContextWithOptions(self.imageView.bounds.size, NO, 0);
+//    // 获取上下文(画板)
+//    CGContextRef ref = UIGraphicsGetCurrentContext();
+//    // 把imageView的layer映射到上下文中
+//    [self.imageView.layer renderInContext:ref];
+//    // 清除划过的区域
+//    CGContextClearRect(ref, rect);
+//    // 获取图片
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    // 结束图片的画板, (意味着图片在上下文中消失)
+//    UIGraphicsEndImageContext();
+//    self.imageView.image = image;
+//    
+//}
+
+
+#pragma mark 归档
+
+//一次只能保存一个对象
+//   // 归档
+//    NSArray* names=@[@"高富帅",@"李志杰",@"我",@"小纸箱"];//准备归档对象
+//
+//
+//    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    //2、添加储存的文件名
+//    NSString *path  = [docPath stringByAppendingPathComponent:@"data.archiver"];
+//    //3、将一个对象保存到文件中
+//    BOOL flag = [NSKeyedArchiver archiveRootObject:names toFile:path];
+//
+//    if (flag) {
+//        NSLog(@"归档成功");
+//
+//
+//
+//        NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//        NSString *path=[docPath stringByAppendingPathComponent:@"data.archiver"];
+//
+//        //2.从文件中读取对象
+//      NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+//
+//
+//    NSLog(@"%@",arr);
+//    }
+
+
+//    //一次保存多个对象
+//    CGPoint point = CGPointMake(1.0, 2.0);
+//    NSString *origin = @"坐标原点";
+//    NSInteger value = 10;
+//    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString *path = [docPath stringByAppendingPathComponent:@"multi.archiver"];
+//    NSMutableData *data = [[NSMutableData alloc] init];
+//    NSKeyedArchiver *archvier = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+//    //对多个对象进行归档
+//    [archvier encodeCGPoint:point forKey:@"kPoint"];
+//    [archvier encodeObject: origin forKey:@"kOrigin"];
+//    [archvier encodeInteger:value forKey:@"kValue"];
+//    [archvier finishEncoding];
+//    [data writeToFile:path atomically:YES];
+//
+//
+//
+//
+//    NSMutableData *dataR = [[NSMutableData alloc] initWithContentsOfFile:path];
+//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:dataR];
+//    CGPoint pointR = [unarchiver decodeCGPointForKey:@"kPoint"];
+//    NSString *infoR = [unarchiver decodeObjectForKey:@"kOrigin"];
+//    NSInteger valueR = [unarchiver decodeIntegerForKey:@"kValue"];
+//    [unarchiver finishDecoding];
+//    NSLog(@"%f,%f,%@,%ld",pointR.x,pointR.y,infoR,valueR);
+
+
+
+//保存自定义对象,这个自定义对象必须遵循并实现NSCoding协议，参考笔记本
+
+//1.创建对象
+//    YYPerson *person = [[YYPerson alloc] init];
+//    person.name=@"蜗牛";
+//    person.age=23;
+//    person.height=1.83;
+//
+//    //2.获取文件路径
+//    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+//    NSString *path=[docPath stringByAppendingPathComponent:@"person.archiver"];
+//    NSLog(@"path=%@",path);
+//
+//    //3.将自定义的对象保存到文件中，调用NSKeyedArchiver的工厂方法 archiveRootObject: toFile: 方法
+//    [NSKeyedArchiver archiveRootObject:p toFile:path];
+
+
+//解档
+//    //1.获取文件路径
+//    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+//    NSString *path=[docPath stringByAppendingPathComponent:@"person.archiver"];
+//    NSLog(@"path=%@",path);
+//
+//    //2.从文件中读取对象，解档对象就调用NSKeyedUnarchiver的一个工厂方法 unarchiveObjectWithFile: 即可。
+//    YYPerson * person = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+//    if (person) {
+//        NSLog(@"%@,%d,%.1f", person.name, person.age, person.height);
+//    }
+
+#pragma mark  判断当前ViewController是push还是present的方式显示的
+
+//也可以通过是否执行viewdidload判断，如果push则会执行viewdidload
+
+//NSArray *viewcontrollers=self.navigationController.viewControllers;
+//
+//if (viewcontrollers.count > 1)
+//{
+//    if ([viewcontrollers objectAtIndex:viewcontrollers.count - 1] == self)
+//    {
+//        //push方式
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+//}
+//else
+//{
+//    //present方式
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+
+#pragma mark iOS在当前屏幕获取第一响应
+//UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];
+//UIView * firstResponder = [keyWindow performSelector:@selector(firstResponder)];
+
+#pragma mark 取消UICollectionView的隐式动画
+//方法一
+//[UIView performWithoutAnimation:^{
+//    [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
+//}];
+//
+////方法二
+//[UIView animateWithDuration:0 animations:^{
+//    [collectionView performBatchUpdates:^{
+//        [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
+//    } completion:nil];
+//}];
+//
+////方法三
+//[UIView setAnimationsEnabled:NO];
+//[self.trackPanel performBatchUpdates:^{
+//    [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
+//} completion:^(BOOL finished) {
+//    [UIView setAnimationsEnabled:YES];
+//}];
+
+
+
+#pragma mark 计算字符串字符长度，一个汉字算两个字符
+//方法一：
+- (int)convertToInt:(NSString*)strtemp
+{
+    int strlength = 0;
+    char* p = (char*)[strtemp cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (int i=0 ; i<[strtemp lengthOfBytesUsingEncoding:NSUnicodeStringEncoding] ;i++)
+    {
+        if (*p)
+        {
+            p++;
+            strlength++;
+        }
+        else
+        {
+            p++;
+        }
+        
+    }
+    return strlength;
+}
+
+//方法二：
+-(NSUInteger) unicodeLengthOfString: (NSString *) text
+{
+    NSUInteger asciiLength = 0;
+    for (NSUInteger i = 0; i < text.length; i++)
+    {
+        unichar uc = [text characterAtIndex: i];
+        asciiLength += isascii(uc) ? 1 : 2;
+    }
+    return asciiLength;
+}
+
+
+#pragma mark 给UIView设置图片
+//UIImage *image = [UIImage imageNamed:@"image"];
+//self.MYView.layer.contents = (__bridge id _Nullable)(image.CGImage);
+//self.MYView.layer.contentsRect = CGRectMake(0, 0, 0.5, 0.5);
+
+
+#pragma mark 防止scrollView手势覆盖侧滑手势
+//[scrollView.panGestureRecognizerrequireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
+
+#pragma mark 获取手机安装的应用
+//Class c =NSClassFromString(@"LSApplicationWorkspace");
+//id s = [(id)c performSelector:NSSelectorFromString(@"defaultWorkspace")];
+//NSArray *array = [s performSelector:NSSelectorFromString(@"allInstalledApplications")];
+//for (id item in array)
+//{
+//    NSLog(@"%@",[item performSelector:NSSelectorFromString(@"applicationIdentifier")]);
+//    //NSLog(@"%@",[item performSelector:NSSelectorFromString(@"bundleIdentifier")]);
+//    NSLog(@"%@",[item performSelector:NSSelectorFromString(@"bundleVersion")]);
+//    NSLog(@"%@",[item performSelector:NSSelectorFromString(@"shortVersionString")]);
+//}
+
+
+#pragma mark navigationBar变为纯透明,tabBar同理
+//[self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+////去掉导航栏底部的黑线
+//self.navigationBar.shadowImage = [UIImage new];
+//
+////第二种方法
+//[[self.navigationBar subviews] objectAtIndex:0].alpha = 0;
+
+
+//[self.tabBar setBackgroundImage:[UIImage new]];
+//self.tabBar.shadowImage = [UIImage new];
 @end

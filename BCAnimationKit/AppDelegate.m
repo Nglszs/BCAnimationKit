@@ -11,6 +11,7 @@
 #import <Bugtags/Bugtags.h>
 #import <objc/runtime.h>
 #import "NetWorkFlow.h"
+#import "SPUncaughtExceptionHandler.h"
 
 #import <sys/sysctl.h>
 #import <mach/mach.h>
@@ -66,7 +67,9 @@
 //        
 //    } repeats:YES];
     
-        
+    
+    //闪退钱会弹出窗,这种不错
+    //  InstallUncaughtExceptionHandler();
     
        return YES;
     

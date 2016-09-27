@@ -25,6 +25,8 @@
 		04080C941D3DEEE8004FFD62 /* CustomSpread.m in Sources */ = {isa = PBXBuildFile; fileRef = 04080C931D3DEEE8004FFD62 /* CustomSpread.m */; };
 		040B99B31D3F1C0E00F2F0FC /* JXCircleSpreadTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B99B21D3F1C0E00F2F0FC /* JXCircleSpreadTransition.m */; };
 		040B99B91D3F5B4700F2F0FC /* UIButton+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B99B81D3F5B4700F2F0FC /* UIButton+Common.m */; };
+		040F10C61D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F10C51D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m */; };
+		040F10D91D8F906100D0C056 /* NSObject+MessageTrans.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F10D81D8F906100D0C056 /* NSObject+MessageTrans.m */; };
 		041328091D0549EB0042CFE8 /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041328081D0549EB0042CFE8 /* SectionViewController.m */; };
 		0413280C1D054A900042CFE8 /* BCSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280B1D054A900042CFE8 /* BCSectionViewController.m */; };
 		0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280E1D055F010042CFE8 /* BCClearCache.m */; };
@@ -154,6 +156,7 @@
 		04B3AB451CE426B8000EC479 /* CubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3AB441CE426B8000EC479 /* CubeViewController.m */; };
 		04BB0B4F1D38BB5300519B85 /* btn_reduce1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB0B4D1D38BB5300519B85 /* btn_reduce1@2x.png */; };
 		04BB0B501D38BB5300519B85 /* btn_reduce1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB0B4E1D38BB5300519B85 /* btn_reduce1@3x.png */; };
+		04C4614A1D939DF80033C223 /* UIButton+EdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C461491D939DF80033C223 /* UIButton+EdgeInsets.m */; };
 		04C548871D49A78B0073B091 /* SystemPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548861D49A78B0073B091 /* SystemPopViewController.m */; };
 		04C5488A1D49A79E0073B091 /* SystemSecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548891D49A79E0073B091 /* SystemSecViewController.m */; };
 		04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */; };
@@ -266,6 +269,10 @@
 		040B99B21D3F1C0E00F2F0FC /* JXCircleSpreadTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXCircleSpreadTransition.m; sourceTree = "<group>"; };
 		040B99B71D3F5B4700F2F0FC /* UIButton+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Common.h"; sourceTree = "<group>"; };
 		040B99B81D3F5B4700F2F0FC /* UIButton+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Common.m"; sourceTree = "<group>"; };
+		040F10C41D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		040F10C51D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		040F10D71D8F906100D0C056 /* NSObject+MessageTrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MessageTrans.h"; sourceTree = "<group>"; };
+		040F10D81D8F906100D0C056 /* NSObject+MessageTrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MessageTrans.m"; sourceTree = "<group>"; };
 		041328071D0549EB0042CFE8 /* SectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
 		041328081D0549EB0042CFE8 /* SectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionViewController.m; sourceTree = "<group>"; };
 		0413280A1D054A900042CFE8 /* BCSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCSectionViewController.h; sourceTree = "<group>"; };
@@ -462,6 +469,8 @@
 		04B3AB441CE426B8000EC479 /* CubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeViewController.m; sourceTree = "<group>"; };
 		04BB0B4D1D38BB5300519B85 /* btn_reduce1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reduce1@2x.png"; sourceTree = "<group>"; };
 		04BB0B4E1D38BB5300519B85 /* btn_reduce1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reduce1@3x.png"; sourceTree = "<group>"; };
+		04C461481D939DF80033C223 /* UIButton+EdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EdgeInsets.h"; sourceTree = "<group>"; };
+		04C461491D939DF80033C223 /* UIButton+EdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EdgeInsets.m"; sourceTree = "<group>"; };
 		04C548851D49A78B0073B091 /* SystemPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPopViewController.h; sourceTree = "<group>"; };
 		04C548861D49A78B0073B091 /* SystemPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemPopViewController.m; sourceTree = "<group>"; };
 		04C548881D49A79E0073B091 /* SystemSecViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSecViewController.h; sourceTree = "<group>"; };
@@ -647,6 +656,15 @@
 				0405DC3A1CFC4519003F2741 /* ValueChangeViewController.m */,
 			);
 			name = "数值改变动画";
+			sourceTree = "<group>";
+		};
+		040F10C31D8F8C4600D0C056 /* 闪退提示 */ = {
+			isa = PBXGroup;
+			children = (
+				040F10C41D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.h */,
+				040F10C51D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m */,
+			);
+			name = "闪退提示";
 			sourceTree = "<group>";
 		};
 		041328061D05498B0042CFE8 /* 分段视图 */ = {
@@ -850,6 +868,7 @@
 		048FDB6A1CD9861600F10826 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				040F10C31D8F8C4600D0C056 /* 闪退提示 */,
 				04E384FA1D372500006E9437 /* CateGory */,
 				048FDB6B1CD9863F00F10826 /* BaseViewController.h */,
 				048FDB6C1CD9863F00F10826 /* BaseViewController.m */,
@@ -1283,6 +1302,10 @@
 			isa = PBXGroup;
 			children = (
 				048E7E841D82519900B5CA3C /* NullSafe.m */,
+				04C461481D939DF80033C223 /* UIButton+EdgeInsets.h */,
+				04C461491D939DF80033C223 /* UIButton+EdgeInsets.m */,
+				040F10D71D8F906100D0C056 /* NSObject+MessageTrans.h */,
+				040F10D81D8F906100D0C056 /* NSObject+MessageTrans.m */,
 				049A3E571D79200B00457266 /* NSDictionary+check.h */,
 				049A3E581D79200B00457266 /* NSDictionary+check.m */,
 				0492CC771CFFCE2A0027066B /* UIViewController+Test.h */,
@@ -1660,6 +1683,7 @@
 				04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */,
 				047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */,
 				0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */,
+				040F10C61D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m in Sources */,
 				0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */,
 				048E7E851D82519900B5CA3C /* NullSafe.m in Sources */,
 				04B24AAB1D3CA8880028A66B /* CustomPushViewController.m in Sources */,
@@ -1678,6 +1702,7 @@
 				044D45861D49A98800E6FA78 /* SystemPushTranistion.m in Sources */,
 				0492CC831CFFFC6D0027066B /* TransformViewController.m in Sources */,
 				041328091D0549EB0042CFE8 /* SectionViewController.m in Sources */,
+				040F10D91D8F906100D0C056 /* NSObject+MessageTrans.m in Sources */,
 				04A2EC2B1CF5769F00DF79B7 /* MessageFrame.m in Sources */,
 				04DCFED61D52DB08008A21A3 /* NetWorkFlow.m in Sources */,
 				0492CC861D0002B10027066B /* SecondViewController.m in Sources */,
@@ -1695,6 +1720,7 @@
 				04CAF5FB1CFD5F0A003FC72D /* UIImageView+LoadImage.m in Sources */,
 				04D2F9AB1CE2BFC100140EE1 /* NightModelViewController.m in Sources */,
 				040B99B31D3F1C0E00F2F0FC /* JXCircleSpreadTransition.m in Sources */,
+				04C4614A1D939DF80033C223 /* UIButton+EdgeInsets.m in Sources */,
 				04A8DA041D3F0ACC0043E546 /* ReactMsgViewController.m in Sources */,
 				0471D2541CF530F300A0C8CB /* BCTableViewCell.m in Sources */,
 				04D079E21D224947006F36EA /* TableViewCell.m in Sources */,

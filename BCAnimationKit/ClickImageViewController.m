@@ -51,6 +51,8 @@
         
         [imageView addGestureRecognizer:tap];
         
+        NSLog(@"%@",NSStringFromCGRect([self getFrameInWindow:imageView]));
+        
     }
 
     
@@ -270,7 +272,11 @@
     
     
 }
-
+// 获取指定视图在window中的位置
+- (CGRect)getFrameInWindow:(UIView *)view
+{
+    return [view.superview convertRect:view.frame toView:[UIApplication sharedApplication].keyWindow];
+}
 /*
 #pragma mark - Navigation
 

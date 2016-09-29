@@ -69,7 +69,7 @@
     
     
     //闪退钱会弹出窗,这种不错
-    //  InstallUncaughtExceptionHandler();
+   // InstallUncaughtExceptionHandler();
     
        return YES;
     
@@ -220,7 +220,10 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    
+    NSLog(@"这里当程序被上滑退出时，会执行");
+    
 }
 //获取随机字符串，可用来作为异步登录判断，也可用devicetoken,将这些保存在keychain里即可
 - (NSString *)getAnyCharStringWitn:(int)tempLength {

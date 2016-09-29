@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "BCKeyChain.h"
 #import "BCClearCache.h"
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 
 @implementation BaseViewController
@@ -1292,4 +1293,205 @@ NSLog(@"%@", string);
 
 //[self.tabBar setBackgroundImage:[UIImage new]];
 //self.tabBar.shadowImage = [UIImage new];
+
+#pragma mark wkwebview截屏失败
+
+
+- (UIImage*)captureView:(UIView *)theView frame:(CGRect)frame
+{
+    
+    
+    UIGraphicsBeginImageContext(theView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIImage *img;
+    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0)
+    {
+        for(UIView *subview in theView.subviews)
+        {
+            [subview drawViewHierarchyInRect:subview.bounds afterScreenUpdates:YES];
+        }
+        img = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    else
+    {
+        CGContextSaveGState(context);
+        [theView.layer renderInContext:context];
+        img = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    UIGraphicsEndImageContext();
+    CGImageRef ref = CGImageCreateWithImageInRect(img.CGImage, frame);
+    UIImage *CGImg = [UIImage imageWithCGImage:ref];
+    CGImageRelease(ref);
+    return CGImg;
+}
+
+#pragma mark 系统返回手势和scrollview冲突，这个方法和下面的不一样，这里是系统自带的返回手势，下面抽屉效果都是自定义的返回手势
+
+
+
+//1
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    
+//    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+//        return NO;
+//    }
+//    return YES;
+//    
+//}
+
+
+//2
+
+//UIScreenEdgePanGestureRecognizer *screenEdgePanGestureRecognizer = self.navigationController.screenEdgePanGestureRecognizer;
+//[mainScrollView.panGestureRecognizer requireGestureRecognizerToFail:screenEdgePanGestureRecognizer];
+
+//3
+// [_smallScrollView.panGestureRecognizer requireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
+//
+
+//4.在viewDidAppear里边添加此段代码即可
+//NSArray *gestureArray = self.navigationController.view.gestureRecognizers;
+//// 当是侧滑手势的时候设置scrollview需要此手势失效即可
+//for (UIGestureRecognizer *gesture in gestureArray) {
+//    if ([gesture isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+//        [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:gesture];
+//        break;
+//    }
+//}
+
+#pragma mark  这里是自定义scrollview,解决和系统返回手势冲突问题
+
+//在自定义的uiscroview里添加方法。
+//
+//左边侧滑：
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+//{
+//    CGPoint velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:self];
+//    CGPoint location = [gestureRecognizer locationInView:self];
+//    
+//    NSLog(@"velocity.x:%f----location.x:%d",velocity.x,(int)location.x%(int)[UIScreen mainScreen].bounds.size.width);
+//    if (velocity.x > 0.0f&&(int)location.x%(int)[UIScreen mainScreen].bounds.size.width<60) {
+//        return NO;
+//    }
+//    return YES;
+//}
+//
+//
+//
+//
+//
+//右边侧滑：
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+//{
+//    CGPoint velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:self];
+//    CGPoint location = [gestureRecognizer locationInView:self];
+//    
+//    NSLog(@"velocity.x:%f----location.x:%d",velocity.x,(int)location.x%(int)[UIScreen mainScreen].bounds.size.width);
+//    if (velocity.x > 0.0f&&(int)location.x%(int)[UIScreen mainScreen].bounds.size.width>[UIScreen mainScreen].bounds.size.width-60) {
+//        return NO;
+//    }
+//    return YES;
+//}
+
+
+//这也要写在自定义scrollview里，CustomScrollView，遵守<UIGestureRecognizerDelegate>协议，然后在实现文件中写如下代码：
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+//{
+//    // 首先判断otherGestureRecognizer是不是系统pop手势
+//    if ([otherGestureRecognizer.view isKindOfClass:NSClassFromString(@"UILayoutContainerView")]) {
+//        // 再判断系统手势的state是began还是fail，同时判断scrollView的位置是不是正好在最左边
+//        if (otherGestureRecognizer.state == UIGestureRecognizerStateBegan && self.contentOffset.x == 0) {
+//            return YES;
+//        }
+//    }
+//    
+//    return NO;
+//}
+#pragma mark 抽屉效果和tableview滑动删除冲突，这个代理写在抽屉效果内部的pan手势中，因为这里的手势是自定义的
+
+//
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+//    
+//    
+//    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+//        CGPoint pointInView = [(UIPanGestureRecognizer *)gestureRecognizer translationInView:gestureRecognizer.view];
+//        
+//        
+//        
+//        
+//        
+//        NSInteger currentX = [self horizontalLocation];
+//        
+//        if (pointInView.x < 0 && currentX == 0) {
+//            NSLog(@"左划手势失效");
+//            
+//            return NO;
+//        }
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//    }
+//    
+//    return YES;
+//}
+//- (CGFloat)horizontalLocation
+//{
+//    CGRect rect = self.view.frame;
+//    UIInterfaceOrientation orientation = self.interfaceOrientation;
+//    
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
+//    {
+//        return rect.origin.x;
+//    }
+//    else
+//    {
+//        if (UIInterfaceOrientationIsLandscape(orientation))
+//        {
+//            return (orientation == UIInterfaceOrientationLandscapeRight)
+//            ? rect.origin.y
+//            : rect.origin.y*-1;
+//        }
+//        else
+//        {
+//            return (orientation == UIInterfaceOrientationPortrait)
+//            ? rect.origin.x
+//            : rect.origin.x*-1;
+//        }
+//    }
+//}
+
+
+#pragma mark 抽屉效果和scrollview冲突，这里的代理页写在抽屉里面，可以和上面的代理同时用
+
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    
+//    
+//    if ([[otherGestureRecognizer view] isMemberOfClass:[UIScrollView class]]) {
+//        
+//        UIScrollView *scrollView = (UIScrollView *)[otherGestureRecognizer view];
+//        
+//        
+//        if (scrollView.contentOffset.x <= 0) {
+//            
+//            
+//            return YES;
+//        }
+//        
+//        
+//    }
+//    
+//    return NO;
+//    
+//    
+//    
+//    
+//}
+
+
+
 @end

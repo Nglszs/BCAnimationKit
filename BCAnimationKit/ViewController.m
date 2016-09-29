@@ -188,9 +188,10 @@
     NSLog(@"真机");
 #endif
  
-    
-    
-    
+    [NSTimer scheduledTimerWithTimeInterval:1 block:^{
+        NSLog(@"ddd");
+    } repeats:YES];
+     
 }
 
 #pragma mark 重力滚动相关

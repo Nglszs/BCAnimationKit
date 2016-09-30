@@ -772,7 +772,7 @@ NSLog(@"%@", string);
 //
 
 
-//
+//第二种实现方式
 //-(void)roundAnimation:(UILabel *)label
 //{
 //    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
@@ -801,6 +801,12 @@ NSLog(@"%@", string);
 //    [button.layer addAnimation:animation forKey:nil];
 //}
 //
+
+//第三
+//placeholder.transform = CGAffineTransformMakeScale(.5, .5);
+//[UIView animateWithDuration:.3 delay:0 usingSpringWithDamping:.5 initialSpringVelocity:.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//				placeholder.transform = CGAffineTransformIdentity;
+//} completion:nil];
 
 
 #pragma mark 控制多张图片上传时的顺序
@@ -998,8 +1004,9 @@ NSLog(@"%@", string);
 
 
 
-#pragma mark 改变左划按钮的颜色
+#pragma mark 改变tableview左划删除按钮的颜色
 
+//左划删除时偏移的背景色就是tableview的背景色
 
 //在自定义cell加上如下代码
 
@@ -1493,5 +1500,90 @@ NSLog(@"%@", string);
 //}
 
 
+#pragma mark 按钮设置图片和标题
+
+//UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//mapButton.frame = CGRectMake(KSCREENWIDTH/2,0, KSCREENWIDTH/2, 50);
+//mapButton.backgroundColor = [UIColor clearColor];
+//mapButton.tag = 101;
+//mapButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 7);//表示图片和标题的间距为7，且图片再左边
+//mapButton.titleEdgeInsets = UIEdgeInsetsMake(0, 7, 0, 0);
+//[mapButton setImage:[UIImage imageNamed:@"icon_eye"] forState:UIControlStateNormal];
+//[mapButton setTitle:@"999" forState:UIControlStateNormal];
+//[mapButton setTitleColor:defaultTextColor forState:UIControlStateNormal];
+//
+//mapButton.titleLabel.font = text14Font;
+//// [mapButton addTarget:delegate action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+#pragma mark 导航栏返回按钮设置
+//去掉导航栏黑线
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//}
+//
+////视图将要消失时取消隐藏
+//-(void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
+//}
+
+// A使用pushViewController切换到B时，navigation controller按照以下3条顺序更改导航栏的左侧按钮：
+//
+//1、如果B视图有一个自定义的左侧按钮（leftBarButtonItem），则会显示这个自定义按钮；
+//
+//2、如果B没有自定义按钮，但是A视图的backBarButtonItem属性有自定义项，则显示这个自定义项；
+//
+//3、如果前2条都没有，则默认显示一个后退按钮，后退按钮的标题是A视图的标题；
+
+
+//设置导航栏右边标题
+//self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneBtnClick:)];
+//
+
+
+
+//设置导航栏标题为图片，也可以用自定义view
+//UIImage *image = [[UIImage imageNamed:@"icon_back"]resizableImageWithCapInsets:UIEdgeInsetsMake(0, 30, 0, 0)];
+//
+//
+//self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+
+
+//改变b导航栏字体颜色，必须在a设置
+//self.navigationController.navigationBar.tintColor = defaultColor;
+
+//设置导航栏title颜色。必须在a设置
+//self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:defaultColor,NSFontAttributeName:text14Font};
+
+//导航栏自定义view
+//UIButton *_rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(180, 0, 60, 30)];
+//[_rightBtn setTitleColor:defaultColor forState:UIControlStateNormal];
+//[_rightBtn setTitle:@"取消" forState:UIControlStateNormal];
+//[_rightBtn addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+//self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightBtn];
+
+
+#pragma mark toolbar使用
+//toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-44, [UIScreen mainScreen].bounds.size.width, 44)];
+//toolbar.tintColor = [UIColor whiteColor];
+//toolbar.barStyle = UIBarStyleBlack;
+//[self.view addSubview:toolbar];
+//UIBarButtonItem *leftFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//UIBarButtonItem *rightFix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//preview = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(preview)];
+//UIBarButtonItem *fix = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//selectNum = [[UIBarButtonItem alloc] initWithTitle:@"0/9" style:UIBarButtonItemStylePlain target:nil action:nil];
+//UIBarButtonItem *fix2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(choiceDone)];
+//[toolbar setItems:@[leftFix, preview, fix, selectNum, fix2, done, rightFix]];
+//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCount:) name:@"selectdPhotos" object:nil];
+//selectNum.title = [NSString stringWithFormat:@"%ld/9", (unsigned long)ASSETHELPER.selectdPhotos.count];
 
 @end

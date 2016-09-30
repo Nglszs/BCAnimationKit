@@ -18,7 +18,7 @@
 #define BCHeight  [UIScreen mainScreen].bounds.size.height
 #define BCScreen  [UIScreen mainScreen].bounds
 
-
+#define Multiple BCWidth/375
 #define RealValue(value) (value * BCWidth/375)
 
 

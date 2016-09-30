@@ -188,9 +188,7 @@
     NSLog(@"真机");
 #endif
  
-    [NSTimer scheduledTimerWithTimeInterval:1 block:^{
-        NSLog(@"ddd");
-    } repeats:YES];
+    
      
 }
 

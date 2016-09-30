@@ -52,6 +52,9 @@
 		045521AD1D3CBC3400775845 /* PresentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045521AC1D3CBC3400775845 /* PresentSecondViewController.m */; };
 		04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */; };
 		045691331D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */; };
+		0457FDC91D9DF6710055FF8B /* UIView+hehe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457FDC81D9DF6710055FF8B /* UIView+hehe.m */; };
+		0457FDCC1D9DF9E30055FF8B /* UILabel+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457FDCB1D9DF9E30055FF8B /* UILabel+Adapter.m */; };
+		0457FDCF1D9DFA780055FF8B /* UIButton+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457FDCE1D9DFA780055FF8B /* UIButton+Adapter.m */; };
 		0468DF7B1D3DBE4D00519E42 /* KeynoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */; };
 		0468DF7E1D3DBEB000519E42 /* KeynoteTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF7D1D3DBEB000519E42 /* KeynoteTransition.m */; };
 		0468DF811D3DC65400519E42 /* KeynoteSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468DF801D3DC65400519E42 /* KeynoteSecondViewController.m */; };
@@ -318,6 +321,12 @@
 		04561F8F1D5C6A54004C70A0 /* NSMutableArray+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Check.m"; sourceTree = "<group>"; };
 		045691301D6ED2C8005460B9 /* NSDictionary+CrashIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CrashIntercept.h"; sourceTree = "<group>"; };
 		045691311D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashIntercept.m"; sourceTree = "<group>"; };
+		0457FDC71D9DF6710055FF8B /* UIView+hehe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+hehe.h"; sourceTree = "<group>"; };
+		0457FDC81D9DF6710055FF8B /* UIView+hehe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+hehe.m"; sourceTree = "<group>"; };
+		0457FDCA1D9DF9E30055FF8B /* UILabel+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Adapter.h"; sourceTree = "<group>"; };
+		0457FDCB1D9DF9E30055FF8B /* UILabel+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Adapter.m"; sourceTree = "<group>"; };
+		0457FDCD1D9DFA780055FF8B /* UIButton+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Adapter.h"; sourceTree = "<group>"; };
+		0457FDCE1D9DFA780055FF8B /* UIButton+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Adapter.m"; sourceTree = "<group>"; };
 		0468DF791D3DBE4D00519E42 /* KeynoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteViewController.h; sourceTree = "<group>"; };
 		0468DF7A1D3DBE4D00519E42 /* KeynoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeynoteViewController.m; sourceTree = "<group>"; };
 		0468DF7C1D3DBEB000519E42 /* KeynoteTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeynoteTransition.h; sourceTree = "<group>"; };
@@ -1304,6 +1313,12 @@
 				048E7E841D82519900B5CA3C /* NullSafe.m */,
 				04C461481D939DF80033C223 /* UIButton+EdgeInsets.h */,
 				04C461491D939DF80033C223 /* UIButton+EdgeInsets.m */,
+				0457FDC71D9DF6710055FF8B /* UIView+hehe.h */,
+				0457FDC81D9DF6710055FF8B /* UIView+hehe.m */,
+				0457FDCA1D9DF9E30055FF8B /* UILabel+Adapter.h */,
+				0457FDCB1D9DF9E30055FF8B /* UILabel+Adapter.m */,
+				0457FDCD1D9DFA780055FF8B /* UIButton+Adapter.h */,
+				0457FDCE1D9DFA780055FF8B /* UIButton+Adapter.m */,
 				040F10D71D8F906100D0C056 /* NSObject+MessageTrans.h */,
 				040F10D81D8F906100D0C056 /* NSObject+MessageTrans.m */,
 				049A3E571D79200B00457266 /* NSDictionary+check.h */,
@@ -1666,6 +1681,7 @@
 				0405DC1C1CFC1A5C003F2741 /* ISRDataHelper.m in Sources */,
 				04944C841D4704F900C9E96A /* NumberView.m in Sources */,
 				04F4F0631CD9C29900F46C7E /* ShoppingCartViewController.m in Sources */,
+				0457FDC91D9DF6710055FF8B /* UIView+hehe.m in Sources */,
 				04E87B1F1CF450D900076BE4 /* ScaleViewController.m in Sources */,
 				04E78BD01D21271B007FC9B3 /* CRMotionViewController.m in Sources */,
 				0471D2511CF52FD000A0C8CB /* TableScaleViewController.m in Sources */,
@@ -1684,6 +1700,7 @@
 				047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */,
 				0495CAA91D0E833D00D598DE /* AddPhotoViewController.m in Sources */,
 				040F10C61D8F8C5D00D0C056 /* SPUncaughtExceptionHandler.m in Sources */,
+				0457FDCC1D9DF9E30055FF8B /* UILabel+Adapter.m in Sources */,
 				0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */,
 				048E7E851D82519900B5CA3C /* NullSafe.m in Sources */,
 				04B24AAB1D3CA8880028A66B /* CustomPushViewController.m in Sources */,
@@ -1725,6 +1742,7 @@
 				0471D2541CF530F300A0C8CB /* BCTableViewCell.m in Sources */,
 				04D079E21D224947006F36EA /* TableViewCell.m in Sources */,
 				043BF9571CD8676100372213 /* AppDelegate.m in Sources */,
+				0457FDCF1D9DFA780055FF8B /* UIButton+Adapter.m in Sources */,
 				0405DC3B1CFC4519003F2741 /* ValueChangeViewController.m in Sources */,
 				04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */,
 				04C9ACAB1CE1B50500BA3BDD /* CorpImageViewController.m in Sources */,

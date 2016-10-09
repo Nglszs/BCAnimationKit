@@ -18,6 +18,7 @@
     dispatch_once(&onceToken, ^{
         
         SEL systemSel = @selector(willMoveToSuperview:);
+         // SEL systemSel = @selector(didMoveToSuperview);//这个方法也可以
         //自己实现的将要被交换的方法的selector
         SEL swizzSel = @selector(myWillMoveToSuperview:);
         
@@ -54,5 +55,19 @@
             
         }
     }
+}
+
+
+- (UIViewController *)parentViewController {
+
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+
+
 }
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (hehe)
-
+- (UIViewController *)parentViewController;
 @end

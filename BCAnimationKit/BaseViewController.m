@@ -1155,7 +1155,7 @@ NSLog(@"%@", string);
 
 
 
-//保存自定义对象,这个自定义对象必须遵循并实现NSCoding协议，参考笔记本
+//保存自定义对象,这个自定义对象必须遵循并实现NSCoding协议，参考笔记本nsuserdefult方法
 
 //1.创建对象
 //    YYPerson *person = [[YYPerson alloc] init];
@@ -1414,7 +1414,7 @@ NSLog(@"%@", string);
 //    
 //    return NO;
 //}
-#pragma mark 抽屉效果和tableview滑动删除冲突，这个代理写在抽屉效果内部的pan手势中，因为这里的手势是自定义的
+#pragma mark 抽屉效果和tableview滑动删除冲突，或者和竖直滑动的scrollView冲突，这个代理写在抽屉效果内部的pan手势中，因为这里的手势是自定义的
 
 //
 //- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -1473,9 +1473,9 @@ NSLog(@"%@", string);
 //}
 
 
-#pragma mark 抽屉效果和scrollview冲突，这里的代理页写在抽屉里面，可以和上面的代理同时用
+#pragma mark 抽屉效果和可以左右滑动的scrollview冲突，这个方法可以和上面同时使用，但是这里必须进行区别对待，也就是某一个vc中可以策划手势生效，如果不区别则所有vc的scrollview都会出现滚动的现象，这里切记
 
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+///- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
 //    
 //    
 //    if ([[otherGestureRecognizer view] isMemberOfClass:[UIScrollView class]]) {
@@ -1483,11 +1483,31 @@ NSLog(@"%@", string);
 //        UIScrollView *scrollView = (UIScrollView *)[otherGestureRecognizer view];
 //        
 //        
-//        if (scrollView.contentOffset.x <= 0) {
+//        for (UIView* next = [scrollView superview]; next; next = next.superview) {
+//            UIResponder *nextResponder = [next nextResponder];
+//            if ([nextResponder isKindOfClass:[UIViewController class]]) {
+//                
+//                
+//                
+//                if (scrollView.contentOffset.x <= 0 && [NSStringFromClass([(UIViewController *)nextResponder class]) isEqualToString:@"ShoppingImageViewController"]) {//区别地图界面
+//                    
+//                    
+//                    NSLog(@"ssss");
+//                    
+//                    return YES;
+//                    
+//                    
+//                    
+//                }
+//                
+//            }
 //            
 //            
-//            return YES;
 //        }
+//        
+//        
+//        
+//        
 //        
 //        
 //    }
@@ -1585,5 +1605,34 @@ NSLog(@"%@", string);
 //[toolbar setItems:@[leftFix, preview, fix, selectNum, fix2, done, rightFix]];
 //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCount:) name:@"selectdPhotos" object:nil];
 //selectNum.title = [NSString stringWithFormat:@"%ld/9", (unsigned long)ASSETHELPER.selectdPhotos.count];
+
+#pragma mark 代理反射机制，今天发现代理不仅可以a到b，也可以b到a，这是才发现的
+
+//。h文件
+//@protocol CustomAlertDelegate <NSObject>
+//
+//@optional
+//
+//- (void)clickCustomAlertButton:(UIButton *)button;
+//
+//- (NSInteger)pringtheh;
+//
+//@end
+
+
+//。m文件中
+
+//if ([self.delegate respondsToSelector:@selector(clickCustomAlertButton:)]) {
+//    
+//    [self.delegate clickCustomAlertButton:btn];
+//    
+//    
+//    NSLog(@"%ld",[self.delegate pringtheh]);//相当于反射的感觉
+//    
+//}
+
+
+
+
 
 @end

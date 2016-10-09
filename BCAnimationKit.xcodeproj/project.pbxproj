@@ -903,7 +903,7 @@
 				04FCD96D1D18DAE700547D3F /* 自定义图片浏览 */,
 				0495CAA61D0E832200D598DE /* 添加图片 */,
 				041328061D05498B0042CFE8 /* 分段视图 */,
-				04D2A3191CDC619100376284 /* 图片点击放大旋转 */,
+				04D2A3191CDC619100376284 /* 图片浏览 */,
 				0492CC911D002C6A0027066B /* 购物车动画 */,
 				0492CC801CFFFC330027066B /* 转场动画 */,
 				04CAF5F81CFD5EC1003FC72D /* 图片等待加载动画 */,
@@ -1253,13 +1253,13 @@
 			name = "播放Gif";
 			sourceTree = "<group>";
 		};
-		04D2A3191CDC619100376284 /* 图片点击放大旋转 */ = {
+		04D2A3191CDC619100376284 /* 图片浏览 */ = {
 			isa = PBXGroup;
 			children = (
 				04D2A31A1CDC61BA00376284 /* ClickImageViewController.h */,
 				04D2A31B1CDC61BA00376284 /* ClickImageViewController.m */,
 			);
-			name = "图片点击放大旋转";
+			name = "图片浏览";
 			sourceTree = "<group>";
 		};
 		04D2F9A81CE2BF8300140EE1 /* 夜间模式 */ = {

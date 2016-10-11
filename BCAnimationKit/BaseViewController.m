@@ -758,7 +758,7 @@ NSLog(@"%@", string);
 //}
 
 
-#pragma mark 按钮动画用在多张图片选择时
+#pragma mark 在相册选择多张图片时，按钮和label的动画效果，下面有3种方式
 
 //self.backGroudView.transform =CGAffineTransformMakeScale(0, 0);
 //[UIView animateWithDuration:0.2 animations:^{
@@ -1414,6 +1414,33 @@ NSLog(@"%@", string);
 //    
 //    return NO;
 //}
+
+#pragma mark 抽屉效果有时候滑动范围太大，不像系统自带的手势那样精确，解决方法如下
+
+//下面这个方法是抽屉效果提供给user是否可以打开侧滑，然后在这里加上系统侧滑是否打开即可，亲测有效
+//- (void)setEnableSwipeGesture:(BOOL)markEnableSwipeGesture
+//{
+//    
+//    _enableSwipeGesture = markEnableSwipeGesture;
+//    
+//    
+//    self.interactivePopGestureRecognizer.delegate = (id)self;//jack 标记
+//    if (_enableSwipeGesture)
+//    {
+//        [self.view addGestureRecognizer:self.panRecognizer];
+//        self.interactivePopGestureRecognizer.enabled = NO;//jack 标记这里是为了正在某些固定的界面让pan手势失效，而响应系统自带的侧滑
+//    }
+//    else
+//    {
+//        [self.view removeGestureRecognizer:self.panRecognizer];
+//        
+//        self.interactivePopGestureRecognizer.enabled = YES;//jack 标记
+//        
+//    }
+//}
+
+
+
 #pragma mark 抽屉效果和tableview滑动删除冲突，或者和竖直滑动的scrollView冲突，这个代理写在抽屉效果内部的pan手势中，因为这里的手势是自定义的
 
 //
@@ -1470,6 +1497,21 @@ NSLog(@"%@", string);
 //            : rect.origin.x*-1;
 //        }
 //    }
+//}
+
+
+#pragma mark 设置滑动手势范围，这样自定义的手势就可以跟系统侧滑手势效果一样
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+//    
+//    CGPoint location = [gestureRecognizer locationInView:self.view];
+//    CGPoint offSet = [gestureRecognizer translationInView:gestureRecognizer.view];
+//    BOOL ret = (0 < offSet.x && location.x <= 40);
+//       return ret;
+//    
+//    
+//    
+//    
+//
 //}
 
 
@@ -1633,6 +1675,203 @@ NSLog(@"%@", string);
 
 
 
+#pragma mark 限制scrollview滚动范围，这里限制的是任意范围，而不是简单的从0开始
 
+//下面是简单声明一个scrollview，并设置他滚动范围为3倍的自身，这里我会限制在特定条件下，他的滚动范围为（KSCREENWIDTH —— 2 * KSCREENWIDTH），当然也可以设置任意数据
+
+
+//no.1
+//self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width+10, KSCREENHEIGHT)];
+//self.mainScrollView.contentSize = CGSizeMake(KSCREENWIDTH * 3 + 10 * 3,KSCREENHEIGHT);
+//self.mainScrollView.bounces = YES;
+//self.mainScrollView.pagingEnabled = YES;
+//self.mainScrollView.showsHorizontalScrollIndicator = NO;
+//self.mainScrollView.showsVerticalScrollIndicator = NO;
+
+
+//no.2,下面就是特定条件滚动范围，简单的就是说和contentInset结合
+
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    
+//    if (scrollView == _mainScrollView) {
+//        
+//        
+//
+//        if (_curPage == self.imageArr.count - 1 ) {
+//            
+//            
+//            _mainScrollView.contentInset = UIEdgeInsetsMake(0, -(KSCREENWIDTH + 10), 0, 0);
+//            
+//        } else if ( _curPage == 0) {
+//            
+//            _mainScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, -(KSCREENWIDTH + 10));
+//            
+//        } else {
+//            
+//            _mainScrollView.contentInset = UIEdgeInsetsZero;
+//        }
+//    }
+//
+
+
+#pragma mark 获取点击cell的位置，在自定义cell内部重写方法
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    UITouch* touch = [touches anyObject];
+//    CGPoint point = [touch locationInView:self];
+//    
+//    NSLog(@"%@",NSStringFromCGPoint(point));
+
+// [super touchesBegan:touches withEvent:event];
+//    
+//}
+
+#pragma mark pan手势代理swipe方向
+
+//-(void)pan:(UIPanGestureRecognizer*)sender
+//{
+//    typedefNS_ENUM(NSUInteger,UIPanGestureRecognizerDirection){
+//        UIPanGestureRecognizerDirectionUndefined,
+//        UIPanGestureRecognizerDirectionUp,
+//        UIPanGestureRecognizerDirectionDown,
+//        UIPanGestureRecognizerDirectionLeft,
+//        UIPanGestureRecognizerDirectionRight
+//    };
+//    staticUIPanGestureRecognizerDirectiondirection=UIPanGestureRecognizerDirectionUndefined;
+//    switch(sender.state){
+//        caseUIGestureRecognizerStateBegan:{
+//            if(direction==UIPanGestureRecognizerDirectionUndefined){
+//                CGPointvelocity=[sendervelocityInView:recognizer.view];
+//                BOOLisVerticalGesture=fabs(velocity.y)>fabs(velocity.x);
+//                if(isVerticalGesture){
+//                    if(velocity.y>0){
+//                        direction=UIPanGestureRecognizerDirectionDown;
+//                    }else{
+//                        direction=UIPanGestureRecognizerDirectionUp;
+//                    }
+//                }
+//                else{
+//                    if(velocity.x>0){
+//                        direction=UIPanGestureRecognizerDirectionRight;
+//                    }else{
+//                        direction=UIPanGestureRecognizerDirectionLeft;
+//                    }
+//                }
+//            }
+//            break;
+//        }
+//        caseUIGestureRecognizerStateChanged:{
+//            switch(direction){
+//                caseUIPanGestureRecognizerDirectionUp:{
+//                    [selfhandleUpwardsGesture:sender];
+//                    break;  
+//                }  
+//                caseUIPanGestureRecognizerDirectionDown:{  
+//                    [selfhandleDownwardsGesture:sender];  
+//                    break;  
+//                }  
+//                caseUIPanGestureRecognizerDirectionLeft:{  
+//                    [selfhandleLeftGesture:sender];  
+//                    break;  
+//                }  
+//                caseUIPanGestureRecognizerDirectionRight:{  
+//                    [selfhandleRightGesture:sender];  
+//                    break;  
+//                }  
+//                default:{  
+//                    break;  
+//                }  
+//            }  
+//            break;  
+//        }  
+//        caseUIGestureRecognizerStateEnded:{  
+//            direction=UIPanGestureRecognizerDirectionUndefined;  
+//            break;  
+//        }  
+//        default:  
+//            break;  
+//    }  
+//}
+
+
+#pragma mark pan手势方向
+
+//- (void)addTapGestureWithView:(UIView *)view
+//{
+//    
+//    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]
+//                                          initWithTarget:self action:@selector(handleSwipe:)];
+//    [self.view addGestureRecognizer:recognizer];
+//    [recognizer release];
+//}
+//
+///**
+// *  平移手势响应事件
+// *
+// *  @param swipe swipe description
+// */
+//- (void)handleSwipe:(UIPanGestureRecognizer *)swipe
+//{
+//    
+//    if (swipe.state == UIGestureRecognizerStateChanged) {
+//        [self commitTranslation:[swipe translationInView:self.view]];
+//    }
+//}
+//
+//
+///**
+// *   判断手势方向
+// *
+// *  @param translation translation description
+// */
+//- (void)commitTranslation:(CGPoint)translation
+//{
+//    
+//    CGFloat absX = fabs(translation.x);
+//    CGFloat absY = fabs(translation.y);
+//    
+//    // 设置滑动有效距离
+//    if (MAX(absX, absY) < 10)
+//        return;
+//    
+//    
+//    if (absX > absY ) {
+//        
+//        if (translation.x<0) {
+//            
+//            //向左滑动
+//        }else{
+//            
+//            //向右滑动
+//        }
+//        
+//    } else if (absY > absX) {
+//        if (translation.y<0) {
+//            
+//            //向上滑动
+//        }else{
+//            
+//            //向下滑动
+//        }
+//    }
+//    
+//    
+//}
+
+//translationInView： 该方法返回在横坐标上、纵坐标上拖动了多少像素
+//velocityInView：在指定坐标系统中pan gesture拖动的速度
+
+
+#pragma mark 比较字符串
+
+//这里可以看到即使带数字的字符串也可以直接比较
+//NSMutableArray *mArray = [NSMutableArray arrayWithArray:@[@"a1", @"a2", @"a22", @"a11", @"a21", @"a10", @"a23", @"a33", @"a30", @"a31", @"a32"]];
+//NSArray *sorArray = [mArray sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+//    
+//    return [obj1 localizedStandardCompare:obj2];
+//}];
+//
+//
+//
+//NSLog(@"%@",sorArray);
 
 @end

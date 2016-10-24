@@ -2001,5 +2001,83 @@ NSLog(@"%@", string);
 
 #pragma mark app上传蒲公英不能下载或者下载闪退
 
-//1。是因为同一个证书不能再不同设备上使用的原因，解决方法，制作证书的人吧发布证书导出p12文件，放到其他电脑上双击即可，然后看自己钥匙串是否有发布证书，没有则从官网下载
+//1。是因为同一个证书不能再不同设备上使用的原因，解决方法，制作证书的人吧发布证书导出p12文件，放到其他电脑上双击即可，然后看自己钥匙串下我的证书里是否有发布证书，没有则从官网下载
+
+
+#pragma mark 电话号码类型判断
+///**
+// * 手机号码
+// * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188,186,183
+// * 联通：130,131,132,152,155,156,185,186
+// * 电信：133,1349,153,180,189,177
+// */
+//NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9]|8[0-9]|77)\\d{8}$";
+//
+//
+///**
+// 10         * 中国移动：China Mobile
+// 11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+// 12         */
+//NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
+//
+//
+///**
+// 15         * 中国联通：China Unicom
+// 16         * 130,131,132,152,155,156,185,186
+// 17         */
+//NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
+//
+//
+///**
+// 20         * 中国电信：China Telecom
+// 21         * 133,1349,153,180,189,177
+// 22         */
+//
+//NSString * CT = @"^1(349|(33|53|8[09]|77)\\d)\\d{7}$";
+//
+//NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+//NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
+//NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
+//NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",CT];
+//
+//
+//有新的自己添加上就行了
+
+
+#pragma mark 计算文字高度，效果等同于[[UILabel new] sizeToFit]
+
+//这里一定要让label的宽度和下面输入的相等，只有这样label才能居顶对其，
+////获取字符串高度
+- (CGFloat)getStringHeightWith:(NSString*)tempStr width:(CGFloat)tempWidth font:(UIFont*)tempFont {
+    
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineHeightMultiple = 4.f;    //行间距
+    paragraphStyle.maximumLineHeight = 20.f;    //每行的最大高度
+    paragraphStyle.minimumLineHeight = 16.f;    //每行的最小高度
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+
+    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(tempWidth, 0)
+                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine
+                                     attributes:@{NSFontAttributeName:tempFont,NSParagraphStyleAttributeName:paragraphStyle}
+                                        context:nil];
+    //文字的高度
+    float tempHeight = rect.size.height;
+    
+    return tempHeight;
+}
+
+
+//NO。2这个方法和上面一样，切记设置label的宽度要等于下面的size1.width，否则label不会居顶对齐
+//+ (CGFloat)getStringHeightWith:(NSString*)tempStr {
+//    
+//    //    UIFont *font = text14Font;
+//    CGSize size1 = [Tools getLabelSize:[UIFont systemFontOfSize:14] withText:@"深圳市罗湖区宝安南路啊呵呵洗" withWidth:200];
+//    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(size.width, 0)
+//                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading | NSStringDrawingUsesDeviceMetrics
+//                                     attributes:@{NSFontAttributeName:font}
+//                                        context:nil];
+//    
+//    return rect.size.height;
+//}
 @end

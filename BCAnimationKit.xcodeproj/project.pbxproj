@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0402C7B21DD19F75006946C7 /* UITextView+YLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7B11DD19F75006946C7 /* UITextView+YLTextView.m */; };
 		0405DC0E1CFC140C003F2741 /* SpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405DC0D1CFC140C003F2741 /* SpeechViewController.m */; };
 		0405DC101CFC1465003F2741 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405DC0F1CFC1465003F2741 /* iflyMSC.framework */; };
 		0405DC131CFC18B1003F2741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405DC121CFC18B1003F2741 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 		0413280C1D054A900042CFE8 /* BCSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280B1D054A900042CFE8 /* BCSectionViewController.m */; };
 		0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280E1D055F010042CFE8 /* BCClearCache.m */; };
 		04189FA51D336AC9006799D5 /* WebImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04189FA41D336AC9006799D5 /* WebImageViewController.m */; };
+		04383A521DC2F9E300340BCB /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04383A511DC2F9E300340BCB /* DataHelper.m */; };
 		043BF9541CD8676100372213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9531CD8676100372213 /* main.m */; };
 		043BF9571CD8676100372213 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9561CD8676100372213 /* AppDelegate.m */; };
 		043BF95A1CD8676100372213 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9591CD8676100372213 /* ViewController.m */; };
@@ -249,6 +251,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0402C7B01DD19F75006946C7 /* UITextView+YLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLTextView.h"; sourceTree = "<group>"; };
+		0402C7B11DD19F75006946C7 /* UITextView+YLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLTextView.m"; sourceTree = "<group>"; };
 		0405DC0C1CFC140C003F2741 /* SpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechViewController.h; sourceTree = "<group>"; };
 		0405DC0D1CFC140C003F2741 /* SpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechViewController.m; sourceTree = "<group>"; };
 		0405DC0F1CFC1465003F2741 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 		0413280E1D055F010042CFE8 /* BCClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClearCache.m; sourceTree = "<group>"; };
 		04189FA31D336AC9006799D5 /* WebImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageViewController.h; sourceTree = "<group>"; };
 		04189FA41D336AC9006799D5 /* WebImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageViewController.m; sourceTree = "<group>"; };
+		04383A501DC2F9E300340BCB /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
+		04383A511DC2F9E300340BCB /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
 		043BF94F1CD8676100372213 /* BCAnimationKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCAnimationKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043BF9531CD8676100372213 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		043BF9551CD8676100372213 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1314,6 +1320,10 @@
 			isa = PBXGroup;
 			children = (
 				048E7E841D82519900B5CA3C /* NullSafe.m */,
+				0402C7B01DD19F75006946C7 /* UITextView+YLTextView.h */,
+				0402C7B11DD19F75006946C7 /* UITextView+YLTextView.m */,
+				04383A501DC2F9E300340BCB /* DataHelper.h */,
+				04383A511DC2F9E300340BCB /* DataHelper.m */,
 				04F13A371DAB3481006D2A01 /* UIImage+MJ.h */,
 				04F13A381DAB3481006D2A01 /* UIImage+MJ.m */,
 				04C461481D939DF80033C223 /* UIButton+EdgeInsets.h */,
@@ -1701,6 +1711,7 @@
 				04561F901D5C6A54004C70A0 /* NSMutableArray+Check.m in Sources */,
 				04F13A391DAB3481006D2A01 /* UIImage+MJ.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
+				0402C7B21DD19F75006946C7 /* UITextView+YLTextView.m in Sources */,
 				048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */,
 				04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */,
 				047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */,
@@ -1755,6 +1766,7 @@
 				04911D081CE07FDE0004A5A4 /* CustomTextView.m in Sources */,
 				045691331D6ED2C8005460B9 /* NSDictionary+CrashIntercept.m in Sources */,
 				04F4F0731CD9E83200F46C7E /* CarouselViewController.m in Sources */,
+				04383A521DC2F9E300340BCB /* DataHelper.m in Sources */,
 				047BD7141D129E1900BA5700 /* BCPhotoViewController.m in Sources */,
 				04E1A2821CE326280055DDFB /* QQPhoneViewController.m in Sources */,
 				04AB05C61CF2E57D00C96F07 /* CollectionViewController.m in Sources */,

@@ -206,5 +206,19 @@
     return newImage;
 }
 
-
+#pragma mark  改变cell点击高亮的颜色，在自定义cell加入下面代码
+//- (void)drawRect:(CGRect)rect
+//{
+//    if (self.highlighted) {
+//        self.backgroundColor = [UIColor whiteColor];
+//    }else{
+//        self.backgroundColor = [UIColor redColor];
+//    }
+//}
+//
+//- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+//{
+//    [super setHighlighted:highlighted animated:animated];
+//    [self setNeedsDisplay];
+//}
 @end

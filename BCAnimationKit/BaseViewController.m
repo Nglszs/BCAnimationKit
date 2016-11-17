@@ -23,7 +23,13 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     [super viewDidLoad];
     
     
-   
+    NSLog(@"%@",NSStringFromClass([self class]));//这里将会打印出当前的vc也就是他的子类，那么就可以调整当连接热点时子类的view的尺寸或者夜间模式等等
+
+    
+    NSLog(@"%@",[self weekdayStringFromDate:@"1457760600"]);
+    
+    
+    
     
     
    //这里可以用单例也可以用AppDelegate，这里用AppDelegate来实现
@@ -40,7 +46,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     
     }
     
-    //注册通知
+       //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDayModel) name:Day object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openNightModel) name:Night object:nil];
    
@@ -219,7 +225,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //}];
 
 }
-//汉字转拼音
+#pragma mark 汉字转拼音
 //- (NSString *)chineseToPinyin:(NSString *)chinese withSpace:(BOOL)withSpace {
 //    CFStringRef hanzi = (__bridge CFStringRef)chinese;
 //    CFMutableStringRef string = CFStringCreateMutableCopy(NULL, 0, hanzi);
@@ -232,7 +238,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    return pinyin;
 //}
 
-//返回文字高度
+#pragma mark 返回文字高度
 //- (CGFloat)getStringHeightNotFormatWith:(NSString*)tempStr width:(CGFloat)tempWidth font:(UIFont*)tempFont {
 //    
 //    CGRect rect = [tempStr boundingRectWithSize:CGSizeMake(tempWidth, 0)
@@ -247,7 +253,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 
 
 
-//四舍五入浮点数使用方法
+#pragma mark 四舍五入浮点数使用方法
  //NSLog(@"----%@---",[self decimalwithFormat:@"0" value:1.848]);
 
 //- (NSString *) decimalwithFormat:(NSString *)format  value:(CGFloat)tempValue
@@ -260,7 +266,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //}
 
 
-//下面这个方法获取当前应用所占的存储空间，或者单独计算  下面给出方法
+#pragma mark 下面这个方法获取当前应用所占的存储空间，或者单独计算  下面给出方法
 //   NSLog(@"%@",[BCClearCache getCacheSizeWithFilePath:NSHomeDirectory()]);
 //
 //    //这个方法获取整个设备的存储空间用量
@@ -276,7 +282,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 
 
 
-//计算缓存大小，这里路径写死了，这个和上面计算缓存同理，上面计算缓存是单独写成一个类
+#pragma mark 计算缓存大小，这里路径写死了，这个和上面计算缓存同理，上面计算缓存是单独写成一个类
 //-(float)getCacheSizeAtPath {
 //    
 //    NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -302,7 +308,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 //    return 0;
 //}
 //
-////清除缓存
+#pragma mark   清除缓存
 //- (void)clearCacheAtPath {
 //    
 //    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -321,7 +327,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 
 
 
-//下面这个方法用来实现登录按钮和输入框的联动，有两种方式，个人倾向第二种，如果用通知会大材小用
+#pragma mark 下面这个方法用来实现登录按钮和输入框的联动，有两种方式，个人倾向第二种，如果用通知会大材小用
 //- (void)viewDidLoad {
 //    [super viewDidLoad];
 //    
@@ -2080,4 +2086,129 @@ NSLog(@"%@", string);
 //    
 //    return rect.size.height;
 //}
+
+
+#pragma mark 16进制颜色转换为rgb
+- (UIColor *)colorWithHexString:(NSString*)stringToConvert{
+    if([stringToConvert hasPrefix:@"#"])
+    {
+        stringToConvert = [stringToConvert substringFromIndex:1];
+    }
+    NSScanner *scanner = [NSScanner scannerWithString:stringToConvert];
+    unsigned hexNum;
+    if(![scanner scanHexInt:&hexNum])
+    {
+        return nil;
+    }
+    return[self colorWithRGBHex:hexNum];
+}
+
+- (UIColor *)colorWithRGBHex:(UInt32)hex{
+    int r = (hex >>16) &0xFF;
+    int g = (hex >>8) &0xFF;
+    int b = (hex) &0xFF;
+    return[UIColor colorWithRed:r /255.0f
+                         green:g /255.0f
+                          blue:b /255.0f
+                         alpha:1.0f];
+}
+
+#pragma mark  [[selfVc.photoGroupArray reverseObjectEnumerator] allObjects];
+
+
+#pragma mark 颜色渐变
+
+//_layerView = [[UIView alloc] initWithFrame:CGRectMake(0, 320-100, 320, 100)];
+//
+//_gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
+//_gradientLayer.bounds = _layerView.bounds;
+//_gradientLayer.borderWidth = 0;
+//
+//_gradientLayer.frame = _layerView.bounds;
+//_gradientLayer.colors = [NSArray arrayWithObjects:
+//                         (id)[[UIColor clearColor] CGColor],
+//                         (id)[[UIColor blackColor] CGColor],nil];
+//_gradientLayer.startPoint = CGPointMake(0.5, 0.5);
+//_gradientLayer.endPoint = CGPointMake(0.5, 1.0);
+//
+//[_layerView.layer insertSublayer:_gradientLayer atIndex:0];
+
+
+//透明度渐变
+//- (void) insertTransparentGradient {
+//    UIColor *colorOne = [UIColor colorWithRed:(33/255.0)  green:(33/255.0)  blue:(33/255.0)  alpha:0.0];
+//    UIColor *colorTwo = [UIColor colorWithRed:(33/255.0)  green:(33/255.0)  blue:(33/255.0)  alpha:1.0];
+//    NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, nil];
+//    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+//    NSNumber *stopTwo = [NSNumber numberWithFloat:1.0];
+//    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, nil];
+//    
+//    //crate gradient layer
+//    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+//    
+//    headerLayer.colors = colors;
+//    headerLayer.locations = locations;
+//    headerLayer.frame = self.bounds;
+//    
+//    [self.layer insertSublayer:headerLayer atIndex:0];
+//}
+//
+//
+////颜色渐变
+//- (void) insertColorGradient {
+//    
+//    UIColor *colorOne = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0];
+//    UIColor *colorTwo = [UIColor colorWithRed:(33/255.0)  green:(33/255.0)  blue:(33/255.0)  alpha:1.0];
+//    
+//    NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, nil];
+//    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+//    NSNumber *stopTwo = [NSNumber numberWithFloat:1.0];
+//    
+//    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, nil];
+//    
+//    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+//    headerLayer.colors = colors;
+//    headerLayer.locations = locations;
+//    headerLayer.frame = self.bounds;
+//    
+//    [self.layer insertSublayer:headerLayer above:0];
+//    
+//}
+
+#pragma mark tableview没数据也可以滚动 view.alwaysBounceVertical = YES;
+
+
+
+- (NSString*)weekdayStringFromDate:(NSString*)inputDate {
+    
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[inputDate integerValue]];
+
+    
+    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"Sunday", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    
+    [calendar setTimeZone: timeZone];
+    
+    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
+    
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:confromTimesp];
+    
+    return [weekdays objectAtIndex:theComponents.weekday];
+    
+}
+
+#pragma mark  webview加载html自适应高度
+
+//实行下面代理，如果webview后面还有视图，则再次方法加载，注意webview开始的高度不能设置过大，最好先设置50之类的小数值
+//- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    
+//    CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+//    webView.height = webViewHeight;
+//    
+//    [self initBottom];
+//}
+
 @end

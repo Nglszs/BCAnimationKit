@@ -40,7 +40,9 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
-    
+#if defined(DEBUG)||defined(_DEBUG)
+   
+#endif
     
    //    dismpatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self test];//这个也可以用下面的接收推送之后来代替
@@ -189,7 +191,7 @@
 
 - (void)runBackgroundMode1 {
     
-    //此模式不需要设置plist，可以直接使用，只可以运行10分钟？这个我没测试过
+    //此模式不需要设置plist，可以直接使用，只可以运行10分钟？这个我没测试过，这样就可以后台运行定时器了
     UIApplication *app = [UIApplication sharedApplication];
     __block    UIBackgroundTaskIdentifier bgTask;
     bgTask = [app beginBackgroundTaskWithExpirationHandler:^{

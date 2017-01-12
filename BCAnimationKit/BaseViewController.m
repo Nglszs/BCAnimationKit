@@ -26,7 +26,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     NSLog(@"%@",NSStringFromClass([self class]));//这里将会打印出当前的vc也就是他的子类，那么就可以调整当连接热点时子类的view的尺寸或者夜间模式等等
 
     
-    NSLog(@"%@",[self weekdayStringFromDate:@"1457760600"]);
+   // NSLog(@"%@",[self weekdayStringFromDate:@"1457760600"]);
     
     
     
@@ -214,17 +214,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
 
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
-    //[self getDataFromInternet:^(NSData *data) {
-   
-//    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//    image.image = [UIImage imageWithData:data];
-//    [[UIApplication sharedApplication].keyWindow addSubview:image];
-    
-//}];
-
-}
 #pragma mark 汉字转拼音
 //- (NSString *)chineseToPinyin:(NSString *)chinese withSpace:(BOOL)withSpace {
 //    CFStringRef hanzi = (__bridge CFStringRef)chinese;
@@ -2179,26 +2169,26 @@ NSLog(@"%@", string);
 
 
 
-- (NSString*)weekdayStringFromDate:(NSString*)inputDate {
-    
-    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[inputDate integerValue]];
-
-    
-    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"Sunday", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
-    
-    [calendar setTimeZone: timeZone];
-    
-    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
-    
-    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:confromTimesp];
-    
-    return [weekdays objectAtIndex:theComponents.weekday];
-    
-}
+//- (NSString*)weekdayStringFromDate:(NSString*)inputDate {
+//    
+//    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[inputDate integerValue]];
+//
+//    
+//    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"Sunday", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+//    
+//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//    
+//    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+//    
+//    [calendar setTimeZone: timeZone];
+//    
+//    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
+//    
+//    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:confromTimesp];
+//    
+//    return [weekdays objectAtIndex:theComponents.weekday];
+//    
+//}
 
 #pragma mark  webview加载html自适应高度
 
@@ -2211,4 +2201,88 @@ NSLog(@"%@", string);
 //    [self initBottom];
 //}
 
+#pragma mark 计算label行数
+
+//CGFloat labelHeight = [self.testLabel sizeThatFits:CGSizeMake(self.testLabel.frame.size.width, MAXFLOAT)].height;
+//NSNumber *count = @((labelHeight) / self.testLabel.font.lineHeight);
+//NSLog(@"共 %td 行", [count integerValue]);
+
+#pragma mark 两种弹出框动画
+//_mainView.transform = CGAffineTransformMakeScale(.1, .1);
+//[UIView animateWithDuration:.35 animations:^{
+//    _mainView.transform = CGAffineTransformMakeScale(1, 1);
+//    
+//}];
+
+////    _mainView.transform = CGAffineTransformMakeScale(.1, .1);
+////    [UIView animateWithDuration:.75 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:0 animations:^{
+////         _mainView.transform = CGAffineTransformMakeScale(1, 1);
+////    } completion:^(BOOL finished) {
+////
+////    }];
+//
+//
+//}
+
+//- (void)shutAlert:(UIButton *)btn {
+//    
+//    [UIView animateWithDuration:.25 animations:^{
+//        
+//        _mainView.transform = CGAffineTransformScale(self.transform, 1.1, 1.1);
+//        
+//    } completion:^(BOOL finished) {
+//        [UIView animateWithDuration:.35 animations:^{
+//            
+//            _mainView.transform = CGAffineTransformScale(self.transform, 0.001, 0.001);
+//            backView.alpha = 0;
+//            _mainView.alpha = 0;
+//            
+//        } completion:^(BOOL finished) {
+//            [self removeFromSuperview];
+//            
+//            [_window resignKeyWindow];
+//            
+//            _window = nil;
+//            
+//            [self.delegate clickSureButton:btn];
+//        }];
+//        
+//    }];
+//    
+//    
+
+#pragma mark 字符串是否包含某个字符串
+//if([roadTitleLab.text rangeOfString:@"qingjoin"].location !=NSNotFound)//_roaldSearchText
+//{
+//    NSLog(@"yes");
+//}
+//else
+//{
+//    NSLog(@"no");
+//}
+
+
+
+#pragma mark  data转json
+
+
+//NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+//[dict setObject:@"gameid" forKey:gameID];
+//NSData *jsonStr =  [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
+//NSURL *url = [NSURL URLWithString:urlString];
+//NSMutableURLRequest *mRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+//mRequest.HTTPMethod = @"post";
+//mRequest.HTTPBody = jsonStr;
+//_urlConnection = [[NSURLConnection alloc]initWithRequest:mRequest delegate:self startImmediately:YES];
+//
+
+
+
+//NSBundle *mainB = [NSBundle bundleForClass:[_customClass class]];
+//if (mainB == [NSBundle mainBundle]) {
+//    NSLog(@"自定义的类");
+//}else
+//{
+//    NSLog(@"系统的类");
+//}
 @end

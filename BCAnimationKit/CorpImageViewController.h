@@ -21,5 +21,5 @@
 @property (nonatomic, strong) UIButton *certainButton; //确定按钮
 
 
-
+@property (nonatomic, strong) UIScrollView *mainScrollView; //确定按钮
 @end

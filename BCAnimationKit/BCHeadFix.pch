@@ -74,8 +74,8 @@
 
 #if (MY_Test == 0)
 
-#define NSLog(...) NSLog(__VA_ARGS__);
-
+//#define NSLog(...) NSLog(__VA_ARGS__);
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);//去掉时间格式
 #endif
 
 #if (MY_Test == 1)

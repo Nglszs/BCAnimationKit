@@ -59,6 +59,7 @@
 #import "NSArray+check.h"
 #import "NSDictionary+check.h"
 #import "EditTableViewController.h"
+#import "ConsoleView.h"
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 @interface ViewController ()
 {
@@ -92,8 +93,14 @@
     isFristLoad = YES;
     testType = arc4random_uniform(10);
     self.title = @"动画";
-   
     
+    NSArray *arr = @[@"1"];
+    
+    NSLog(@"%@",[arr objectAtIndex:0]);
+   
+//    ConsoleView *logView = [[ConsoleView alloc] initWithFrame:CGRectMake(0, 100, BCWidth, 250)];
+//    
+//    [[UIApplication sharedApplication].keyWindow addSubview:logView];
   
     //此项目的目地是为了将一些常用的功能封装起来，供大家直接使用或者学习
     
@@ -370,7 +377,7 @@
    
     cell.textLabel.text = testArray[indexPath.row];
 
-    
+    NSLog(@"%ld",indexPath.row);
     return cell;
 }
 

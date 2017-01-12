@@ -8,21 +8,24 @@
 
 #import "CorpImageViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-
+#define MaxSCale 2.0  //最大缩放比例
+#define MinScale 0.5  //最小缩放比例
 #define CropRect CGRectMake((BCWidth - 200)/2, (BCHeight - 200)/2, 200, 200)
 @implementation CorpImageViewController
-
+{ CGFloat  lastScale;}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    lastScale = 1.0;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     //首先实现遮罩，遮罩实现的方式有两种，这里用CAShapeLayer,难点其实就在于坐标的获取
-   
     
     
     _backgroundImage = [[UIImageView alloc] init];
     _backgroundImage.backgroundColor = [UIColor lightGrayColor];
     _backgroundImage.userInteractionEnabled = YES;
+    
+    
    
     [self.view addSubview:_backgroundImage];
     
@@ -54,6 +57,8 @@
     CGPoint point = [pan translationInView:pan.view];
     UIImageView * imageV = (UIImageView *)pan.view;
     
+    
+    
     imageV.transform = CGAffineTransformTranslate(imageV.transform, point.x, point.y);
     
     
@@ -75,9 +80,13 @@
 -(void)pinch:(UIPinchGestureRecognizer *)pinch
 {
     
-    UIImageView * imageV = (UIImageView *)pinch.view;
+    
+    
+    
+  
     //这里的缩放最好要限制，不然会造成手势失效的情况
-    imageV.transform = CGAffineTransformScale(imageV.transform, pinch.scale, pinch.scale);
+    _backgroundImage.transform = CGAffineTransformScale(_backgroundImage.transform, pinch.scale, pinch.scale);
+    
     
  
     //计算尺寸
@@ -91,7 +100,7 @@
     realRect = CGRectMake(x,y,dw,dh);
     
     pinch.scale = 1.0;
-
+//
 
 
 }

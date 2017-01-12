@@ -25,7 +25,14 @@ typedef void (^GetDataCompletion)(NSData *data);
 //下面这个方法与动画无关
 - (void)sendData:(void (^)(BOOL finish))block;
 
+#ifdef __IPHONE_9_0
 
+
+
+#else
+
+
+#endif
 
 
 /**

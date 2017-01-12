@@ -32,6 +32,7 @@
 		0413280C1D054A900042CFE8 /* BCSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280B1D054A900042CFE8 /* BCSectionViewController.m */; };
 		0413280F1D055F010042CFE8 /* BCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413280E1D055F010042CFE8 /* BCClearCache.m */; };
 		04189FA51D336AC9006799D5 /* WebImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04189FA41D336AC9006799D5 /* WebImageViewController.m */; };
+		04380C901DF8F83300EE8E9B /* ConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04380C8F1DF8F83300EE8E9B /* ConsoleView.m */; };
 		04383A521DC2F9E300340BCB /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04383A511DC2F9E300340BCB /* DataHelper.m */; };
 		043BF9541CD8676100372213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9531CD8676100372213 /* main.m */; };
 		043BF9571CD8676100372213 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 043BF9561CD8676100372213 /* AppDelegate.m */; };
@@ -165,7 +166,6 @@
 		04C548871D49A78B0073B091 /* SystemPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548861D49A78B0073B091 /* SystemPopViewController.m */; };
 		04C5488A1D49A79E0073B091 /* SystemSecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C548891D49A79E0073B091 /* SystemSecViewController.m */; };
 		04C9ACA41CE16C0E00BA3BDD /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */; };
-		04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACA61CE172A200BA3BDD /* UIScrollView+UITouch.m */; };
 		04C9ACAB1CE1B50500BA3BDD /* CorpImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9ACAA1CE1B50500BA3BDD /* CorpImageViewController.m */; };
 		04CAF5FB1CFD5F0A003FC72D /* UIImageView+LoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAF5FA1CFD5F0A003FC72D /* UIImageView+LoadImage.m */; };
 		04CAF5FE1CFD5F44003FC72D /* LoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAF5FD1CFD5F44003FC72D /* LoadImageViewController.m */; };
@@ -289,6 +289,8 @@
 		0413280E1D055F010042CFE8 /* BCClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClearCache.m; sourceTree = "<group>"; };
 		04189FA31D336AC9006799D5 /* WebImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageViewController.h; sourceTree = "<group>"; };
 		04189FA41D336AC9006799D5 /* WebImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageViewController.m; sourceTree = "<group>"; };
+		04380C8E1DF8F83300EE8E9B /* ConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleView.h; sourceTree = "<group>"; };
+		04380C8F1DF8F83300EE8E9B /* ConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleView.m; sourceTree = "<group>"; };
 		04383A501DC2F9E300340BCB /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
 		04383A511DC2F9E300340BCB /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
 		043BF94F1CD8676100372213 /* BCAnimationKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCAnimationKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -493,8 +495,6 @@
 		04C548891D49A79E0073B091 /* SystemSecViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSecViewController.m; sourceTree = "<group>"; };
 		04C9ACA21CE16C0E00BA3BDD /* KeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
 		04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
-		04C9ACA51CE172A200BA3BDD /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
-		04C9ACA61CE172A200BA3BDD /* UIScrollView+UITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UITouch.m"; sourceTree = "<group>"; };
 		04C9ACA91CE1B50500BA3BDD /* CorpImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpImageViewController.h; sourceTree = "<group>"; };
 		04C9ACAA1CE1B50500BA3BDD /* CorpImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpImageViewController.m; sourceTree = "<group>"; };
 		04CAF5F91CFD5F0A003FC72D /* UIImageView+LoadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LoadImage.h"; sourceTree = "<group>"; };
@@ -890,6 +890,8 @@
 				04E384FA1D372500006E9437 /* CateGory */,
 				048FDB6B1CD9863F00F10826 /* BaseViewController.h */,
 				048FDB6C1CD9863F00F10826 /* BaseViewController.m */,
+				04380C8E1DF8F83300EE8E9B /* ConsoleView.h */,
+				04380C8F1DF8F83300EE8E9B /* ConsoleView.m */,
 				04DE7D431D0122B60088A654 /* BCKeyChain.h */,
 				04DE7D441D0122B60088A654 /* BCKeyChain.m */,
 				0413280D1D055F010042CFE8 /* BCClearCache.h */,
@@ -1186,8 +1188,6 @@
 			children = (
 				04C9ACA21CE16C0E00BA3BDD /* KeyboardViewController.h */,
 				04C9ACA31CE16C0E00BA3BDD /* KeyboardViewController.m */,
-				04C9ACA51CE172A200BA3BDD /* UIScrollView+UITouch.h */,
-				04C9ACA61CE172A200BA3BDD /* UIScrollView+UITouch.m */,
 			);
 			name = "键盘自适应高度";
 			sourceTree = "<group>";
@@ -1712,6 +1712,7 @@
 				04F13A391DAB3481006D2A01 /* UIImage+MJ.m in Sources */,
 				04AB05C91CF2E6A100C96F07 /* BCFlowLayout.m in Sources */,
 				0402C7B21DD19F75006946C7 /* UITextView+YLTextView.m in Sources */,
+				04380C901DF8F83300EE8E9B /* ConsoleView.m in Sources */,
 				048BA6DB1CF3E55A00185CAD /* BCCell.m in Sources */,
 				04B387F31D2C9B6A00396ED2 /* BCChartView.m in Sources */,
 				047BD7121D129E1900BA5700 /* BCCollectionViewCell.m in Sources */,
@@ -1793,7 +1794,6 @@
 				04D2A31C1CDC61BA00376284 /* ClickImageViewController.m in Sources */,
 				04A2EC241CF56DF200DF79B7 /* MessageModel.m in Sources */,
 				04FCD9701D18DB5D00547D3F /* CustomViewController.m in Sources */,
-				04C9ACA71CE172A200BA3BDD /* UIScrollView+UITouch.m in Sources */,
 				04F4F0661CD9C5F600F46C7E /* SuspendViewController.m in Sources */,
 				04944CCA1D4753E000C9E96A /* Car1ViewController.m in Sources */,
 				0476EE441D7F9E4100DA077F /* EditTableViewCell.m in Sources */,
@@ -1946,7 +1946,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BCAnimationKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jack.fuck;
@@ -1975,7 +1975,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BCAnimationKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jack.fuck;

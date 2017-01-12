@@ -15,7 +15,7 @@
 
 #import <sys/sysctl.h>
 #import <mach/mach.h>
-
+#import "ConsoleView.h"
 @interface AppDelegate ()
 
 @end
@@ -26,9 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   
-    BugtagsOptions *options = [[BugtagsOptions alloc] init];
-    options.trackingCrashes = YES;
-    [Bugtags startWithAppKey:@"2f2c238e660e1123a0c9275154a9d405" invocationEvent:BTGInvocationEventNone options:options];
+    
     
     
        
@@ -39,6 +37,10 @@
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    
+    
+    
     
 #if defined(DEBUG)||defined(_DEBUG)
    
@@ -73,6 +75,10 @@
     //闪退钱会弹出窗,这种不错
    // InstallUncaughtExceptionHandler();
     
+  //  [self saveLog];
+    
+   
+    
        return YES;
     
     
@@ -80,6 +86,24 @@
 
 
 
+-(void)saveLog{
+
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *document = [path objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"jack.log"];
+    NSString *logPath = [document stringByAppendingPathComponent:fileName];
+    
+    NSFileManager *defaulManager = [NSFileManager defaultManager];
+    [defaulManager removeItemAtPath:logPath error:nil];
+    
+    freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
+    freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
+    
+   
+    
+    
+  
+}
 
 
 

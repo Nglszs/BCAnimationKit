@@ -87,6 +87,7 @@
 
     waveX += waveSpeed;
     CGMutablePathRef path = CGPathCreateMutable();
+    waveY -= 4;
     CGFloat y = waveY;
     CGPathMoveToPoint(path, nil, 0,y);
     for (CGFloat x = 0.0f; x <=  BCWidth ; x++) {

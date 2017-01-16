@@ -26,7 +26,7 @@ NSString * const KEY_PASSWORD = @"com.company.app.password";
     NSLog(@"%@",NSStringFromClass([self class]));//这里将会打印出当前的vc也就是他的子类，那么就可以调整当连接热点时子类的view的尺寸或者夜间模式等等
 
     
-   // NSLog(@"%@",[self weekdayStringFromDate:@"1457760600"]);
+    //NSLog(@"%@",[self weekdayStringFromDate:@"1457760600"]);
     
     
     
@@ -2285,4 +2285,13 @@ NSLog(@"%@", string);
 //{
 //    NSLog(@"系统的类");
 //}
+
+
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored"-Wundeclared-selector"
+//
+//// 爆黄的代码写这里
+//
+//#pragma clang diagnostic pop
+
 @end
